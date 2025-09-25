@@ -78,10 +78,36 @@
 
             <!-- Photos Section -->
             <div class="bg-neutral-800 p-6 rounded-lg shadow-md">
-                <h2 class="text-xl font-bold mb-4 text-white">Photos</h2>
+                <h2 class="text-xl font-bold mb-4 text-white">Images</h2>
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-neutral-700 h-24 rounded-md"></div>
-                    <div class="bg-neutral-700 h-24 rounded-md"></div>
+                    <!-- Example Image Card -->
+                    <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://placehold.co/600x400/1c1917/d1d5db?text=Zodiac+Scene" alt="Zodiac Killer crime scene photo." class="w-full h-auto object-cover">
+                        <div class="p-2">
+                            <p class="text-xs text-neutral-400 text-center">Crime scene investigation photo from the Zodiac Killer case.</p>
+                        </div>
+                    </div>
+                    <!-- Example Image Card -->
+                    <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://placehold.co/600x400/1c1917/d1d5db?text=Mugshot" alt="Serial killer mugshot." class="w-full h-auto object-cover">
+                        <div class="p-2">
+                            <p class="text-xs text-neutral-400 text-center">Serial killer mugshot from the 1970s.</p>
+                        </div>
+                    </div>
+                    <!-- Example Image Card -->
+                    <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://placehold.co/600x400/1c1917/d1d5db?text=Evidence" alt="Forensic evidence." class="w-full h-auto object-cover">
+                        <div class="p-2">
+                            <p class="text-xs text-neutral-400 text-center">Forensic evidence from a cold case file.</p>
+                        </div>
+                    </div>
+                    <!-- Example Image Card -->
+                    <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://placehold.co/600x400/1c1917/d1d5db?text=DNA+Research" alt="DNA Research." class="w-full h-auto object-cover">
+                        <div class="p-2">
+                            <p class="text-xs text-neutral-400 text-center">DNA research and criminal database analysis.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -138,41 +164,13 @@
                         <!-- Video cards will be generated here by JavaScript -->
                     </div>
                 </section>
-
-                <!-- Images Section -->
-                <section class="bg-neutral-800 p-6 rounded-lg shadow-md">
-                    <h2 class="text-xl font-bold mb-4 text-white">Images</h2>
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                        <!-- Example Image Card -->
-                        <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
-                            <img src="images/zodiac-crime-scene.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1c1917/d1d5db?text=Zodiac+Scene'" alt="Zodiac Killer crime scene photo." class="w-full h-auto object-cover">
-                            <div class="p-2">
-                                <p class="text-xs text-neutral-400 text-center">Crime scene investigation photo from the Zodiac Killer case.</p>
-                            </div>
-                        </div>
-                        <!-- Example Image Card -->
-                        <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
-                            <img src="images/mugshot2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1c1917/d1d5db?text=Mugshot'" alt="Serial killer mugshot." class="w-full h-auto object-cover">
-                            <div class="p-2">
-                                <p class="text-xs text-neutral-400 text-center">Serial killer mugshot from the 1970s.</p>
-                            </div>
-                        </div>
-                        <!-- Example Image Card -->
-                        <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
-                            <img src="images/forensic-evidence.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1c1917/d1d5db?text=Evidence'" alt="Forensic evidence." class="w-full h-auto object-cover">
-                            <div class="p-2">
-                                <p class="text-xs text-neutral-400 text-center">Forensic evidence from a cold case file.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
             </div>
             
         </main>
     </div>
 
     <script>
-        // Data for movies and posts
+        // Data for movies
         const movies = [
             {
                 "id": "AChillingDoc",
@@ -180,7 +178,7 @@
                 "year": 2023,
                 "title": "A Chilling Documentary",
                 "description": "An in-depth look at a cold case file that will keep you on the edge of your seat.",
-                "embedId": "dQw4w9WgXcQ",
+                "embedId": "1uE6tM0AV-c",
                 "genres": ["Documentary", "Mystery"],
                 "source": "youtube"
             },
@@ -194,19 +192,29 @@
                 "genres": ["Crime", "Horror"],
                 "source": "ok.ru"
             },
+             {
+                "id": "Gacy Serial Killer Next Door",
+                "posterUrl": "Gacy Serial Killer Next Door",
+                "year": 2011,
+                "title": "Gacy Serial Killer Next Door",
+                "description": "A chilling true crime story.",
+                "embedId": "7854166772245",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
             {
-                "id": "Mindhunter",
-                "posterUrl": "images/trailer.jpg",
+                "id": "The Most INFAMOUS Serial Killer In Australian History",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Mindhunter",
                 "year": 2017,
-                "title": "Mindhunter Documentary",
-                "description": "A chilling look into the origins of criminal profiling.",
-                "embedId": "placeholder",
+                "title": "The Most INFAMOUS Serial Killer In Australian History",
+                "description": "A chilling look into Australias backpack serial killer.",
+                "embedId": "8itKXT1yTfc",
                 "genres": ["Documentary"],
-                "source": "image"
+                "source": "youtube"
             },
             {
                 "id": "Criminal",
-                "posterUrl": "images/Criminal.jpg",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Criminal",
                 "year": 2016,
                 "title": "Criminal 2016",
                 "description": "A dangerous convict receives an implant containing the memories and skills of a dead CIA agent.",
@@ -227,37 +235,70 @@
         const postButton = document.getElementById('postButton');
         const postSuccessMessage = document.getElementById('post-success-message');
 
+        // Initial data if nothing is in localStorage
+        const initialPosts = [
+            {
+                title: "The BTK Killer: Unmasking Dennis Rader",
+                content: `
+                    <p>Dennis Rader, known as the BTK (Bind, Torture, Kill) Killer, terrorized Wichita, Kansas, for over three decades. His chilling crimes left a trail of death and devastation, but it was his own ego that ultimately led to his downfall.</p>
+                    <h2>The Facade of Normalcy</h2>
+                    <p>Rader was a seemingly ordinary family man - a husband, father of two, and respected church leader. However, beneath this façade lay a monster driven by dark fantasies. His double life was a stark contrast to the all-American image he portrayed.</p>
+                    <h2>The Crimes</h2>
+                    <p>Between 1974 and 1991, Rader murdered 10 people, taunting the police with letters and cryptic clues. His methods were meticulous, often targeting families and leaving behind a twisted signature.</p>
+                    <h2>The Ego Takes Over</h2>
+                    <p>Rader's arrogance led him to communicate with the police, seeking validation. In 2004, he resumed contact, sending letters and cryptic messages. This communication ultimately led to his capture in 2005.</p>
+                    <h2>The Arrest and Aftermath</h2>
+                    <p>Rader's DNA was matched to evidence from a crime scene, and he was arrested on February 25, 2005. He confessed to the murders, revealing chilling details. In 2006, he was sentenced to 10 consecutive life terms.</p>
+                    <h2>The Psychology Behind BTK</h2>
+                    <p>Rader's motivations stemmed from a complex mix of sadistic fantasies, a need for control, and a desire for notoriety. His case highlights the dark side of human nature and the devastating consequences of unchecked desires.</p>
+                    <h2>The Legacy of Fear</h2>
+                    <p>The BTK Killer's crimes left an indelible mark on Wichita, serving as a grim reminder of the evil that can lurk in seemingly ordinary individuals. Rader's case continues to fascinate and horrify, a testament to the complexities of human psychology.</p>
+                `,
+                author: "Admin",
+                date: "July 25, 2024",
+                image: "https://upload.wikimedia.org/wikipedia/en/9/9c/Dennis_Lynn_Rader.jpg"
+            },
+           {
+        title: "The Zodiac Killer",
+        content: `
+            <p>The Zodiac Killer, who operated in Northern California in the late 1960s and early 1970s, has never been officially identified. His reign of terror was characterized by a series of brutal murders and cryptic communications with law enforcement and the press.</p>
+            <h2>The Ciphers</h2>
+            <p>The killer sent numerous letters and ciphers to newspapers, taunting police and media. He claimed the ciphers contained his identity, but only one has ever been definitively solved, revealing a chilling message about his motives and desires.</p>
+            <h2>Unsolved Mystery</h2>
+            <p>Despite extensive investigations, the Zodiac Killer's identity remains a mystery to this day. His case has become one of the most famous unsolved serial killer cases in history, captivating true crime enthusiasts and inspiring countless theories.</p>
+        `,
+        author: "Admin",
+        date: "July 26, 2024",
+        image: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Zodiac-Killer.jpg"
+    },
+            {
+                title: "Thoughts on Jeffrey Dahmer",
+                content: "Jeffrey Dahmer (1960-1994) was an American serial killer and sex offender. Born in Milwaukee, Wisconsin, Dahmer's crimes shocked the nation with their brutality and depravity. Between 1978 and 1991, he murdered 17 men and boys, committing heinous acts of torture, rape, and necrophilia. Dahmer's methods involved luring victims to his home, where he would drug, strangle, and dismember them. He was arrested in 1991 after one of his intended victims escaped and flagged down police. Dahmer was convicted of multiple counts of murder and sentenced to life in prison, where he was later murdered by a fellow inmate in 1994.",
+                author: "Community Member",
+                date: "July 26, 2024",
+                image: "https://upload.wikimedia.org/wikipedia/en/0/0c/Jeffrey_Dahmer_Milwaukee_Police_1991_mugshot.jpg"
+            },
+            {
+                title: "New Ted Bundy Documentary Review",
+                content: "Ted Bundy (1946-1989) was an American serial killer, rapist, and necrophile. Born in Burlington, Vermont, Bundy confessed to 30 murders during the 1970s, though the actual number may be higher. Charismatic and intelligent, he used his charm to lure victims, often feigning injury or authority. Bundy's modus operandi typically involved targeting young women, abducting them, and killing them in secluded areas. He was arrested multiple times but escaped twice before his final capture in 1978. Bundy was convicted of multiple murders and sentenced to death, and he was executed in the electric chair in 1989.",
+                author: "Another Member",
+                date: "July 27, 2024",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREt-kFiKL_wfL0vJ9wVYr1wLiekYDZKrju4clwT1_enG5nP25Uu__BO6coba2mW4-l81c&usqp=CAU"
+            }
+        ];
+
         // Function to load posts from localStorage
         function loadPosts() {
             const storedPosts = localStorage.getItem(POSTS_STORAGE_KEY);
             if (storedPosts) {
-                communityPosts = JSON.parse(storedPosts);
+                try {
+                    communityPosts = JSON.parse(storedPosts);
+                } catch (e) {
+                    console.error("Error parsing stored posts, using initial data.", e);
+                    communityPosts = initialPosts;
+                }
             } else {
-                // Initial data if nothing is in localStorage
-                communityPosts = [
-                    {
-                        title: "Post about the Zodiac Killer",
-                        content: "Just wrote a post on the zodiac killer, hope to hear some feedback on my theory!",
-                        author: "Admin",
-                        date: "July 25, 2024",
-                        image: "https://placehold.co/600x400/1c1917/d1d5db?text=Zodiac+Killer"
-                    },
-                    {
-                        title: "Thoughts on Jeffrey Dahmer",
-                        content: "Watching the new series on Jeffrey Dahmer. The psychological aspect is fascinating but so disturbing. What are your thoughts on it?",
-                        author: "Community Member",
-                        date: "July 26, 2024",
-                        image: "https://placehold.co/600x400/1c1917/d1d5db?text=Jeffrey+Dahmer"
-                    },
-                    {
-                        title: "New Ted Bundy Documentary Review",
-                        content: "Just finished a new Ted Bundy documentary. It's a must-watch for anyone interested in true crime. The raw footage and interviews are incredibly powerful.",
-                        author: "Another Member",
-                        date: "July 27, 2024",
-                        image: "https://placehold.co/600x400/1c1917/d1d5db?text=Ted+Bundy"
-                    },
-                ];
-                savePosts();
+                communityPosts = initialPosts;
             }
         }
 
