@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serial Killer Content</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0c0a09;
+            color: #d1d5db;
+        }
+        .creep-font {
+            font-family: 'Creepster', cursive;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col items-center">
+
+    <!-- Header Banner -->
+    <header class="w-full bg-neutral-900 shadow-lg p-6 mb-8">
+        <div class="container mx-auto text-center">
+            <h1 class="creep-font text-5xl md:text-7xl text-red-500 tracking-wider">
+                SERIAL KILLER CONTENT
+            </h1>
+            <p class="mt-2 text-neutral-400">
+                A curated space for movies, documentaries, and stories.
+            </p>
+        </div>
+    </header>
+
+    <div class="container mx-auto p-4 flex flex-col md:flex-row gap-8">
+        <!-- Left Sidebar -->
+        <aside class="md:w-1/4 space-y-6">
+            <!-- Group Info Card -->
+            <div class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4 text-white">Serial Killers Movies and Documentaries</h2>
+                <div class="flex items-center text-neutral-400 text-sm mb-4">
+                    <span class="mr-2">🔐 Private Group</span>
+                    <span>325 members</span>
+                </div>
+                <div class="flex gap-2">
+                    <a href="https://www.facebook.com/groups/your-group-url" target="_blank" class="flex-1 text-center bg-neutral-700 hover:bg-neutral-600 text-white font-semibold py-2 px-4 rounded-lg shadow-inner transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-1 -mt-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" />
+                        </svg>
+                        Invite
+                    </a>
+                    <a href="https://www.facebook.com/groups/403207477513491" target="_blank" class="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-inner transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-1 -mt-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                        </svg>
+                        Join Group
+                    </a>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <div class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4 text-white">About This Group</h2>
+                <p class="text-neutral-400 leading-relaxed">
+                    Welcome to the ultimate resource for true crime fans. We share and discuss movies, documentaries, and news related to the world's most infamous serial killers.
+                </p>
+                <div class="mt-4 text-sm space-y-2">
+                    <p class="flex items-center text-neutral-400">
+                        <span class="mr-2">🔐</span>
+                        Private Group
+                    </p>
+                    <p class="flex items-center text-neutral-400">
+                        <span class="mr-2">👥</span>
+                        325 Members
+                    </p>
+                </div>
+            </div>
+
+            <!-- Photos Section -->
+            <div class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4 text-white">Photos</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-neutral-700 h-24 rounded-md"></div>
+                    <div class="bg-neutral-700 h-24 rounded-md"></div>
+                </div>
+            </div>
+            
+            <!-- New Contact Section -->
+            <div class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4 text-white">Contact Me</h2>
+                <p class="text-neutral-400 leading-relaxed">
+                    Have a question or a suggestion? Feel free to send me an email.
+                </p>
+                <a href="mailto:your_email@example.com" class="block w-full text-center mt-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg shadow-inner transition-colors">
+                    Send Email
+                </a>
+            </div>
+            
+            <!-- Link to Movie Site -->
+            <div class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4 text-white">My Movie Website</h2>
+                <p class="text-neutral-400 leading-relaxed">
+                    Check out my other site with movie content.
+                </p>
+                <a href="https://owlsman21.github.io/MovieHub/" class="block w-full text-center mt-4 bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg shadow-inner transition-colors" target="_blank">
+                    Go to Movies Site
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="md:w-3/4 space-y-6">
+            <!-- Community Posts Section -->
+            <section class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4 text-white">Community Posts</h2>
+                <!-- Message for successful post -->
+                <div id="post-success-message" class="hidden bg-green-600 text-white p-3 rounded-lg text-center mb-4 transition-opacity duration-300">
+                    Post created successfully!
+                </div>
+                <div class="mt-6 flex flex-col space-y-2">
+                    <input type="text" id="postTitleInput" class="w-full p-2 bg-neutral-900 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Post Title">
+                    <textarea id="postInput" class="w-full h-24 p-2 bg-neutral-900 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Write your post here..."></textarea>
+                    <div class="flex justify-end">
+                        <button id="postButton" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg shadow-inner transition-colors">Post</button>
+                    </div>
+                </div>
+                <div id="postsContainer" class="space-y-6 mt-6">
+                    <!-- Posts will be generated here by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Content Sections -->
+            <div class="space-y-8">
+                <!-- Videos Section -->
+                <section class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-bold mb-4 text-white">Videos</h2>
+                    <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Video cards will be generated here by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Images Section -->
+                <section class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-bold mb-4 text-white">Images</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <!-- Example Image Card -->
+                        <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
+                            <img src="images/zodiac-crime-scene.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1c1917/d1d5db?text=Zodiac+Scene'" alt="Zodiac Killer crime scene photo." class="w-full h-auto object-cover">
+                            <div class="p-2">
+                                <p class="text-xs text-neutral-400 text-center">Crime scene investigation photo from the Zodiac Killer case.</p>
+                            </div>
+                        </div>
+                        <!-- Example Image Card -->
+                        <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
+                            <img src="images/mugshot2.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1c1917/d1d5db?text=Mugshot'" alt="Serial killer mugshot." class="w-full h-auto object-cover">
+                            <div class="p-2">
+                                <p class="text-xs text-neutral-400 text-center">Serial killer mugshot from the 1970s.</p>
+                            </div>
+                        </div>
+                        <!-- Example Image Card -->
+                        <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
+                            <img src="images/forensic-evidence.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/1c1917/d1d5db?text=Evidence'" alt="Forensic evidence." class="w-full h-auto object-cover">
+                            <div class="p-2">
+                                <p class="text-xs text-neutral-400 text-center">Forensic evidence from a cold case file.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+        </main>
+    </div>
+
+    <script>
+        // Data for movies and posts
+        const movies = [
+            {
+                "id": "AChillingDoc",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Documentary+Video",
+                "year": 2023,
+                "title": "A Chilling Documentary",
+                "description": "An in-depth look at a cold case file that will keep you on the edge of your seat.",
+                "embedId": "dQw4w9WgXcQ",
+                "genres": ["Documentary", "Mystery"],
+                "source": "youtube"
+            },
+            {
+                "id": "SnowtownMurders",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Snowtown+Murders",
+                "year": 2011,
+                "title": "Snowtown Murders",
+                "description": "A chilling true crime story.",
+                "embedId": "9204636584486",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+            {
+                "id": "Mindhunter",
+                "posterUrl": "images/trailer.jpg",
+                "year": 2017,
+                "title": "Mindhunter Documentary",
+                "description": "A chilling look into the origins of criminal profiling.",
+                "embedId": "placeholder",
+                "genres": ["Documentary"],
+                "source": "image"
+            },
+            {
+                "id": "Criminal",
+                "posterUrl": "images/Criminal.jpg",
+                "year": 2016,
+                "title": "Criminal 2016",
+                "description": "A dangerous convict receives an implant containing the memories and skills of a dead CIA agent.",
+                "embedId": "o4Em8Sxk4OM",
+                "genres": ["Crime","Action"],
+                "source": "youtube"
+            }
+        ];
+
+        // This is the array for your community posts. It will be populated from localStorage.
+        let communityPosts = [];
+        const POSTS_STORAGE_KEY = 'communityPosts';
+
+        // Get elements from the DOM
+        const postsContainer = document.getElementById('postsContainer');
+        const postTitleInput = document.getElementById('postTitleInput');
+        const postInput = document.getElementById('postInput');
+        const postButton = document.getElementById('postButton');
+        const postSuccessMessage = document.getElementById('post-success-message');
+
+        // Function to load posts from localStorage
+        function loadPosts() {
+            const storedPosts = localStorage.getItem(POSTS_STORAGE_KEY);
+            if (storedPosts) {
+                communityPosts = JSON.parse(storedPosts);
+            } else {
+                // Initial data if nothing is in localStorage
+                communityPosts = [
+                    {
+                        title: "Post about the Zodiac Killer",
+                        content: "Just wrote a post on the zodiac killer, hope to hear some feedback on my theory!",
+                        author: "Admin",
+                        date: "July 25, 2024",
+                        image: "https://placehold.co/600x400/1c1917/d1d5db?text=Zodiac+Killer"
+                    },
+                    {
+                        title: "Thoughts on Jeffrey Dahmer",
+                        content: "Watching the new series on Jeffrey Dahmer. The psychological aspect is fascinating but so disturbing. What are your thoughts on it?",
+                        author: "Community Member",
+                        date: "July 26, 2024",
+                        image: "https://placehold.co/600x400/1c1917/d1d5db?text=Jeffrey+Dahmer"
+                    },
+                    {
+                        title: "New Ted Bundy Documentary Review",
+                        content: "Just finished a new Ted Bundy documentary. It's a must-watch for anyone interested in true crime. The raw footage and interviews are incredibly powerful.",
+                        author: "Another Member",
+                        date: "July 27, 2024",
+                        image: "https://placehold.co/600x400/1c1917/d1d5db?text=Ted+Bundy"
+                    },
+                ];
+                savePosts();
+            }
+        }
+
+        // Function to save posts to localStorage
+        function savePosts() {
+            localStorage.setItem(POSTS_STORAGE_KEY, JSON.stringify(communityPosts));
+        }
+
+        // Function to generate movie cards
+        function generateMovieCards() {
+            const videoGrid = document.getElementById('videoGrid');
+            if (!videoGrid) return;
+
+            movies.forEach(movie => {
+                let mediaHtml;
+                if (movie.source === 'youtube') {
+                    mediaHtml = `
+                        <div class="aspect-w-16 aspect-h-9">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/${movie.embedId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+                        </div>
+                    `;
+                } else if (movie.source === 'ok.ru') {
+                    mediaHtml = `
+                        <div class="aspect-w-16 aspect-h-9">
+                            <iframe width="560" height="315" src="https://ok.ru/videoembed/${movie.embedId}" title="OK.ru video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+                        </div>
+                    `;
+                } else {
+                    mediaHtml = `
+                        <div class="aspect-w-16 aspect-h-9">
+                            <img src="${movie.posterUrl}" alt="${movie.title}" class="w-full h-full object-cover">
+                        </div>
+                    `;
+                }
+
+                const movieCardHtml = `
+                    <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
+                        ${mediaHtml}
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-white">${movie.title}</h3>
+                            <p class="text-sm text-neutral-400 mt-1">${movie.description}</p>
+                            <p class="text-xs text-neutral-500 mt-2">Year: ${movie.year}</p>
+                        </div>
+                    </div>
+                `;
+                videoGrid.innerHTML += movieCardHtml;
+            });
+        }
+
+        // This function generates the community posts
+        function renderPosts() {
+            if (!postsContainer) return;
+            
+            // Clear existing posts
+            postsContainer.innerHTML = '';
+            
+            communityPosts.forEach(post => {
+                const postHtml = `
+                    <div class="space-y-2">
+                        <h3 class="text-white font-extrabold text-xl md:text-2xl">${post.title}</h3>
+                        <div class="bg-neutral-900 p-6 rounded-lg shadow-inner flex flex-col space-y-2">
+                            ${post.image ? `<img src="${post.image}" class="w-full h-auto rounded-lg mb-4 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x300/1c1917/d1d5db?text=Post+Image';"/>` : ''}
+                            <p class="text-white">${post.content}</p>
+                            <p class="text-sm text-neutral-500 mt-2">Posted by: ${post.author} on ${post.date}</p>
+                        </div>
+                    </div>
+                `;
+                postsContainer.innerHTML += postHtml;
+            });
+        }
+
+        // Handles the click event for the Post button
+        function handlePost() {
+            const title = postTitleInput.value.trim();
+            const content = postInput.value.trim();
+            if (content) {
+                const newPost = {
+                    title: title || "Untitled",
+                    content: content,
+                    author: "Anonymous",
+                    date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+                    image: null
+                };
+                communityPosts.unshift(newPost); // Add to the beginning of the array
+                savePosts(); // Save the updated array to localStorage
+                postTitleInput.value = ''; // Clear the title field
+                postInput.value = ''; // Clear the input field
+                renderPosts(); // Re-render the posts
+                
+                // Show and fade out the success message
+                postSuccessMessage.classList.remove('hidden');
+                setTimeout(() => {
+                    postSuccessMessage.classList.add('hidden');
+                }, 3000); // Hide after 3 seconds
+            }
+        }
+
+        // Add event listener to the Post button
+        postButton.addEventListener('click', handlePost);
+
+        window.onload = () => {
+            loadPosts(); // Load posts from localStorage on page load
+            renderPosts();
+            generateMovieCards();
+        };
+    </script>
+</body>
+</html>
