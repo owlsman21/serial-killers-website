@@ -1,0 +1,9 @@
+This line applies the rules to all search engine crawlers.
+User-agent: *
+
+This line allows all crawlers to access all pages on your site.
+Allow: /
+
+This line points to your sitemap, which helps search engines find all your content.
+Make sure the URL below is the correct path to your sitemap file.
+Sitemap: https://www.google.com/search?q=https://owlsman21.github.io/serial-killers-website/sitemap.xml
