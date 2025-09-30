@@ -5,33 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serial Killer Content</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    // Added to make the prose utility work with dark mode text
+                    typography: {
+                        DEFAULT: {
+                            css: {
+                                color: '#d1d5db',
+                                a: {
+                                    color: '#f87171',
+                                    '&:hover': {
+                                        color: '#ef4444',
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+            // This is required to use the aspect-w and aspect-h utilities for responsive iframes
+            plugins: [
+                require('@tailwindcss/typography'),
+                require('@tailwindcss/aspect-ratio'),
+            ],
+        }
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0c0a09;
-            color: #d1d5db;
+            background-color: #0c0a09; /* Darkest background */
+            color: #d1d5db; /* Light grey text */
+            scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
         }
         .creep-font {
             font-family: 'Creepster', cursive;
         }
+        /* Custom styles for video responsiveness without the aspect-ratio plugin in some environments */
+        .responsive-iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .responsive-iframe-container iframe,
+        .responsive-iframe-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Styling for the Back to Top Button */
+        #backToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            cursor: pointer;
+            transition: opacity 0.3s, transform 0.3s;
+            opacity: 0; /* Starts hidden */
+            transform: translateY(20px);
+        }
+        #backToTopBtn.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
     <meta name="google-site-verification" content="khpfpQtpY9PovCLDyI3MQhUhoCOvqw9csWkfMj0ViKo" />
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F6TPP0Y61D
-"></script> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F6TPP0Y61D"></script> 
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-PNR5HQLF8W');
+    gtag('config', 'G-PNR5HQLF8W');
 </script>
 <body class="antialiased min-h-screen flex flex-col items-center">
 
-    <!-- Header Banner -->
     <header class="w-full bg-neutral-900 shadow-lg p-6 mb-8">
         <div class="container mx-auto text-center">
             <h1 class="creep-font text-5xl md:text-7xl text-red-500 tracking-wider">
@@ -40,13 +97,14 @@
             <p class="mt-2 text-neutral-400">
                 A curated space for movies, documentaries, and stories.
             </p>
-        </div>
+            <a href="#video-section" class="inline-block mt-5 bg-red-700 hover:bg-red-800 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition-colors transform hover:scale-105">
+                🔪 View Videos & Documentaries
+            </a>
+            </div>
     </header>
 
     <div class="container mx-auto p-4 flex flex-col md:flex-row gap-8">
-        <!-- Left Sidebar -->
         <aside class="md:w-1/4 space-y-6">
-            <!-- Group Info Card -->
             <div class="bg-neutral-800 p-6 rounded-lg shadow-md">
                 <h2 class="text-xl font-bold mb-4 text-white">Serial Killers Movies and Documentaries</h2>
                 <div class="flex items-center text-neutral-400 text-sm mb-4">
@@ -69,7 +127,6 @@
                 </div>
             </div>
 
-            <!-- About Section -->
             <div class="bg-neutral-800 p-6 rounded-lg shadow-md">
                 <h2 class="text-xl font-bold mb-4 text-white">About This Group</h2>
                 <p class="text-neutral-400 leading-relaxed">
@@ -87,32 +144,27 @@
                 </div>
             </div>
 
-            <!-- Photos Section -->
             <div class="bg-neutral-800 p-6 rounded-lg shadow-md">
                 <h2 class="text-xl font-bold mb-4 text-white">Images</h2>
                 <div class="grid grid-cols-2 gap-4">
-                    <!-- Example Image Card -->
                     <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
                         <img src="https://placehold.co/600x400/1c1917/d1d5db?text=Zodiac+Scene" alt="Zodiac Killer crime scene photo." class="w-full h-auto object-cover">
                         <div class="p-2">
                             <p class="text-xs text-neutral-400 text-center">Crime scene investigation photo from the Zodiac Killer case.</p>
                         </div>
                     </div>
-                    <!-- Example Image Card -->
                     <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
                         <img src="https://placehold.co/600x400/1c1917/d1d5db?text=Mugshot" alt="Serial killer mugshot." class="w-full h-auto object-cover">
                         <div class="p-2">
                             <p class="text-xs text-neutral-400 text-center">Serial killer mugshot from the 1970s.</p>
                         </div>
                     </div>
-                    <!-- Example Image Card -->
                     <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
                         <img src="https://placehold.co/600x400/1c1917/d1d5db?text=Evidence" alt="Forensic evidence." class="w-full h-auto object-cover">
                         <div class="p-2">
                             <p class="text-xs text-neutral-400 text-center">Forensic evidence from a cold case file.</p>
                         </div>
                     </div>
-                    <!-- Example Image Card -->
                     <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
                         <img src="https://placehold.co/600x400/1c1917/d1d5db?text=DNA+Research" alt="DNA Research." class="w-full h-auto object-cover">
                         <div class="p-2">
@@ -121,8 +173,7 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- New Contact Section -->
+
             <div class="bg-neutral-800 p-6 rounded-lg shadow-md">
                 <h2 class="text-xl font-bold mb-4 text-white">Contact Me</h2>
                 <p class="text-neutral-400 leading-relaxed">
@@ -132,8 +183,7 @@
                     Send Email
                 </a>
             </div>
-            
-            <!-- Link to Movie Site -->
+
             <div class="bg-neutral-800 p-6 rounded-lg shadow-md">
                 <h2 class="text-xl font-bold mb-4 text-white">My Movie Website</h2>
                 <p class="text-neutral-400 leading-relaxed">
@@ -145,12 +195,9 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
         <main class="md:w-3/4 space-y-6">
-            <!-- Community Posts Section -->
             <section class="bg-neutral-800 p-6 rounded-lg shadow-md">
                 <h2 class="text-xl font-bold mb-4 text-white">Community Posts</h2>
-                <!-- Message for successful post -->
                 <div id="post-success-message" class="hidden bg-green-600 text-white p-3 rounded-lg text-center mb-4 transition-opacity duration-300">
                     Post created successfully!
                 </div>
@@ -162,26 +209,28 @@
                     </div>
                 </div>
                 <div id="postsContainer" class="space-y-6 mt-6">
-                    <!-- Posts will be generated here by JavaScript -->
-                </div>
+                    </div>
             </section>
 
-            <!-- Content Sections -->
             <div class="space-y-8">
-                <!-- Videos Section -->
-                <section class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <section id="video-section" class="bg-neutral-800 p-6 rounded-lg shadow-md">
                     <h2 class="text-xl font-bold mb-4 text-white">Videos</h2>
                     <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- Video cards will be generated here by JavaScript -->
-                    </div>
+                        </div>
                 </section>
             </div>
-            
+
         </main>
     </div>
 
+    <button id="backToTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" 
+        class="bg-red-700 hover:bg-red-800 text-white p-3 rounded-full shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
     <script>
-        // Data for movies
+        // Data for movies (unchanged)
         const movies = [
             {
                 "id": "AChillingDoc",
@@ -198,24 +247,24 @@
                 "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Snowtown+Murders",
                 "year": 2011,
                 "title": "Snowtown Murders",
-                "description": "Sixteen-year-old Jamie lives with his mother, Elizabeth, and two younger brothers, Alex and Nicholas, in a housing trust home in Adelaide's northern suburbs. Their home is but one of many sun-starved houses crammed together to cater for a disenfranchised society. Jamie longs for an escape from the violence and hopelessness that surrounds him and his salvation arrives in the form of John, a charismatic man who unexpectedly comes to his aid. As John spends more and more time with Jamie's family, Elizabeth and her boys begin to experience a stability and sense of family that they have never known. John moves from the role of Jamie's protector to that of a mentor, indoctrinating Jamie into his world, a world brimming with bigotry, righteousness and malice. Like a son mimicking his father, Jamie soon begins to take on some of John's traits and beliefs as he spends more and more time with him and his select group of friends. The protection and guidance that John presents to Jamie is initially welcomed however as events occur around him, including the disappearance of several people, Jamie begins to harbour deep suspicions about John and his motivations. When the truth is finally revealed to Jamie his hopes of happiness are threatened by both his loyalty for, and fear of, John, his father-figure. The story is taken from real facts that occured in Australia.",
+                "description": "Sixteen-year-old Jamie lives with his mother, Elizabeth, and two younger brothers, Alex and Nicholas, in a housing trust home in Adelaide's northern suburbs...",
                 "embedId": "9204636584486",
                 "genres": ["Crime", "Horror"],
                 "source": "ok.ru"
             },
-             {
+            {
                 "id": "Gacy Serial Killer Next Door",
-                "posterUrl": "Gacy Serial Killer Next Door",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Gacy+Documentary",
                 "year": 2011,
                 "title": "Gacy Serial Killer Next Door",
-                "description": "Wisconsin, 1953. John Gacy, Sr. verbally and physically abuses his son during a fishing trip. Iowa, 1968. The adult John Wayne Gacy Jr. is convicted of sodomy and after 18 months he is released and settles in Des Plaines near Chicago. From 1972, John Wayne Gacy, Jr. grows up as a respected family father and businessman, even tipped for a political career with the Democrats. Alas, while he loudly abhors homosexuality, the monster uses the crawl space under his home for the vice of his abusive father: over 30 innocent boys and teenagers end up buried there, after horrible abuse ending in torturous death, causing it to reek unspeakably, being full of insects decomposing the stream of young corpses. Some victims worked for him, others he just picked up 'for fun' or lured in under various pretenses.",
+                "description": "Wisconsin, 1953. John Gacy, Sr. verbally and physically abuses his son during a fishing trip. Iowa, 1968. The adult John Wayne Gacy Jr. is convicted of sodomy and after 18 months he is released...",
                 "embedId": "7854166772245",
                 "genres": ["Crime", "Horror"],
                 "source": "ok.ru"
             },
             {
                 "id": "The Most INFAMOUS Serial Killer In Australian History",
-                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Mindhunter",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Ivan+Milat",
                 "year": 2017,
                 "title": "The Most INFAMOUS Serial Killer In Australian History",
                 "description": "Ivan Robert Marko Milat, commonly referred to in media as the Backpacker Murderer, was an Australian serial killer who abducted, assaulted, robbed and murdered two men and five women in New South Wales between 1989 and 1992.",
@@ -228,56 +277,59 @@
                 "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=BTK-Killer",
                 "year": 2005,
                 "title": "The Hunt For The BTK Killer 2005",
-                "description": "After 31 years at-large, detectives in Wichita, Kansas home in on the serial killer known as BTK.Dennis Rader, infamously known as the BTK killer, is a convicted American serial killer responsible for a series of murders in Wichita, Kansas, between 1974 and 1991. Rader's criminal activities began with the brutal killings of the Otero family, where he bound, tortured, and killed four members. He evaded capture for decades, taunting law enforcement and the media with letters that detailed his crimes, which led to the nickname BTK, standing for Bind, Torture, Kill. Rader's life appeared normal on the surface; he was a family man, worked in various jobs including at a security company, and was active in his church and community.His killing spree came to an abrupt halt in 1979, and Rader seemingly disappeared until he resurfaced in 2004, prompting a renewed investigation that ultimately led to his arrest in 2005. He was sentenced to ten consecutive life sentences without the possibility of parole. Over the years,",
+                "description": "After 31 years at-large, detectives in Wichita, Kansas home in on the serial killer known as BTK. Dennis Rader, infamously known as the BTK killer, is a convicted American serial killer...",
                 "embedId": "6409514060345",
-                "genres": ["Crime","Action"],
+                "genres": ["Crime", "Action"],
                 "source": "ok.ru"
             },
-             {
+            {
                 "id": "Inside the Mind of Jeffrey Dahmer: Serial Killer’s Chilling Jailhouse Interview",
                 "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Dahmer",
                 "year": 2016,
                 "title": "Inside the Mind of Jeffrey Dahmer: Serial Killer’s Chilling Jailhouse Interview",
-                "description": "This video is the real life courtroom trial with associated interviews. Jeffrey Lionel Dahmer (May 21, 1960 - November 28, 1994) was an American serial killer and sex offender. Dahmer murdered 17 men and boys - most of whom were of African or Asian descent - between 1978 and 1991, with the majority of the murders occurring between 1987 and 1991. His murders were particularly gruesome, involving rape, torture, dismemberment, necrophilia and cannibalism. On November 28, 1994, Dahmer was beaten to death by fellow Columbia Correctional Institution inmate Christopher Scarver with a bar from a weight machine while on work detail in the prison gym. Jeffrey Dahmer was officially indicted on 17 murder charges, which were reduced to 15. The murder cases were already so notorious that the authorities never bothered to charge him in the attempted murder of Edwards. His trial began on January 30, 1992. With evidence overwhelmingly against him, Dahmer pleaded not guilty by reason of insanity. The trial lasted two weeks. The court found Dahmer sane and guilty on 15 counts of murder and sentenced him to 15 life terms, totaling 957 years in prison. At his sentencing hearing, Dahmer expressed remorse for his actions, and said that he wished for his own death. In May of that year, Dahmer was extradited to Ohio, where he entered a plea of guilty for the murder of his first victim, Steven Hicks. ",
+                "description": "This video is the real life courtroom trial with associated interviews. Jeffrey Lionel Dahmer (May 21, 1960 - November 28, 1994) was an American serial killer and sex offender...",
                 "embedId": "iWjYsxaBjBI",
-                "genres": ["Crime","Action"],
+                "genres": ["Crime", "Action"],
                 "source": "youtube"
             },
-                         {
+            {
                 "id": "Fred and Rose West Documentary",
                 "posterUrl": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p30069767_b_v4_aa.jpg",
                 "year": 2011,
                 "title": "Fred and Rose West Documentary",
-                "description": "In 1994 in Gloucester, England, social services alerted the police to a horrifying rumor they were told by the children of Fred and Rose West. If they misbehaved, the children said, they'd end up under the patio like their sister, Heather, who had not been seen since 1986. Some months later, the police began a search at 25 Cromwell Street, where they would eventually uncover not only the murdered and dismembered remains of Heather, but also eight additional bodies buried in the garden and cellar. So begins the investigation uncovering one of the most heinous and heartless murder sprees in modern history. Fred and Rose West: A British Horror Story tells how a couple who were, to those who observed them, in a loving, committed relationship could be capable of such gruesome crimes. Through 107 police interview tapes covering over 50 hours of interrogations, much of it previously unseen and unheard, this three-part docu-series sheds new light on the notorious murders of at least 12 women.",
+                "description": "In 1994 in Gloucester, England, social services alerted the police to a horrifying rumor they were told by the children of Fred and Rose West...",
                 "embedId": "2026846292518",
                 "genres": ["Crime", "Horror"],
                 "source": "ok.ru"
             },
-             {
+            {
                 "id": "Dennis Rader: The BTK Killer ",
                 "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Criminal",
                 "year": 2016,
                 "title": "Dennis Rader: The BTK Killer ",
-                "description": "Dennis Rader's killings occurred between 1974 and 1991, during which time he killed a total of 10 people (the first four of whom were killed in one night). Occasionally, he took breaks from killing. Some such periods were around the time that his children were born and he didn't have enough free time to stalk potential victims. During these periods, he would engage in auto-erotic behaviour to keep his urges satisfied. He enjoyed performing self-bondage, sometimes wearing a mask he used during some murders or even female underwear he had taken from his victims. Throughout his serial killing career, Rader sent several taunting letters to the police and media in which he graphically described his murders. The first, written in October 1974, was stashed inside an engineering book in the Wichita Public Library. In 1978, he sent another to Wichita-based TV station KAKE in which he also suggested a number of names for himself, such as The Wichita Strangler, The Wichita Hangman, The Asphyxiater and, the name the public came to know him by, The BTK Killer, signifying his M.O.: Bind, Torture, Kill. The next letters did not come until later. In 2004, the newspaper The Wichita Eagle received a letter from someone using the return address Bill Thomas Killman.",
+                "description": "Dennis Rader's killings occurred between 1974 and 1991, during which time he killed a total of 10 people (the first four of whom were killed in one night)...",
                 "embedId": "4h224QXYD-I",
-                "genres": ["Crime","Action"],
+                "genres": ["Crime", "Action"],
                 "source": "youtube"
             },
-             {
+            {
                 "id": "The Son Of Sam: Destined To Be A Serial Killer?",
                 "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Son-of-sam",
                 "year": 2016,
                 "title": "The Son Of Sam: Destined To Be A Serial Killer? ",
-                "description": "David Berkowitz was born as Richard David Falco. His mother had him out of wedlock when she had an affair with a married real-estate agent named Joseph Klineman. Her husband Tony Falco had left her a few years before that. His mother gave him up for adoption to Nathan and Pearl Berkowitz who named him David Berkowitz Chicago. Being rejected by his birth mother caused David to develop an inferiority complex especially with women and thought he was unappealing to them. He worked as a postman and a security guard. In 1974 he 'heard voices' in his head that ordered him to kill. Berkowitz began to blame these voices on his neighbor Sam Carr's black Labrador that kept him up at night by its barking. He would send hate letters to Carr and in April 1977 even shot and wounded the dog. On July 29, 1976 he killed his first official victim. His modus operandi was to approach unsuspecting people late at night, pull out a gun from a brown paper bag and shoot them at point blank range. Most of his victims were couples, necking in their cars or in a park late at night. His female victims tended to be brunettes with long hair, which caused a scare in parts of New York and had women 'blonding' themselves and cutting their hair short to avoid being targeted. Couples were also advised not to stay out late at night by the local authorities as the serial killings escalated. They were all shot with a .44 caliber bulldog gun and hence his first nickname by the press - .44 Caliber Killer. Most crimes occurred in the boroughs of Bronx and Queens but other parts of the city felt the terror too. The police task force for the case - 'Operation Omega' was formed. Inside the car of one of the victims the police found a letter. One was addressed to Cpt. Joseph Borelli and another to NY columnist Jimmy Breslin (June 1, 1977). The killer identified himself as Sam's and now the press had a new moniker - Son of Sam. The last S.o.S killing took place on July 31, 1977. A witness had seen a young man (David) near the crime scene walking away with something tucked under his jacket. He was observed removing a parking ticket from a yellow Ford Galaxie that had blocked a fire hydrant. The police traced tickets in that area to Berkowitz address in Yonkers. Inside the car they found a loaded .44. They waited for him and when he approached the car they arrested the pudgy unassuming postman. He surrendered without a fight and confessed to being 'Son of Sam'. Though diagnosed as a paranoid schizophrenic he was found sane enough for trial. On August 23, 1977 he was sentenced to six life sentences.",
+                "description": "David Berkowitz was born as Richard David Falco. His mother had him out of wedlock when she had an affair with a married real-estate agent named Joseph Klineman...",
                 "embedId": "ZatEG03Y6Zg",
-                "genres": ["Crime","Action"],
+                "genres": ["Crime", "Action"],
                 "source": "youtube"
             },
         ];
 
-        // This is the array for your community posts. It will be populated from localStorage.
+        // This is the array for your community posts.
         let communityPosts = [];
         const POSTS_STORAGE_KEY = 'communityPosts';
+        // Define the Admin user for deletion control
+        const ADMIN_AUTHOR = "Admin";
+        const COMMUNITY_AUTHOR = "Community Member";
 
         // Get elements from the DOM
         const postsContainer = document.getElementById('postsContainer');
@@ -285,54 +337,47 @@
         const postInput = document.getElementById('postInput');
         const postButton = document.getElementById('postButton');
         const postSuccessMessage = document.getElementById('post-success-message');
+        const backToTopBtn = document.getElementById('backToTopBtn');
 
-        // Initial data if nothing is in localStorage
+        // Initial data with FIXED, low IDs
         const initialPosts = [
             {
+                id: 1, // Fixed ID
                 title: "The BTK Killer: Unmasking Dennis Rader",
                 content: `
                     <p>Dennis Rader, known as the BTK (Bind, Torture, Kill) Killer, terrorized Wichita, Kansas, for over three decades. His chilling crimes left a trail of death and devastation, but it was his own ego that ultimately led to his downfall.</p>
                     <h2>The Facade of Normalcy</h2>
                     <p>Rader was a seemingly ordinary family man - a husband, father of two, and respected church leader. However, beneath this façade lay a monster driven by dark fantasies. His double life was a stark contrast to the all-American image he portrayed.</p>
-                    <h2>The Crimes</h2>
-                    <p>Between 1974 and 1991, Rader murdered 10 people, taunting the police with letters and cryptic clues. His methods were meticulous, often targeting families and leaving behind a twisted signature.</p>
-                    <h2>The Ego Takes Over</h2>
-                    <p>Rader's arrogance led him to communicate with the police, seeking validation. In 2004, he resumed contact, sending letters and cryptic messages. This communication ultimately led to his capture in 2005.</p>
-                    <h2>The Arrest and Aftermath</h2>
-                    <p>Rader's DNA was matched to evidence from a crime scene, and he was arrested on February 25, 2005. He confessed to the murders, revealing chilling details. In 2006, he was sentenced to 10 consecutive life terms.</p>
-                    <h2>The Psychology Behind BTK</h2>
-                    <p>Rader's motivations stemmed from a complex mix of sadistic fantasies, a need for control, and a desire for notoriety. His case highlights the dark side of human nature and the devastating consequences of unchecked desires.</p>
-                    <h2>The Legacy of Fear</h2>
-                    <p>The BTK Killer's crimes left an indelible mark on Wichita, serving as a grim reminder of the evil that can lurk in seemingly ordinary individuals. Rader's case continues to fascinate and horrify, a testament to the complexities of human psychology.</p>
                 `,
-                author: "Admin",
+                author: ADMIN_AUTHOR, 
                 date: "July 25, 2024",
                 image: "https://upload.wikimedia.org/wikipedia/en/9/9c/Dennis_Lynn_Rader.jpg"
             },
-           {
-        title: "The Zodiac Killer",
-        content: `
-            <p>The Zodiac Killer, who operated in Northern California in the late 1960s and early 1970s, has never been officially identified. His reign of terror was characterized by a series of brutal murders and cryptic communications with law enforcement and the press.</p>
-            <h2>The Ciphers</h2>
-            <p>The killer sent numerous letters and ciphers to newspapers, taunting police and media. He claimed the ciphers contained his identity, but only one has ever been definitively solved, revealing a chilling message about his motives and desires.</p>
-            <h2>Unsolved Mystery</h2>
-            <p>Despite extensive investigations, the Zodiac Killer's identity remains a mystery to this day. His case has become one of the most famous unsolved serial killer cases in history, captivating true crime enthusiasts and inspiring countless theories.</p>
-        `,
-        author: "Admin",
-        date: "July 26, 2024",
-        image: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Zodiac-Killer.jpg"
-    },
             {
+                id: 2, // Fixed ID
+                title: "The Zodiac Killer",
+                content: `
+                    <p>The Zodiac Killer, who operated in Northern California in the late 1960s and early 1970s, has never been officially identified. His reign of terror was characterized by a series of brutal murders and cryptic communications with law enforcement and the press.</p>
+                    <h2>The Ciphers</h2>
+                    <p>The killer sent numerous letters and ciphers to newspapers, taunting police and media. He claimed the ciphers contained his identity, but only one has ever been definitively solved, revealing a chilling message about his motives and desires.</p>
+                `,
+                author: ADMIN_AUTHOR, 
+                date: "July 26, 2024",
+                image: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Zodiac-Killer.jpg"
+            },
+            {
+                id: 3, // Fixed ID
                 title: "Thoughts on Jeffrey Dahmer",
-                content: "Jeffrey Dahmer (1960-1994) was an American serial killer and sex offender. Born in Milwaukee, Wisconsin, Dahmer's crimes shocked the nation with their brutality and depravity. Between 1978 and 1991, he murdered 17 men and boys, committing heinous acts of torture, rape, and necrophilia. Dahmer's methods involved luring victims to his home, where he would drug, strangle, and dismember them. He was arrested in 1991 after one of his intended victims escaped and flagged down police. Dahmer was convicted of multiple counts of murder and sentenced to life in prison, where he was later murdered by a fellow inmate in 1994.",
-                author: "Community Member",
+                content: "Jeffrey Dahmer (1960-1994) was an American serial killer and sex offender. Born in Milwaukee, Wisconsin, Dahmer's crimes shocked the nation with their brutality and depravity. Between 1978 and 1991, he murdered 17 men and boys, committing heinous acts of torture, rape, and necrophilia. Dahmer was arrested in 1991 and later murdered by a fellow inmate in 1994.",
+                author: ADMIN_AUTHOR, 
                 date: "July 26, 2024",
                 image: "https://upload.wikimedia.org/wikipedia/en/0/0c/Jeffrey_Dahmer_Milwaukee_Police_1991_mugshot.jpg"
             },
             {
+                id: 4, // Fixed ID
                 title: "New Ted Bundy Documentary Review",
-                content: "Ted Bundy (1946-1989) was an American serial killer, rapist, and necrophile. Born in Burlington, Vermont, Bundy confessed to 30 murders during the 1970s, though the actual number may be higher. Charismatic and intelligent, he used his charm to lure victims, often feigning injury or authority. Bundy's modus operandi typically involved targeting young women, abducting them, and killing them in secluded areas. He was arrested multiple times but escaped twice before his final capture in 1978. Bundy was convicted of multiple murders and sentenced to death, and he was executed in the electric chair in 1989.",
-                author: "Another Member",
+                content: "Ted Bundy (1946-1989) was an American serial killer, rapist, and necrophile. Charismatic and intelligent, he confessed to 30 murders during the 1970s, though the actual number may be higher. He was executed in the electric chair in 1989.",
+                author: ADMIN_AUTHOR, 
                 date: "July 27, 2024",
                 image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREt-kFiKL_wfL0vJ9wVYr1wLiekYDZKrju4clwT1_enG5nP25Uu__BO6coba2mW4-l81c&usqp=CAU"
             }
@@ -343,55 +388,89 @@
             const storedPosts = localStorage.getItem(POSTS_STORAGE_KEY);
             if (storedPosts) {
                 try {
-                    communityPosts = JSON.parse(storedPosts);
+                    // Load saved posts, which includes any deletions.
+                    communityPosts = JSON.parse(storedPosts); 
                 } catch (e) {
                     console.error("Error parsing stored posts, using initial data.", e);
                     communityPosts = initialPosts;
                 }
             } else {
+                // First time visit: load initial posts and save them immediately 
                 communityPosts = initialPosts;
+                savePosts(); 
             }
         }
 
-        // Function to save posts to localStorage
+        // Function to save posts to localStorage (Crucial for persistence)
         function savePosts() {
             localStorage.setItem(POSTS_STORAGE_KEY, JSON.stringify(communityPosts));
         }
+        
+        // Function to delete a post by its unique ID
+        window.deletePost = function(postId) {
+            // Confirm with the user before deleting
+            if (!confirm("Are you sure you want to delete this post?")) {
+                return;
+            }
 
-        // Function to generate movie cards
+            // Convert postId to a number for comparison
+            const idToDelete = Number(postId);
+            
+            // Filter the array, removing the post with the matching ID
+            const initialCount = communityPosts.length;
+            communityPosts = communityPosts.filter(p => p.id !== idToDelete);
+            
+            // If a post was removed, save the new list and re-render
+            if (communityPosts.length < initialCount) {
+                savePosts(); // Saves the new list to local storage
+                renderPosts(); 
+                console.log(`Post with ID ${idToDelete} successfully deleted.`);
+            } else {
+                console.warn(`Post with ID ${idToDelete} not found.`);
+            }
+        }
+
+
+        // Function to generate movie cards (unchanged)
         function generateMovieCards() {
             const videoGrid = document.getElementById('videoGrid');
             if (!videoGrid) return;
 
+            videoGrid.innerHTML = ''; 
+
             movies.forEach(movie => {
                 let mediaHtml;
+                
                 if (movie.source === 'youtube') {
                     mediaHtml = `
-                        <div class="aspect-w-16 aspect-h-9">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/${movie.embedId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+                        <div class="responsive-iframe-container">
+                            <iframe src="https://www.youtube.com/embed/${movie.embedId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     `;
                 } else if (movie.source === 'ok.ru') {
                     mediaHtml = `
-                        <div class="aspect-w-16 aspect-h-9">
-                            <iframe width="560" height="315" src="https://ok.ru/videoembed/${movie.embedId}" title="OK.ru video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+                        <div class="responsive-iframe-container">
+                            <iframe src="https://ok.ru/videoembed/${movie.embedId}" title="OK.ru video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     `;
                 } else {
                     mediaHtml = `
-                        <div class="aspect-w-16 aspect-h-9">
-                            <img src="${movie.posterUrl}" alt="${movie.title}" class="w-full h-full object-cover">
+                        <div class="responsive-iframe-container">
+                            <img src="${movie.posterUrl}" alt="${movie.title} poster" class="w-full h-full object-cover">
                         </div>
                     `;
                 }
 
                 const movieCardHtml = `
-                    <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
+                    <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-xl transform hover:scale-[1.02] transition-transform duration-300">
                         ${mediaHtml}
                         <div class="p-4">
-                            <h3 class="text-lg font-semibold text-white">${movie.title}</h3>
-                            <p class="text-sm text-neutral-400 mt-1">${movie.description}</p>
-                            <p class="text-xs text-neutral-500 mt-2">Year: ${movie.year}</p>
+                            <h3 class="text-white text-lg font-bold truncate">${movie.title} (${movie.year})</h3>
+                            <p class="text-sm text-neutral-400 mt-1 mb-2">${movie.description.substring(0, 100)}...</p>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                ${movie.genres.map(genre => `<span class="bg-red-900 text-red-300 px-2 py-0.5 rounded-full">${genre}</span>`).join('')}
+                            </div>
+                            <p class="text-xs text-neutral-500 mt-3">Source: ${movie.source}</p>
                         </div>
                     </div>
                 `;
@@ -399,62 +478,117 @@
             });
         }
 
-        // This function generates the community posts
+        // Function to generate and display community posts (FIXED: Delete button only for non-Admin posts)
         function renderPosts() {
             if (!postsContainer) return;
-            
-            // Clear existing posts
-            postsContainer.innerHTML = '';
-            
-            communityPosts.forEach(post => {
-                const postHtml = `
-                    <div class="space-y-2">
-                        <h3 class="text-white font-extrabold text-xl md:text-2xl">${post.title}</h3>
-                        <div class="bg-neutral-900 p-6 rounded-lg shadow-inner flex flex-col space-y-2">
-                            ${post.image ? `<img src="${post.image}" class="w-full h-auto rounded-lg mb-4 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x300/1c1917/d1d5db?text=Post+Image';"/>` : ''}
-                            <p class="text-white">${post.content}</p>
-                            <p class="text-sm text-neutral-500 mt-2">Posted by: ${post.author} on ${post.date}</p>
+
+            postsContainer.innerHTML = ''; // Clear existing posts
+            // Reverse posts so the newest one appears at the top
+            const reversedPosts = [...communityPosts].reverse();
+
+            if (reversedPosts.length === 0) {
+                postsContainer.innerHTML = '<p class="text-neutral-400 text-center py-6">No community posts yet. Be the first to post!</p>';
+                return;
+            }
+
+            reversedPosts.forEach((post) => {
+                const postCard = document.createElement('div');
+                postCard.className = 'bg-neutral-900 p-4 rounded-lg shadow-xl border border-neutral-700';
+
+                // Check if post.content is simple text or HTML content 
+                const postContentHtml = post.content.includes('<p>') || post.content.includes('<h2>') ? post.content : `<p class="text-neutral-300">${post.content}</p>`;
+                
+                // RENDER DELETE BUTTON ONLY IF THE AUTHOR IS NOT 'Admin'
+                const deleteButtonHtml = (post.author !== ADMIN_AUTHOR) ? `
+                    <button onclick="deletePost(${post.id})" 
+                        class="text-xs text-red-400 hover:text-red-600 font-bold ml-4 p-1 rounded transition-colors"
+                        title="Delete Post">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 6h6v10H7V6z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                ` : ''; // If Admin, the button is an empty string
+
+                postCard.innerHTML = `
+                    <div class="flex items-start justify-between mb-3">
+                        <div class="flex items-start">
+                            <img src="${post.image || 'https://placehold.co/100x100/1c1917/d1d5db?text=User'}" 
+                                alt="${post.author}" 
+                                class="w-10 h-10 rounded-full object-cover mr-3 border-2 border-red-500">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">${post.title}</h3>
+                                <p class="text-xs text-neutral-500">Posted by ${post.author} on ${post.date}</p>
+                            </div>
                         </div>
+                        ${deleteButtonHtml}
+                        </div>
+                    <div class="prose prose-sm prose-invert max-w-none text-neutral-300 space-y-3">
+                        ${postContentHtml}
                     </div>
                 `;
-                postsContainer.innerHTML += postHtml;
+                postsContainer.appendChild(postCard);
             });
         }
 
-        // Handles the click event for the Post button
+        // Function to handle new post creation 
         function handlePost() {
             const title = postTitleInput.value.trim();
             const content = postInput.value.trim();
+
             if (content) {
                 const newPost = {
-                    title: title || "Untitled",
+                    // Use Date.now() for new posts to ensure a very high, unique ID
+                    id: Date.now(), 
+                    title: title || "Untitled Post",
                     content: content,
-                    author: "Anonymous",
+                    author: COMMUNITY_AUTHOR, 
                     date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
                     image: null
                 };
-                communityPosts.unshift(newPost); // Add to the beginning of the array
-                savePosts(); // Save the updated array to localStorage
-                postTitleInput.value = ''; // Clear the title field
-                postInput.value = ''; // Clear the input field
-                renderPosts(); // Re-render the posts
-                
-                // Show and fade out the success message
+
+                communityPosts.push(newPost); // Add to the array
+                savePosts(); // Save to local storage
+                renderPosts(); // Re-render posts
+
+                // Clear inputs
+                postTitleInput.value = '';
+                postInput.value = '';
+
+                // Show and fade out success message
                 postSuccessMessage.classList.remove('hidden');
                 setTimeout(() => {
                     postSuccessMessage.classList.add('hidden');
-                }, 3000); // Hide after 3 seconds
+                }, 3000); 
+            } else {
+                alert("Please enter some content for your post.");
             }
         }
+
+        // Scroll function to show/hide the button (unchanged)
+        function toggleBackToTopButton() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        }
+        
+        // Add event listener for scrolling
+        window.onscroll = function() {
+            toggleBackToTopButton();
+        };
 
         // Add event listener to the Post button
         postButton.addEventListener('click', handlePost);
 
+        // Initialization function to run everything on page load
         window.onload = () => {
-            loadPosts(); // Load posts from localStorage on page load
+            loadPosts(); 
             renderPosts();
             generateMovieCards();
+            toggleBackToTopButton(); 
         };
+
     </script>
 </body>
 </html>
