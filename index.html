@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serial Killer Content</title>
+
+    <!-- Open Graph Meta Tags for Facebook Sharing -->
+    <meta property="og:title" content="Serial Killer Content" />
+    <meta property="og:description" content="Explore chilling stories and dark history." />
+    <meta property="og:image" content="https://scontent.fnak2-1.fna.fbcdn.net/v/t39.30808-6/506595398_1441959733640432_4469282023422764184_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=2285d6&_nc_ohc=cuLTpylGeg4Q7kNvwGE2Wlq&_nc_oc=AdnPHYDY2NZnORsJvFTcyKuShrB-z2c1gDlpl0nLT46wghU9ya_KcB8JdOF8AkLmAWM&_nc_zt=23&_nc_ht=scontent.fnak2-1.fna&_nc_gid=vM7OYRPK-BVnflMBgxIyyg&oh=00_Afei3YcbdI8zUzUEv84Qhe99WnH-zomQLI7lmXlcXhBjSg&oe=68EBED2A" />
+    <meta property="og:url" content="https://yourwebsite.com/page-url" />
+    <meta property="og:type" content="website" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    // Added to make the prose utility work with dark mode text
                     typography: {
                         DEFAULT: {
                             css: {
@@ -25,7 +32,6 @@
                     },
                 },
             },
-            // This is required to use the aspect-w and aspect-h utilities for responsive iframes
             plugins: [
                 require('@tailwindcss/typography'),
                 require('@tailwindcss/aspect-ratio'),
@@ -37,18 +43,17 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0c0a09; /* Darkest background */
-            color: #d1d5db; /* Light grey text */
-            scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
+            background-color: #0c0a09;
+            color: #d1d5db;
+            scroll-behavior: smooth;
         }
         .creep-font {
             font-family: 'Creepster', cursive;
         }
-        /* Custom styles for video responsiveness without the aspect-ratio plugin in some environments */
         .responsive-iframe-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
         }
@@ -60,8 +65,6 @@
             width: 100%;
             height: 100%;
         }
-
-        /* Styling for the Back to Top Button */
         #backToTopBtn {
             position: fixed;
             bottom: 20px;
@@ -69,7 +72,7 @@
             z-index: 1000;
             cursor: pointer;
             transition: opacity 0.3s, transform 0.3s;
-            opacity: 0; /* Starts hidden */
+            opacity: 0;
             transform: translateY(20px);
         }
         #backToTopBtn.show {
