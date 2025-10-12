@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serial Killer Content</title>
+
+    <!-- Open Graph Meta Tags for Facebook Sharing -->
+    <meta property="og:title" content="Serial Killer Content" />
+    <meta property="og:description" content="Explore chilling stories and dark history." />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="https://owlsman21.github.io/serial-killers-website/" />
+    <meta property="og:type" content="website" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    typography: {
+                        DEFAULT: {
+                            css: {
+                                color: '#d1d5db',
+                                a: {
+                                    color: '#f87171',
+                                    '&:hover': {
+                                        color: '#ef4444',
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+            plugins: [
+                require('@tailwindcss/typography'),
+                require('@tailwindcss/aspect-ratio'),
+            ],
+        }
+    </script>
+    <head>
+  <!-- Your meta tags, styles, Tailwind config, etc. -->
+
+  <!-- Lazy loading script goes here -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const target = entry.target;
+            const url = target.getAttribute("data-src");
+            if (url) {
+              fetch(url)
+                .then(res => res.text())
+                .then(html => {
+                  target.innerHTML = html;
+                  observer.unobserve(target);
+                });
+            }
+          }
+        });
+      });
+
+      document.querySelectorAll(".lazy-load").forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
+
+</head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0c0a09;
+            color: #d1d5db;
+            scroll-behavior: smooth;
+        }
+        .creep-font {
+            font-family: 'Creepster', cursive;
+        }
+        .responsive-iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        .responsive-iframe-container iframe,
+        .responsive-iframe-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #backToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            cursor: pointer;
+            transition: opacity 0.3s, transform 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        #backToTopBtn.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <meta name="google-site-verification" content="khpfpQtpY9PovCLDyI3MQhUhoCOvqw9csWkfMj0ViKo" />
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F6TPP0Y61D"></script> 
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-PNR5HQLF8W');
+</script>
+<body class="antialiased min-h-screen flex flex-col items-center">
+
+  <header class="w-full bg-neutral-900 shadow-lg p-6 mb-8">
+    <div class="container mx-auto text-center">
+        <h1 class="creep-font text-5xl md:text-7xl text-red-500 tracking-wider">
+            SERIAL KILLER CONTENT
+        </h1>
+        <p class="mt-2 text-neutral-400">
+            A curated space for movies, documentaries, and stories.
+        </p>
+
+        <!-- 🔪 Add your image here -->
+        <img src="https://owlsman21.github.io/serial-killers-website/images/serial%20killers.jpg" alt="Serial Killer Theme" class="mx-auto mt-4 rounded-lg shadow-md max-w-full md:max-w-xl" 
+ 🔪 Add your image here -->
+
+        <a href="#video-section" class="inline-block mt-5 bg-red-700 hover:bg-red-800 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition-colors transform hover:scale-105">
+            🔪 View Videos & Documentaries
+        </a>
+    </div>
+</header>
+
+    <div class="container mx-auto p-4 flex flex-col md:flex-row gap-8">
+        <aside class="md:w-1/4 space-y-6">
+            <div class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4 text-white">Serial Killers Movies and Documentaries</h2>
+                <div class="flex items-center text-neutral-400 text-sm mb-4">
+                    <span class="mr-2">🔐 Private Group</span>
+                    <span>325 members</span>
+                </div>
+                <div class="flex gap-2">
+                    <a href="https://www.facebook.com/groups/your-group-url" target="_blank" class="flex-1 text-center bg-neutral-700 hover:bg-neutral-600 text-white font-semibold py-2 px-4 rounded-lg shadow-inner transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-1 -mt-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" />
+                        </svg>
+                        Invite
+                    </a>
+                    <a href="https://www.facebook.com/groups/403207477513491" target="_blank" class="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-inner transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-1 -mt-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                        </svg>
+                        Join Group
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4 text-white">About This Group</h2>
+                <p class="text-neutral-400 leading-relaxed">
+                    Welcome to the ultimate resource for true crime fans. We share and discuss movies, documentaries, and news related to the world's most infamous serial killers.
+                </p>
+                <div class="mt-4 text-sm space-y-2">
+                    <p class="flex items-center text-neutral-400">
+                        <span class="mr-2">🔐</span>
+                        Private Group
+                    </p>
+                    <p class="flex items-center text-neutral-400">
+                        <span class="mr-2">👥</span>
+                        325 Members
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4 text-white">Images</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://placehold.co/600x400/1c1917/d1d5db?text=Zodiac+Scene" alt="Zodiac Killer crime scene photo." class="w-full h-auto object-cover">
+                        <div class="p-2">
+                            <p class="text-xs text-neutral-400 text-center">Crime scene investigation photo from the Zodiac Killer case.</p>
+                        </div>
+                    </div>
+                    <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://placehold.co/600x400/1c1917/d1d5db?text=Mugshot" alt="Serial killer mugshot." class="w-full h-auto object-cover">
+                        <div class="p-2">
+                            <p class="text-xs text-neutral-400 text-center">Serial killer mugshot from the 1970s.</p>
+                        </div>
+                    </div>
+                    <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://placehold.co/600x400/1c1917/d1d5db?text=Evidence" alt="Forensic evidence." class="w-full h-auto object-cover">
+                        <div class="p-2">
+                            <p class="text-xs text-neutral-400 text-center">Forensic evidence from a cold case file.</p>
+                        </div>
+                    </div>
+                    <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://placehold.co/600x400/1c1917/d1d5db?text=DNA+Research" alt="DNA Research." class="w-full h-auto object-cover">
+                        <div class="p-2">
+                            <p class="text-xs text-neutral-400 text-center">DNA research and criminal database analysis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4 text-white">Contact Me</h2>
+                <p class="text-neutral-400 leading-relaxed">
+                    Have a question or a suggestion? Feel free to send me an email.
+                </p>
+                <a href="mailto:your_email@example.com" class="block w-full text-center mt-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg shadow-inner transition-colors">
+                    Send Email
+                </a>
+            </div>
+
+            <div class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4 text-white">My Movie Website</h2>
+                <p class="text-neutral-400 leading-relaxed">
+                    Check out my other site with movie content.
+                </p>
+                <a href="https://owlsman21.github.io/MovieHub/" class="block w-full text-center mt-4 bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg shadow-inner transition-colors" target="_blank">
+                    Go to Movies Site
+                </a>
+            </div>
+        </aside>
+
+        <main class="md:w-3/4 space-y-6">
+            <section class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4 text-white">Community Posts</h2>
+                <div id="post-success-message" class="hidden bg-green-600 text-white p-3 rounded-lg text-center mb-4 transition-opacity duration-300">
+                    Post created successfully!
+                </div>
+                <div class="mt-6 flex flex-col space-y-2">
+                    <input type="text" id="postTitleInput" class="w-full p-2 bg-neutral-900 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Post Title">
+                    <textarea id="postInput" class="w-full h-24 p-2 bg-neutral-900 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Write your post here..."></textarea>
+                    <div class="flex justify-end">
+                        <button id="postButton" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg shadow-inner transition-colors">Post</button>
+                    </div>
+                </div>
+                <div id="postsContainer" class="space-y-6 mt-6">
+                    </div>
+            </section>
+
+            <div class="space-y-8">
+                <section id="video-section" class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-bold mb-4 text-white">Videos</h2>
+                    <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        </div>
+                </section>
+            </div>
+
+        </main>
+    </div>
+
+    <button id="backToTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" 
+        class="bg-red-700 hover:bg-red-800 text-white p-3 rounded-full shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+    <script>
+        // Data for movies (unchanged)
+        const movies = [
+            {
+                "id": "AChillingDoc",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Documentary+Video",
+                "year": 2023,
+                "title": "A Chilling Documentary",
+                "description": "An in-depth look at a cold case file that will keep you on the edge of your seat.",
+                "embedId": "1uE6tM0AV-c",
+                "genres": ["Documentary", "Mystery"],
+                "source": "youtube"
+            },
+            {
+                "id": "SnowtownMurders",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Snowtown+Murders",
+                "year": 2011,
+                "title": "Snowtown Murders",
+                "description": "Sixteen-year-old Jamie lives with his mother, Elizabeth, and two younger brothers, Alex and Nicholas, in a housing trust home in Adelaide's northern suburbs...",
+                "embedId": "9204636584486",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "The Final 24 Hours of Every US Serial Killer",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Documentary+Video",
+                "year": 2023,
+                "title": "The Final 24 Hours of Every US Serial Killer",
+                "description": "This video is about all of the major serial killers who passed away and how their last 24 hours looked like. Some of them include Ted Bundy, Jeffrey Dahmer and more",
+                "embedId": "s3t1_A1NckE?si=qsGbWSSzZBRI6jFz",
+                "genres": ["Documentary", "Crime"],
+                "source": "youtube"
+            },
+             {
+                "id": "The Terrifying Case of Edmund Kemper",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Documentary+Video",
+                "year": 2023,
+                "title": " Edmund Kemper The Co-Ed Killer",
+                "description": "Serial killer Edmund Kemper claimed the lives of female students (earning the moniker of Co-ed Butcher) before finally targeting his abusive mother and confessing. Played by Cameron Britton in Netflix crime drama television series Mindhunter, Edmund Emil Kemper III (born December 18, 1948) is an American serial killer and necrophile who murdered ten people, including his paternal grandparents and mother. He is noted for his large size, at 6 feet 9 inches (2.06 m), and for his high intellect, possessing an IQ of 145",
+                "embedId": "56lH5C2Pu7g?si=oKSKSsC7wHkN8_nQ",
+                "genres": ["Documentary", "Crime"],
+                "source": "youtube"
+            },
+            
+            {
+                "id": "Gacy Serial Killer Next Door",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Gacy+Documentary",
+                "year": 2011,
+                "title": "Gacy Serial Killer Next Door",
+                "description": "Wisconsin, 1953. John Gacy, Sr. verbally and physically abuses his son during a fishing trip. Iowa, 1968. The adult John Wayne Gacy Jr. is convicted of sodomy and after 18 months he is released...",
+                "embedId": "7854166772245",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+            {
+                "id": "The Most INFAMOUS Serial Killer In Australian History",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Ivan+Milat",
+                "year": 2017,
+                "title": "The Most INFAMOUS Serial Killer In Australian History",
+                "description": "Ivan Robert Marko Milat, commonly referred to in media as the Backpacker Murderer, was an Australian serial killer who abducted, assaulted, robbed and murdered two men and five women in New South Wales between 1989 and 1992.",
+                "embedId": "8itKXT1yTfc",
+                "genres": ["Documentary"],
+                "source": "youtube"
+            },
+            {
+                "id": "The Hunt For The BTK Killer 2005",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=BTK-Killer",
+                "year": 2005,
+                "title": "The Hunt For The BTK Killer 2005",
+                "description": "After 31 years at-large, detectives in Wichita, Kansas home in on the serial killer known as BTK. Dennis Rader, infamously known as the BTK killer, is a convicted American serial killer...",
+                "embedId": "6409514060345",
+                "genres": ["Crime", "Action"],
+                "source": "ok.ru"
+            },
+            {
+                "id": "Inside the Mind of Jeffrey Dahmer: Serial Killer’s Chilling Jailhouse Interview",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Dahmer",
+                "year": 2016,
+                "title": "Inside the Mind of Jeffrey Dahmer: Serial Killer’s Chilling Jailhouse Interview",
+                "description": "This video is the real life courtroom trial with associated interviews. Jeffrey Lionel Dahmer (May 21, 1960 - November 28, 1994) was an American serial killer and sex offender...",
+                "embedId": "iWjYsxaBjBI",
+                "genres": ["Crime", "Action"],
+                "source": "youtube"
+            },
+            {
+                "id": "Fred and Rose West Documentary",
+                "posterUrl": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p30069767_b_v4_aa.jpg",
+                "year": 2011,
+                "title": "Fred and Rose West Documentary",
+                "description": "In 1994 in Gloucester, England, social services alerted the police to a horrifying rumor they were told by the children of Fred and Rose West...",
+                "embedId": "2026846292518",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+            {
+                "id": "Dennis Rader: The BTK Killer ",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Criminal",
+                "year": 2016,
+                "title": "Dennis Rader: The BTK Killer ",
+                "description": "Dennis Rader's killings occurred between 1974 and 1991, during which time he killed a total of 10 people (the first four of whom were killed in one night)...",
+                "embedId": "4h224QXYD-I",
+                "genres": ["Crime", "Action"],
+                "source": "youtube"
+            },
+            {
+                "id": "The Son Of Sam: Destined To Be A Serial Killer?",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Son-of-sam",
+                "year": 2016,
+                "title": "The Son Of Sam: Destined To Be A Serial Killer? ",
+                "description": "David Berkowitz was born as Richard David Falco. His mother had him out of wedlock when she had an affair with a married real-estate agent named Joseph Klineman...",
+                "embedId": "ZatEG03Y6Zg",
+                "genres": ["Crime", "Action"],
+                "source": "youtube"
+            },
+            {
+                "id": "The Green River Killer",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Gary Ridgway",
+                "year": 2016,
+                "title": "The Green River Killer’s 19-Year Reign of Terror",
+                "description": "The Green River Killer case gripped the Seattle area for nearly two decades, leaving a trail of tragedy and unanswered questions in its wake. Gary Ridgway's crimes, which spanned from 1982 to 2001, have been the subject of numerous documentaries exploring the investigation and the mind behind these heinous acts.",
+                "embedId": "LF_ZyGyiqUs?si=38FWo5meO3bIaxPY",
+                "genres": ["Crime", "Documentry"],
+                "source": "youtube"
+            },
+              {
+                "id": "Serial Killers?",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=3hrs-serial-killers",
+                "year": 2016,
+                "title": "3 Hour Binge Of The Most Mentally Depraved Killers ",
+                "description": "00:00 - Washington SnipersCriminal experts explore the personal life of John Allen Muhammad and Lee Boyd Malvo, two shooters who terrorized the American capital with random fatal shootings over a three-week period.45:25 - Harold ShipmanClues to serial killer doctor Harold Shipman's crimes could be found in his background. After being convicted of the murders of 15 elderly patients, it is believe the true number of victims could be as high as 275.1:30:28 - Jeffrey DahmerAttorneys, friends, other first-hand contacts and a gastronomic peer depict the appealing young gay man who became infamously known as The Milwaukee Cannibal.2:15:48 - Myra HindleyAn insight into Britain's most infamous female serial killer, Myra Hindley. Did something cause her to commit her crimes, or was she born to kill?Absolute Crime is your go-to channel for the best crime documentaries. Subscribe for your weekly dose of crime shows, serial killers, thieves and prison stories.00:00 Washington Snippers45:25 Harold Shipman1:30:28 Jeffrey Dahmer2:15:48 Myra Hindley",
+                "embedId": "bXv5koxHkzg?si=yJPqxe9copzyJ3A4",
+                "genres": ["Crime", "Documentry"],
+                "source": "youtube"
+            },
+            {
+                "id": "ED-Gein-The-Butcher-of-Plainfield ",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Ed-Gein",
+                "year": 2016,
+                "title": "ED Gein: The Butcher of Plainfield | A Real Psycho ",
+                "description": "The story of Ed Gein, who dug up the corpses of over a dozen women and made things out of their remains before finally shooting two people to death and butchering their bodies like beef sides.",
+                "embedId": "XtGrxZldBIc?si=vXyaNvRtb0rS7Wk6",
+                "genres": ["Crime", "Documentry"],
+                "source": "youtube"
+            },
+             {
+                "id": "The-Double-Life-of-Dennis-Rader",
+                "posterUrl": "https://placehold.co/560x315/1c1917/d1d5db?text=Documentary+Video",
+                "year": 2024,
+                "title": "Double Life of Dennis Rader: BTK Killer ",
+                "description": "This Manic Cadence video explores the chilling duality of Dennis Rader, a seemingly ordinary community leader who secretly committed heinous crimes. The documentary details Rader's early life and escalating behaviors, tracing a path from childhood curiosities to horrific acts. It examines the meticulous planning and brazen taunting that characterized Rader's decades-long reign of terror.",
+                "embedId": "3MEgLX6GSFo?si=jTTc88GP1rD9fvNn",
+                "genres": ["Documentary", "Crime"],
+                "source": "youtube"
+            },
+             {
+                "id": "Bundy",
+                "posterUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJBY5ryabkFHoFgMt55Iz7ZQUVyYjASQ1b7YxE0kvTZbbMJjxZsew_MZeudg5yLjKiWX-om7jiP5naF6ws-7LfthtzmmScm56W_DuTjccl",
+                "year": 2002,
+                "title": "Bundy",
+                "description": "Ted Bundy (Michael Reilly Burke) is a seemingly well-adjusted law student with a bright future ahead. Intelligent and good-looking, Ted has little trouble earning the affections of Lee (Boti Ann Bliss), a lovely woman who's willing to look beyond and accept her fiancé's sometimes lascivious sexual appetites. But little can prepare Lee for the brutal crimes Ted is about to commit: a six-state crime spree comprising over 30 homicides and hundreds of rapes.",
+                "embedId": "966671469209",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "Henry-Portrait-of-a Serial-Killer",
+                "posterUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJBY5ryabkFHoFgMt55Iz7ZQUVyYjASQ1b7YxE0kvTZbbMJjxZsew_MZeudg5yLjKiWX-om7jiP5naF6ws-7LfthtzmmScm56W_DuTjccl",
+                "year": 1986,
+                "title": "Henry: Portrait of a Serial Killer",
+                "description": " Henry: Portrait of a Serial Killer is based on a true story, loosely inspired by the lives of real-life serial killers Henry Lee Lucas and Ottis Toole. While the film takes creative liberties, the main characters of Henry and Otis are based on these two convicted murderers. .",
+                "embedId": "2117568236243",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+        ];
+
+    
+
+        // Get elements from the DOM
+        const postsContainer = document.getElementById('postsContainer');
+        const postTitleInput = document.getElementById('postTitleInput');
+        const postInput = document.getElementById('postInput');
+        const postButton = document.getElementById('postButton');
+        const postSuccessMessage = document.getElementById('post-success-message');
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+    let communityPosts = [];
+const POSTS_STORAGE_KEY = 'communityPosts';
+const ADMIN_AUTHOR = "Admin";
+const COMMUNITY_AUTHOR = "Community Member";
+
+// ✅ Pagination setup
+const POSTS_PER_PAGE = 2;
+let currentPage = 1;
+
+function getPaginatedPosts(page) {
+  const start = (page - 1) * POSTS_PER_PAGE;
+  const end = start + POSTS_PER_PAGE;
+  return communityPosts.slice(start, end);
+}
+
+// ✅ Initial data with FIXED, low IDs
+const initialPosts = [
+  {
+    id: 1,
+    title: "The BTK Killer: Unmasking Dennis Rader",
+    content: `
+      <p>Dennis Rader, known as the BTK (Bind, Torture, Kill) Killer, terrorized Wichita, Kansas, for over three decades. His chilling crimes left a trail of death and devastation, but it was his own ego that ultimately led to his downfall.</p>
+      <h2>The Facade of Normalcy</h2>
+      <p>Rader was a seemingly ordinary family man - a husband, father of two, and respected church leader. However, beneath this façade lay a monster driven by dark fantasies. His double life was a stark contrast to the all-American image he portrayed.</p>
+    `,
+    author: ADMIN_AUTHOR,
+    date: "July 25, 2024",
+    image: "https://upload.wikimedia.org/wikipedia/en/9/9c/Dennis_Lynn_Rader.jpg"
+  },
+  {
+    id: 2,
+    title: "The Zodiac Killer",
+    content: `
+      <p>The Zodiac Killer, who operated in Northern California in the late 1960s and early 1970s, has never been officially identified. His reign of terror was characterized by a series of brutal murders and cryptic communications with law enforcement and the press.</p>
+      <h2>The Ciphers</h2>
+      <p>The killer sent numerous letters and ciphers to newspapers, taunting police and media. He claimed the ciphers contained his identity, but only one has ever been definitively solved, revealing a chilling message about his motives and desires.</p>
+    `,
+    author: ADMIN_AUTHOR,
+    date: "July 26, 2024",
+    image: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Zodiac-Killer.jpg"
+  },
+  {
+    id: 3,
+    title: "Thoughts on Jeffrey Dahmer",
+    content: "Jeffrey Dahmer (1960–1994) was an American serial killer and sex offender. Born in Milwaukee, Wisconsin, Dahmer's crimes shocked the nation with their brutality and depravity. Between 1978 and 1991, he murdered 17 men and boys, committing heinous acts of torture, rape, and necrophilia. Dahmer was arrested in 1991 and later murdered by a fellow inmate in 1994.",
+    author: ADMIN_AUTHOR,
+    date: "July 26, 2024",
+    image: "https://upload.wikimedia.org/wikipedia/en/0/0c/Jeffrey_Dahmer_Milwaukee_Police_1991_mugshot.jpg"
+  },
+ {
+                id: 4, // Fixed ID
+                title: "New Ted Bundy Documentary Review",
+                content: "Ted Bundy (1946-1989) was an American serial killer, rapist, and necrophile. Charismatic and intelligent, he confessed to 30 murders during the 1970s, though the actual number may be higher. He was executed in the electric chair in 1989.As the true crime genre ballooned in mainstream popularity, the odds of avoiding Ted Bundy became slimmer. He is a pillar of American true crime. He once called himself the only man with a Ph.D. in serial murder, as if that was something to be proud of.Perhaps if Netflix’s “Conversations With a Killer: The Ted Bundy Tapes” didn’t get it so wrong, another documentary would have. But “Conversations With a Killer,” with all its considerable hype, is now the biggest docuseries we have about the Washington killer, and it falls right into a trap Bundy set 30 years ago.Bundy has long held an almost mythical status, in part because of the horror of his crimes, but also because he seemed to possess an intricate understanding of his own psychology. He was the eloquent, sophisticated serial killer, a trope societies the world over have elevated in pop culture. Jekyll and Hyde, Jack the Ripper, H.H. Holmes. They are gentleman killers, so gripping because their duplicity seems superhuman.",
+                author: ADMIN_AUTHOR, 
+                date: "July 27, 2024",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREt-kFiKL_wfL0vJ9wVYr1wLiekYDZKrju4clwT1_enG5nP25Uu__BO6coba2mW4-l81c&usqp=CAU"
+            }
+        ];
+
+        // Function to load posts from localStorage
+        function loadPosts() {
+            const storedPosts = localStorage.getItem(POSTS_STORAGE_KEY);
+            if (storedPosts) {
+                try {
+                    // Load saved posts, which includes any deletions.
+                    communityPosts = JSON.parse(storedPosts); 
+                } catch (e) {
+                    console.error("Error parsing stored posts, using initial data.", e);
+                    communityPosts = initialPosts;
+                }
+            } else {
+                // First time visit: load initial posts and save them immediately 
+                communityPosts = initialPosts;
+                savePosts(); 
+            }
+        }
+
+        // Function to save posts to localStorage (Crucial for persistence)
+        function savePosts() {
+            localStorage.setItem(POSTS_STORAGE_KEY, JSON.stringify(communityPosts));
+        }
+        
+        // Function to delete a post by its unique ID
+        window.deletePost = function(postId) {
+            // Confirm with the user before deleting
+            if (!confirm("Are you sure you want to delete this post?")) {
+                return;
+            }
+
+            // Convert postId to a number for comparison
+            const idToDelete = Number(postId);
+            
+            // Filter the array, removing the post with the matching ID
+            const initialCount = communityPosts.length;
+            communityPosts = communityPosts.filter(p => p.id !== idToDelete);
+            
+            // If a post was removed, save the new list and re-render
+            if (communityPosts.length < initialCount) {
+                savePosts(); // Saves the new list to local storage
+                renderPosts(); 
+                console.log(`Post with ID ${idToDelete} successfully deleted.`);
+            } else {
+                console.warn(`Post with ID ${idToDelete} not found.`);
+            }
+        }
+
+
+        // Function to generate movie cards (unchanged)
+        function generateMovieCards() {
+            const videoGrid = document.getElementById('videoGrid');
+            if (!videoGrid) return;
+
+            videoGrid.innerHTML = ''; 
+
+            movies.forEach(movie => {
+                let mediaHtml;
+                
+                if (movie.source === 'youtube') {
+                    mediaHtml = `
+                        <div class="responsive-iframe-container">
+                            <iframe src="https://www.youtube.com/embed/${movie.embedId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    `;
+                } else if (movie.source === 'ok.ru') {
+                    mediaHtml = `
+                        <div class="responsive-iframe-container">
+                            <iframe src="https://ok.ru/videoembed/${movie.embedId}" title="OK.ru video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    `;
+                } else {
+                    mediaHtml = `
+                        <div class="responsive-iframe-container">
+                            <img src="${movie.posterUrl}" alt="${movie.title} poster" class="w-full h-full object-cover">
+                        </div>
+                    `;
+                }
+
+                const movieCardHtml = `
+                    <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-xl transform hover:scale-[1.02] transition-transform duration-300">
+                        ${mediaHtml}
+                        <div class="p-4">
+                            <h3 class="text-white text-lg font-bold truncate">${movie.title} (${movie.year})</h3>
+                            <p class="text-sm text-neutral-400 mt-1 mb-2">${movie.description.substring(0, 100)}...</p>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                ${movie.genres.map(genre => `<span class="bg-red-900 text-red-300 px-2 py-0.5 rounded-full">${genre}</span>`).join('')}
+                            </div>
+                            <p class="text-xs text-neutral-500 mt-3">Source: ${movie.source}</p>
+                        </div>
+                    </div>
+                `;
+                videoGrid.innerHTML += movieCardHtml;
+            });
+        }
+
+        // Function to generate and display community posts (FIXED: Delete button only for non-Admin posts)
+        function renderPosts() {
+            if (!postsContainer) return;
+
+            postsContainer.innerHTML = ''; // Clear existing posts
+            // Reverse posts so the newest one appears at the top
+            const reversedPosts = [...communityPosts].reverse();
+
+            if (reversedPosts.length === 0) {
+                postsContainer.innerHTML = '<p class="text-neutral-400 text-center py-6">No community posts yet. Be the first to post!</p>';
+                return;
+            }
+
+            reversedPosts.forEach((post) => {
+                const postCard = document.createElement('div');
+                postCard.className = 'bg-neutral-900 p-4 rounded-lg shadow-xl border border-neutral-700';
+
+                // Check if post.content is simple text or HTML content 
+                const postContentHtml = post.content.includes('<p>') || post.content.includes('<h2>') ? post.content : `<p class="text-neutral-300">${post.content}</p>`;
+                
+                // RENDER DELETE BUTTON ONLY IF THE AUTHOR IS NOT 'Admin'
+                const deleteButtonHtml = (post.author !== ADMIN_AUTHOR) ? `
+                    <button onclick="deletePost(${post.id})" 
+                        class="text-xs text-red-400 hover:text-red-600 font-bold ml-4 p-1 rounded transition-colors"
+                        title="Delete Post">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 6h6v10H7V6z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                ` : ''; // If Admin, the button is an empty string
+
+                postCard.innerHTML = `
+                    <div class="flex items-start justify-between mb-3">
+                        <div class="flex items-start">
+                            <img src="${post.image || 'https://placehold.co/100x100/1c1917/d1d5db?text=User'}" 
+                                alt="${post.author}" 
+                                class="w-10 h-10 rounded-full object-cover mr-3 border-2 border-red-500">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">${post.title}</h3>
+                                <p class="text-xs text-neutral-500">Posted by ${post.author} on ${post.date}</p>
+                            </div>
+                        </div>
+                        ${deleteButtonHtml}
+                        </div>
+                    <div class="prose prose-sm prose-invert max-w-none text-neutral-300 space-y-3">
+                        ${postContentHtml}
+                    </div>
+                `;
+                postsContainer.appendChild(postCard);
+            });
+        }
+
+        // Function to handle new post creation 
+        function handlePost() {
+            const title = postTitleInput.value.trim();
+            const content = postInput.value.trim();
+
+            if (content) {
+                const newPost = {
+                    // Use Date.now() for new posts to ensure a very high, unique ID
+                    id: Date.now(), 
+                    title: title || "Untitled Post",
+                    content: content,
+                    author: COMMUNITY_AUTHOR, 
+                    date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+                    image: null
+                };
+
+                communityPosts.push(newPost); // Add to the array
+                savePosts(); // Save to local storage
+                renderPosts(); // Re-render posts
+
+                // Clear inputs
+                postTitleInput.value = '';
+                postInput.value = '';
+
+                // Show and fade out success message
+                postSuccessMessage.classList.remove('hidden');
+                setTimeout(() => {
+                    postSuccessMessage.classList.add('hidden');
+                }, 3000); 
+            } else {
+                alert("Please enter some content for your post.");
+            }
+        }
+
+        // Scroll function to show/hide the button (unchanged)
+        function toggleBackToTopButton() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        }
+        
+        // Add event listener for scrolling
+        window.onscroll = function() {
+            toggleBackToTopButton();
+        };
+
+        // Add event listener to the Post button
+        postButton.addEventListener('click', handlePost);
+
+        // Initialization function to run everything on page load
+        window.onload = () => {
+            loadPosts(); 
+            renderPosts();
+            generateMovieCards();
+            toggleBackToTopButton(); 
+        };
+
+    </script>
+</body>
+</html>
