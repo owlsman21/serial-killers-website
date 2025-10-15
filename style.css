@@ -1,285 +1,158 @@
- body {
-  margin: 0;
-  font-family: 'Butcherman', 'Creepster', 'Nosifer', Arial, sans-serif;
-  background-image: url('images/electric-chair.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
+/* ========== Base Styling ========== */
+:root {
+  --primary-color: darkred;
+  --background-color: #1e1e1e;
+  --text-light: #d4d4d4;
+  --text-dark: #262626;
+  --accent-dark: #aa0000;
+  --accent-light: #daa560;
 }
 
-   header {
+body {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+}
+
+.death-row-background {
+  background-color: #000;
+  padding-bottom: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(120, 0, 0, 0.4);
+  z-index: -1;
+}
+
+/* ========== Header ========== */
+header {
   background: #111;
   color: #ff0000;
   padding: 1em;
   text-align: center;
-  font-family: 'Creepster', 'Nosifer', 'Butcherman', cursive;
-  font-size: 2.5em;
+  font-size: clamp(2.5em, 5vw, 3.5em);
+  font-family: 'Creepster', cursive;
   letter-spacing: 2px;
   text-shadow: 3px 3px 6px black;
   animation: flicker 2s infinite;
-   width: 100%;
-
-}
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(120, 0, 0, 0.4); /* blood-red tint */
-  z-index: -1;
-}
-    .death-row-background {
-  background-image: url('images/sparky.jpg'); /* Adjust path if needed */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.image-wrapper {
-  position: relative;
-  width: fit-content;
-  margin: auto;
-  background-image: url('');
-  background-size: cover;
-  background-position: center;
-  padding: 20px; /* Optional: adds spacing around the foreground image */
 }
 
-.image-wrapper img {
-  position: relative;
-  z-index: 1;
-  display: block;
-  max-width: 100%;
-  height: auto;
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 22%, 24%, 55% { opacity: 0; }
 }
 
+/* ========== Featured Case Section ========== */
 .featured-case {
-  display: block; /* ditch flex unless you're aligning side-by-side */
-  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
   padding: 40px 5vw;
 }
 
 .featured-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
   padding: 30px;
   border-radius: 10px;
+}
+.image-wrapper {
+  flex: 1 1 200px;
+  text-align: center;
+}
+
+.featured-poster {
+  max-width: 250px;
   width: 100%;
-  text-align: left; /* make text flow naturally */
+  border-radius: 5px;
+  box-shadow: 0 0 10px red;
 }
 
 .featured-text {
-  width: 100%;
-  text-align: left;
-  padding: 0;
-}
-
-.featured-description {
-  font-style: italic;
-  color: #ccc;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  text-align: left;
-}
-
-
-.featured-poster {
-  width: 200px;
-  border-radius: 5px;
-  margin-bottom: 20px;
+  flex: 2 1 400px;
 }
 
 .blood-title {
-  font-size: 3em;
+  font-size: clamp(2.5em, 6vw, 3.5em);
   color: red;
   text-shadow: 3px 3px 6px black;
   font-family: 'Creepster', cursive;
   margin-bottom: 20px;
 }
 
+.featured-description {
+  font-style: italic;
+  color: #ccc;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
 
-
-.read-more-button {
-  background-color: #990000;
+.read-more-button,
+.close-btn {
+  background-color: var(--accent-dark);
   color: white;
   padding: 10px 20px;
   border: none;
   font-size: 1em;
   cursor: pointer;
   border-radius: 5px;
-}
-.read-full-case {
-  display: none;
+  transition: background 0.3s ease;
 }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1em;
-      padding: 1em;
-    }
-    .grid img {
-  width: 100%;
-  height: 300px; /* fixed height for uniformity */
-  object-fit: cover; /* crops excess without distortion */
-  border: 2px solid #8B0000; /* blood-red accent */
-  box-shadow: 0 0 10px rgba(139, 0, 0, 0.6); /* eerie glow */
+.read-more-button:hover,
+.close-btn:hover {
+  background: #ff0000;
+}
+
+/* ========== Grid Layout ========== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  align-items: stretch;
+}
+
+/* ========== Card Styling ========== */
+.card {
+  background: #111;
+  border: 1px solid #333;
+  padding: 15px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 10px red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   transition: transform 0.3s ease;
 }
 
-.grid img:hover {
-  transform: scale(1.05); /* subtle zoom on hover */
+.card img,
+.card iframe {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 2px solid crimson;
+  box-shadow: 0 0 10px rgba(139, 0, 0, 0.6);
 }
 
-    .card {
-      background: #fff;
-      padding: 1em;
-      border-radius: 6px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .card h3 {
-      font-family: 'Creepster', cursive;
-      color: #ff0000;
-      margin-top: 0;
-    }
-
-    .card p {
-      font-family: Arial, sans-serif;
-      color: #000;
-    }
-
-    .read-toggle {
-      background: none;
-      border: none;
-      color: #990000;
-      font-size: 0.9em;
-      cursor: pointer;
-      text-decoration: underline;
-      margin-top: 0.5em;
-    }
-
-    iframe {
-      width: 100%;
-      height: 200px;
-      margin-top: 1em;
-      border: none;
-    }
-
-    .admin-controls {
-      margin-top: 0.5em;
-      font-size: 0.9em;
-      color: #777;
-    }
-
-    .admin-controls button {
-      margin-right: 0.5em;
-      padding: 0.3em 0.6em;
-      font-size: 0.8em;
-      color: #990000;
-      border: 1px solid #990000;
-      background: transparent;
-      cursor: pointer;
-    }
-
-    .admin-controls button:hover {
-      background: #990000;
-      color: #fff;
-    }
-
-    .pagination {
-      text-align: center;
-      padding: 1em;
-    }
-
-    .pagination button {
-      margin: 0 5px;
-      padding: 0.5em 1em;
-      font-size: 1em;
-      font-family: 'Butcherman', cursive;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow-y: auto;
-      background-color: rgba(0, 0, 0, 0.9);
-      color: #fff;
-      padding: 2em;
-    }
-
-    .modal-content {
-      max-width: 800px;
-      margin: auto;
-      background: #111;
-      padding: 2em;
-      border-radius: 8px;
-    }
-
-    .modal h2 {
-      font-family: 'Creepster', cursive;
-      color: #ff0000;
-      margin-top: 0;
-    }
-
-    .modal p {
-      font-family: Arial, sans-serif;
-      color: #ddd;
-    }
-
-    .modal iframe {
-      width: 100%;
-      height: 300px;
-      margin-top: 1em;
-      border: none;
-    }
-
-    .close-btn {
-      background: #990000;
-      color: #fff;
-      border: none;
-      padding: 0.5em 1em;
-      cursor: pointer;
-      margin-top: 1em;
-    }
-
-    .close-btn:hover {
-      background: #ff0000;
-    }
-    @keyframes flicker {
-  0%   { opacity: 1; text-shadow: 3px 3px 6px black; }
-  10%  { opacity: 0.8; text-shadow: 2px 2px 4px #990000; }
-  20%  { opacity: 0.6; text-shadow: 1px 1px 2px #660000; }
-  30%  { opacity: 0.9; text-shadow: 3px 3px 6px black; }
-  40%  { opacity: 0.7; text-shadow: 2px 2px 4px #990000; }
-  50%  { opacity: 1; text-shadow: 3px 3px 6px black; }
-  100% { opacity: 1; text-shadow: 3px 3px 6px black; }
-}
-.case-card {
-  background: #111;
-  color: #f00;
-  padding: 20px;
-  border: 1px solid #f00;
-  margin-bottom: 30px;
-  box-shadow: 0 0 10px #f00;
+.card img:hover,
+.card iframe:hover {
+  transform: scale(1.05);
 }
 
-.excerpt {
-  font-family: 'Courier New', monospace;
-  font-size: 1rem;
-  max-height: 4.5em;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.card h3 {
+  font-size: 1.1rem;
+  margin: 10px 0 5px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
 }
 
 .read-more {
@@ -290,28 +163,118 @@ body::before {
   padding: 5px 10px;
   text-decoration: none;
   font-weight: bold;
-  transition: background 0.3s;
+  transition: background 0.3s ease;
 }
 
 .read-more:hover {
   background: #900;
 }
-@keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
-  20%, 22%, 24%, 55% { opacity: 0; }
+
+/* ========== Modal ========== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 2em;
 }
 
-h1 {
-  animation: flicker 2s infinite;
+.modal-content {
+  max-width: 800px;
+  margin: auto;
+  background: #111;
+  padding: 2em;
+  border-radius: 8px;
 }
+
+.modal h2 {
+  font-family: 'Creepster', cursive;
+  color: #ff0000;
+  margin-top: 0;
+}
+
+.modal p {
+  font-family: Arial, sans-serif;
+  color: #ddd;
+}
+
+.modal iframe {
+  width: 100%;
+  height: 300px;
+  margin-top: 1em;
+  border: none;
+}
+
+/* ========== Pagination ========== */
+.pagination {
+  text-align: center;
+  padding: 1em;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  font-family: 'Butcherman', cursive;
+}
+
+/* ========== Admin Controls ========== */
+.admin-controls {
+  margin-top: 0.5em;
+  font-size: 0.9em;
+  color: #777;
+}
+
+.admin-controls button {
+  margin-right: 0.5em;
+  padding: 0.3em 0.6em;
+  font-size: 0.8em;
+  color: var(--accent-dark);
+  border: 1px solid var(--accent-dark);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.admin-controls button:hover {
+  background: var(--accent-dark);
+  color: #fff;
+}
+
+/* ========== Video Container ========== */
 .video-container {
   text-align: center;
   margin-top: 20px;
 }
 
-iframe {
-  width: 720px;
+.video-container iframe {
+  width: 100%;
+  max-width: 720px;
   height: 405px;
   box-shadow: 0 0 20px #000;
   border: none;
+}
+
+/* ========== Responsive Scaling ========== */
+@media (max-width: 768px) {
+  .featured-overlay {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .featured-poster {
+    max-width: 100%;
+  }
+
+  .blood-title {
+    font-size: 2em;
+  }
+
+  .card img,
+  .card iframe {
+    height: 150px;
+  }
 }

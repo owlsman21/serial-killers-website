@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
-  body { background: black; color: red; }
-</style>
-  <meta name="google-site-verification" content="MR92DIN_Yf1Fp97krxJc80o2c2cEHfo0IdZBKAbMS9k" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Movie Hub – True Crime Archives</title>
@@ -13,79 +9,59 @@
   <meta name="author" content="Dennis">
   <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-89YSPCWZ89"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-89YSPCWZ89');
-  </script>
 </head>
 
 <body>
   <div class="death-row-background">
     <header>
-      <h1 class="site-title">Serial Killers and True Crime</h1>
+      <h1 class="blood-title">Serial Killers and True Crime</h1>
     </header>
+  </div>
 
+  <main>
     <section class="featured-case">
-      <div class="featured-overlay featured-poster">
+      <div class="featured-overlay">
         <div class="image-wrapper">
-          <img src="images/sparky.jpg" alt="Sparky image">
+          <img src="images/sparky.jpg" alt="Sparky image" class="featured-poster" />
         </div>
-
         <div class="featured-text">
           <h1 class="blood-title">Ted Bundy vs Jeffrey Dahmer</h1>
           <p class="featured-description">
             Two monsters. Two legacies of terror. One chilling comparison.<br>
             Step inside the minds of America’s most notorious serial killers — where charm masks savagery and silence hides obsession.
           </p>
-         <button class="read-more-button read-full-case" onclick="openModalById('AChillingDoc')">☠️ Read the Full Case File</button>
+          <button class="read-more-button read-full-case" onclick="openModal(0)">
+            ☠️ Read the Full Case File
+          </button>
         </div>
       </div>
     </section>
-  </div>
-</body>
 
+    <section class="grid" id="caseGrid"></section>
+    <div class="pagination" id="pagination"></div>
 
+    <div id="caseModal" class="modal">
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </main>
 
+  <script>
+    const isAdmin = false;
+    const pageSize = 5;
+    let currentPage = 1;
 
+    const cases = [
+      {
+        id: "AChillingDoc",
+        title: "Ted Bundy vs Jeffrey Dahmer",
+        description: "Ted Bundy vs Jeffrey Dahmer An In-Depth Look at a Cold Case File. Two names that echo through the darkest corridors of criminal history. Bundy was the charming predator; Dahmer, the withdrawn obsessive. Their legacies intersect in chilling ways.",
+        embedId: "1uE6tM0AV-c",
+        source: "youtube",
+        posterUrl: "images/Jeffrey Dahmer mugshot.jpg",
+        genres: ["Documentary", "Mystery"],
+        year: 2023
+      },
 
-<section class="grid" id="caseGrid"></section>
-<div class="pagination" id="pagination"></div>
-
-<div id="caseModal" class="modal">
-  <div class="modal-content" id="modalContent"></div>
-</div>
-<script>
-  const isAdmin = false; // Toggle to true to show Edit/Delete buttons
-
-  function getVideoEmbed(url, source) {
-    return `
-      <iframe src="${url}" allowfullscreen frameborder="0"
-        onerror="this.outerHTML='<div style=\\'color:#990000; padding:1em; background:#f8d7da; border-radius:6px;\\'>Video unavailable or broken link.</div>'">
-      </iframe>
-    `;
-  }
-
-  // 👇 PLACE MEDIA HERE
- 
-
-  const cases = [
- {
-  id: "AChillingDoc",
-  title: "Ted Bundy vs Jeffrey Dahmer",
-  description: "Ted Bundy vs Jeffrey Dahmer An In-Depth Look at a Cold Case File Two names that echo through the darkest corridors of criminal history: Ted Bundy and Jeffrey Dahmer. Both are etched into the American psyche as symbols of horror, manipulation, and psychological complexity. But while their crimes differ in method and motive, their legacies intersect in chilling ways — shaping how we investigate, understand, and fear serial murder. Psychological Contrast Bundy was the archetype of the charming predator — a law student who weaponized charisma to lure victims. He thrived on control, deception, and dominance. Dahmer, by contrast, was socially withdrawn, driven by obsession and compulsion. His crimes were rooted in possession and permanence, not performance. Where Bundy sought power, Dahmer sought silence.",
-
-
-  embedId: "1uE6tM0AV-c",
-  source: "youtube",
-  posterUrl: "images/Jeffrey Dahmer mugshot.jpg",
-  genres: ["Documentary", "Mystery"],
-  year: 2023
-},
       {
                 "id": "SnowtownMurders",
                posterUrl: "images/snowtown.jpg",
@@ -288,130 +264,105 @@
             },
   ];
 
-const pageSize = 5;
-let currentPage = 1;
-let lazyLoaded = false;
 
-  function getEmbedUrl(source, embedId) {
-    if (source === "youtube") return `https://www.youtube.com/embed/${embedId}`;
-    if (source === "ok.ru") return `https://ok.ru/videoembed/${embedId}`;
-    return "";
-  }
+    function cleanEmbedId(embedId) {
+      return embedId.split('?')[0];
+    }
 
-  function getVideoEmbed(source, embedId) {
-    const url = getEmbedUrl(source, embedId);
-    return `
-      <iframe src="${url}" allowfullscreen frameborder="0"
-        onerror="this.outerHTML='<div style=\\'color:#990000; padding:1em; background:#f8d7da; border-radius:6px;\\'>Video unavailable or broken link.</div>'">
-      </iframe>
-    `;
-  }
+    function getEmbedUrl(source, embedId) {
+      const cleanId = cleanEmbedId(embedId);
+      if (source === "youtube") return `https://www.youtube.com/embed/${cleanId}`;
+      if (source === "ok.ru") return `https://ok.ru/videoembed/${cleanId}`;
+      return "";
+    }
 
-  function getPosterHtml(posterUrl) {
-    return `<img src="${posterUrl}" alt="Poster" style="width:100%; margin-top:1em; border-radius:6px;" />`;
-  }
+    function getVideoEmbed(source, embedId) {
+      const url = getEmbedUrl(source, embedId);
+      return `
+        <iframe src="${url}" allowfullscreen frameborder="0"
+          onerror="this.outerHTML='<div style=\\'color:#990000; padding:1em; background:#f8d7da; border-radius:6px;\\'>Video unavailable or broken link.</div>'">
+        </iframe>
+      `;
+    }
 
-  function renderPage(page) {
-    const grid = document.getElementById('caseGrid');
-    grid.innerHTML = '';
-    const start = (page - 1) * pageSize;
-    const end = start + pageSize;
-    const pageCases = cases.slice(start, end);
+    function getPosterHtml(posterUrl) {
+      return `<img src="${posterUrl}" alt="Poster" style="width:100%; margin-top:1em; border-radius:6px;" />`;
+    }
 
-    pageCases.forEach((c, i) => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <h3>${c.title}</h3>
+    function renderPage(page) {
+      const grid = document.getElementById('caseGrid');
+      grid.innerHTML = '';
+      const start = (page - 1) * pageSize;
+      const end = start + pageSize;
+      const pageCases = cases.slice(start, end);
+
+      pageCases.forEach((c, i) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${c.title}</h3>
+          <p class="excerpt">${c.description}</p>
+          <button class="read-toggle" onclick="openModal(${start + i})">Read More</button>
+          ${getPosterHtml(c.posterUrl)}
+          ${getVideoEmbed(c.source, c.embedId)}
+          ${isAdmin ? `
+            <div class="admin-controls">
+              <button onclick="editCase(${start + i})">Edit</button>
+              <button onclick="deleteCase(${start + i})">Delete</button>
+            </div>
+          ` : ''}
+        `;
+        grid.appendChild(card);
+      });
+
+      currentPage = page;
+      renderPagination();
+    }
+
+    function openModal(index) {
+      const modal = document.getElementById('caseModal');
+      const content = document.getElementById('modalContent');
+      const c = cases[index];
+      content.innerHTML = `
+        <h2>${c.title} (${c.year})</h2>
         <p>${c.description}</p>
-        <button class="read-toggle" onclick="openModal(${start + i})">Read More</button>
         ${getPosterHtml(c.posterUrl)}
         ${getVideoEmbed(c.source, c.embedId)}
-        ${isAdmin ? `
-          <div class="admin-controls">
-            <button onclick="editCase(${start + i})">Edit</button>
-            <button onclick="deleteCase(${start + i})">Delete</button>
-          </div>
-        ` : ''}
+        <button class="close-btn" onclick="closeModal()">Close</button>
       `;
-      grid.appendChild(card);
+      modal.style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('caseModal').style.display = 'none';
+    }
+
+    function renderPagination() {
+      const totalPages = Math.ceil(cases.length / pageSize);
+      const container = document.getElementById('pagination');
+      container.innerHTML = '';
+
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        btn.disabled = i === currentPage;
+        btn.onclick = () => renderPage(i);
+        container.appendChild(btn);
+      }
+    }
+
+    function editCase(index) {
+      alert(`Edit case: ${cases[index].title}`);
+    }
+
+    function deleteCase(index) {
+      alert(`Delete case: ${cases[index].title}`);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderPage(1);
     });
-
-    currentPage = page;
-    renderPagination();
-  }
-
-  function openModal(index) {
-    const modal = document.getElementById('caseModal');
-    const content = document.getElementById('modalContent');
-    const c = cases[index];
-    content.innerHTML = `
-      <h2>${c.title} (${c.year})</h2>
-      <p>${c.description}</p>
-      ${getPosterHtml(c.posterUrl)}
-      ${getVideoEmbed(c.source, c.embedId)}
-      <button class="close-btn" onclick="closeModal()">Close</button>
-    `;
-    modal.style.display = 'block';
-  }
-
-  function closeModal() {
-    document.getElementById('caseModal').style.display = 'none';
-  }
-
-  function renderPagination() {
-    const totalPages = Math.ceil(cases.length / pageSize);
-    const container = document.getElementById('pagination');
-    container.innerHTML = '';
-
-    for (let i = 1; i <= totalPages; i++) {
-      const btn = document.createElement('button');
-      btn.textContent = i;
-      btn.disabled = i === currentPage;
-      btn.onclick = () => renderPage(i);
-      container.appendChild(btn);
-    }
-  }
-
-  function editCase(index) {
-    alert(`Edit case: ${cases[index].title}`);
-  }
-
-  function deleteCase(index) {
-    alert(`Delete case: ${cases[index].title}`);
-  }
-
- 
-
-
-  renderPage(1);
-</script>
-<script>
-  const cases = [
-    {
-      id: "AChillingDoc",
-      title: "Ted Bundy vs Jeffrey Dahmer",
-      description: "Ted Bundy vs Jeffrey Dahmer An In-Depth Look...",
-      embedId: "1uE6tM0AV-c",
-      source: "youtube",
-      posterUrl: "images/Jeffrey Dahmer mugshot.jpg",
-      genres: ["Documentary", "Mystery"],
-      year: 2023
-    }
-  ];
-
-  const container = document.querySelector('.descriptions');
-
-  cases.forEach(video => {
-    const block = document.createElement('div');
-    block.id = video.id;
-    block.innerHTML = `
-      <h2>${video.title} (${video.year})</h2>
-      <p>${video.description}</p>
-    `;
-    container.appendChild(block);
-  });
-</script>
-<div class="descriptions"></div>
+    
+  </script>
 </body>
 </html>
