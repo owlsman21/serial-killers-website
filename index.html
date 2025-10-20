@@ -611,13 +611,7 @@
                 "source": "ok.ru"
             },
   ];
-  <section id="featured-cases">
-  <h2>Featured Crime Cases</h2>
-  <ul>
-    <li><a href="cases/bulger-full.html">The Bulger Murder</a></li>
-    <li><a href="cases/snowtown.html">The Snowtown Murders</a></li>
-  </ul>
-</section>
+
 
 
     function cleanEmbedId(embedId) {
@@ -719,5 +713,27 @@
     });
     
   </script>
+ <section id="featured-cases" style="margin-top: 60px; padding: 20px; background-color: #111; border-top: 2px solid red;">
+  <h2 style="color: red; font-family: 'Impact', sans-serif; font-size: 28px; text-align: center;">Featured Crime Cases</h2>
+  <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+    <a href="cases/bulger-full.html" style="text-decoration: none;">
+      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
+        <img src="images/bulger-thumb.jpg" alt="Bulger Case" style="width: 100%; border-radius: 6px;">
+        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">The Bulger Murder</h3>
+        <div style="margin: 20px;">
+  <a href="/" style="color: red; font-family: 'Impact'; font-size: 18px; text-decoration: none;">
+    ← Return to Archive
+  </a>
+</div>
+      </div>
+    </a>
+    <a href="cases/snowtown.html" style="text-decoration: none;">
+      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
+        <img src="images/snowtown-thumb.jpg" alt="Snowtown Case" style="width: 100%; border-radius: 6px;">
+        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">The Snowtown Murders</h3>
+      </div>
+    </a>
+  </div>
+</section>
 </body>
 </html>
