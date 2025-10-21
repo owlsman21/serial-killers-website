@@ -21,38 +21,38 @@
 </head>
 
 <body>
-  <div class="death-row-background">
-    <header>
-      <h1 class="blood-title">Serial Killers and True Crime</h1>
-    </header>
-  </div>
+    <div class="death-row-background">
+        
+        <header>
+            <h1 class="blood-title">Serial Killers and True Crime</h1>
+        </header>
+        
+        <img 
+            src="images/old sparky 3.jpg" 
+            alt="Electric Chair Exhibit"
+            style="
+                display: block; 
+                margin: 0 auto; 
+                width: 80%; 
+                max-width: 450px; 
+                height: auto; 
+                border: 5px solid darkred; 
+                box-shadow: 0 0 20px black; 
+                
+            "
+        >
+        
+        <a href="#caseGrid" class="skip-button">SKIP TO THE KILLERS</a>
 
-  <main>
-    <section class="featured-case">
-      <div class="featured-overlay">
-        <div class="image-wrapper">
-          <img src="images/sparky.jpg" alt="Sparky image" class="featured-poster" />
+    </div> <main>
+        
+        <section class="grid" id="caseGrid"></section>
+        <div class="pagination" id="pagination"></div>
+
+        <div id="caseModal" class="modal">
+            <div class="modal-content" id="modalContent"></div>
         </div>
-        <div class="featured-text">
-          <h1 class="blood-title">Ted Bundy vs Jeffrey Dahmer</h1>
-          <p class="featured-description">
-            Two monsters. Two legacies of terror. One chilling comparison.<br>
-            Step inside the minds of America’s most notorious serial killers — where charm masks savagery and silence hides obsession.
-          </p>
-          <button class="read-more-button read-full-case" onclick="openModal(0)">
-            ☠️ Read the Full Case File
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section class="grid" id="caseGrid"></section>
-    <div class="pagination" id="pagination"></div>
-
-    <div id="caseModal" class="modal">
-      <div class="modal-content" id="modalContent"></div>
-    </div>
-  </main>
+    </main>
 
   <script>
     const isAdmin = false;
@@ -714,6 +714,9 @@
     });
     
   </script>
+  <section id="featured-cases">
+  <!-- Your featured crime cases content -->
+</section>
 <section id="featured-cases" style="margin-top: 60px; padding: 20px; background-color: #111; border-top: 2px solid red;">
   <h2 style="color: red; font-family: 'Impact', sans-serif; font-size: 28px; text-align: center;">Featured Crime Cases</h2>
   <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
