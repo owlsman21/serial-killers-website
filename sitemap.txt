@@ -6,21 +6,20 @@
     <priority>1.0</priority>
   </url>
   <url>
-  <loc>https://owlsman21.github.io/serial-killers-website/cases/The%20Grey%20Man.html</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://owlsman21.github.io/serial-killers-website/cases/columbine-1999.html</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://owlsman21.github.io/serial-killers-website/cases/bulger-full.html</loc>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-
+    <loc>https://owlsman21.github.io/serial-killers-website/cases/The%20Grey%20Man.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://owlsman21.github.io/serial-killers-website/cases/columbine-1999.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://owlsman21.github.io/serial-killers-website/cases/bulger-full.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
 
 
