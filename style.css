@@ -24,6 +24,12 @@ body::after {
     background: rgba(120, 0, 0, 0.5); /* The red overlay */
     z-index: -1; 
 }
+h1 {
+  text-align: center;
+}
+p {
+  color: white;
+}
 a.return {
     display: inline-block; /* Use inline-block for proper centering and button shape */
     margin: 20px auto; /* Centering and spacing */
