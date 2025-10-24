@@ -25,6 +25,7 @@ body::after {
     z-index: -1; 
 }
 
+
 .death-row-background {
     /* ⬅️ FIX: Use a solid color that matches the border/background of your new image */
     background-color: #2A1A1A; 
