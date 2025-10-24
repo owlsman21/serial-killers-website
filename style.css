@@ -24,6 +24,34 @@ body::after {
     background: rgba(120, 0, 0, 0.5); /* The red overlay */
     z-index: -1; 
 }
+a.return {
+    display: inline-block; /* Use inline-block for proper centering and button shape */
+    margin: 20px auto; /* Centering and spacing */
+    padding: 12px 24px;
+    
+    /* ⬅️ FIX: Solid Red Button Appearance */
+    background-color: #8B0000; /* Dark red background */
+    color: #fff; /* White text */
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    
+    /* Glowing Border Effect */
+    border: 2px solid #B22222;
+    box-shadow: 0 0 10px #ff0000;
+    transition: background 0.3s ease;
+    
+    /* Ensure link can be centered within its parent */
+    width: fit-content;
+}
+
+a.return:hover {
+    /* ⬅️ FIX: Hover effect */
+    background-color: #B22222;
+    box-shadow: 0 0 15px #ff0000;
+    text-decoration: none;
+}
 
 
 .death-row-background {
