@@ -24,6 +24,45 @@ body::after {
     background: rgba(120, 0, 0, 0.5); /* The red overlay */
     z-index: -1; 
 }
+.audio-link {
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+  color: #ff1a1a;
+  background-color: #1a1a1a;
+  padding: 15px 25px;
+  margin: 40px auto;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #ff4d4d;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #ff4d4d;
+  text-shadow: 1px 1px 3px black;
+  transition: all 0.3s ease-in-out;
+}
+
+.audio-link:hover {
+  background-color: #330000;
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #ff1a1a;
+}
+.audio-header {
+  font-size: 2.5em;
+  color: #ff4d4d;
+  text-align: center;
+  margin-top: 40px;
+  text-shadow: 2px 2px 5px black;
+  letter-spacing: 1px;
+}
+.audio-block {
+  background-color: #1a1a1a;
+  padding: 20px;
+  margin: 40px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #ff4d4d;
+  max-width: 700px;
+}
 h1 {
   text-align: center;
 }
