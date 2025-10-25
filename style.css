@@ -316,6 +316,30 @@ header {
   margin-top: 1em;
   border: none;
 }
+.return-link {
+  text-align: center;
+  margin: 60px auto 40px;
+}
+
+.return-link a {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #ff4d4d;
+  background-color: #1a1a1a;
+  padding: 12px 24px;
+  border: 2px solid #ff4d4d;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 0 12px #ff4d4d;
+  transition: all 0.3s ease-in-out;
+}
+
+.return-link a:hover {
+  background-color: #330000;
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff1a1a;
+}
 
 /* ========== Pagination ========== */
 .pagination {
