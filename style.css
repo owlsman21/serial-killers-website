@@ -1,19 +1,18 @@
-/* ========== Base Styling ========== */
-/* ========== Base Styling ========== */
+
 :root {
   --primary-color: darkred;
   --background-color: #1e1e1e;
   /* ... (rest of your root variables) ... */
-}
+
 
 body {
-  /* Set the theme color as the default background */
-  background-color: var(--background-color); 
-  color: var(--text-light);
-  margin: 0; /* Important: removes default margin */
-  padding: 0;
-  min-height: 100vh; /* Ensure body takes full height of viewport */
-  position: relative;
+  font-family: 'Nosifer', cursive;
+}
+
+h1, h2, h3, h4, h5, h6,
+.header, .title, .audio-header,
+.navbar-brand, .case-title {
+  font-family: 'Nosifer', cursive !important;
 }
 
 /* ⬅️ NEW: Use a second pseudo-element for the color overlay */
@@ -71,14 +70,41 @@ body::after {
   transform: scale(1.05);
   box-shadow: 0 0 25px #ff1a1a;
 }
-.audio-header {
-  font-size: 2.5em;
-  color: #ff4d4d;
-  text-align: center;
-  margin-top: 40px;
-  text-shadow: 2px 2px 5px black;
-  letter-spacing: 1px;
+@keyframes flicker {
+  0%   { opacity: 1; }
+  5%   { opacity: 0.4; }
+  10%  { opacity: 0.9; }
+  15%  { opacity: 0.2; }
+  20%  { opacity: 1; }
+  25%  { opacity: 0.6; }
+  30%  { opacity: 0.8; }
+  35%  { opacity: 0.3; }
+  40%  { opacity: 1; }
+  45%  { opacity: 0.5; }
+  50%  { opacity: 0.7; }
+  55%  { opacity: 0.1; }
+  60%  { opacity: 1; }
+  65%  { opacity: 0.4; }
+  70%  { opacity: 0.9; }
+  75%  { opacity: 0.2; }
+  80%  { opacity: 1; }
+  85%  { opacity: 0.6; }
+  90%  { opacity: 0.8; }
+  95%  { opacity: 0.3; }
+  100% { opacity: 1; }
 }
+
+.audio-header {
+  font-family: 'Nosifer', cursive !important;
+  color: #8B0000;
+  text-align: center;
+  text-shadow: 2px 2px 4px black;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  font-size: clamp(2rem, 5vw, 4rem);
+  animation: flicker 2.5s infinite ease-in-out;
+}
+
 .audio-block {
   background-color: #1a1a1a;
   padding: 20px;
@@ -86,10 +112,14 @@ body::after {
   border-radius: 10px;
   box-shadow: 0 0 15px #ff4d4d;
   max-width: 700px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-h1 {
-  text-align: center;
+
+.audio-block:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px #ff1a1a;
 }
+
 p {
   color: white;
 }

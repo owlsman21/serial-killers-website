@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <title>Serial Killer Audio Archive</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +13,34 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://owlsman21.github.io/serial-killers-website/cases/audio.html">
 </head>
-<body>
-    <body id="top"></body>
-  <div class="container">
-   <h1 class="audio-header">🎧 Serial Killer Audio Archive</h1>
 
+<body id="top"></body>
+    <iframe src="..." loading="lazy" width="100%" height="140" frameborder="0" allowfullscreen></iframe>
+<div class="container">
+  <h1 class="audio-header">🎧 Serial Killer Audio Archive</h1>
+
+  <!-- 🔍 Search Bar -->
+  <div style="text-align: center;">
+    <input type="text" id="audioSearch" placeholder="Search by killer name..." 
+           style="width: 400px; padding: 12px; font-size: 16px; margin-bottom: 30px; border: 2px solid #ff4d4d; background-color: #111; color: white;">
+  </div>
+
+  <!-- 🔊 Audio blocks go here -->
+</div>
+<!-- Killer List -->
+
+
+<!-- Search Script -->
+<script>
+  document.getElementById('audioSearch').addEventListener('input', function() {
+    const query = this.value.toLowerCase();
+    const blocks = document.querySelectorAll('.audio-block');
+    blocks.forEach(block => {
+      const text = block.textContent.toLowerCase();
+      block.style.display = text.includes(query) ? 'block' : 'none';
+    });
+  });
+</script>
     <p class="case-description" style="text-align: center; color: white;">
       A curated collection of disturbing audio recordings and dramatizations from some of the most infamous serial killer cases in history. <strong>Listener discretion is strongly advised.</strong>
     </p>
