@@ -121,8 +121,18 @@ body::after {
 }
 
 p {
-  color: white;
+  color: white; /* Keeps the color white */
+  
+  /* Applies the clean, readable Roboto font */
+  font-family: 'Roboto', sans-serif; 
+  
+  /* Significantly improves legibility, especially on dark backgrounds */
+  line-height: 1.7; 
+  
+  /* Slightly increases the font size for better viewing */
+  font-size: 1.05em;
 }
+
 a.return {
     display: inline-block; /* Use inline-block for proper centering and button shape */
     margin: 20px auto; /* Centering and spacing */
