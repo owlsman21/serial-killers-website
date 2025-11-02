@@ -119,6 +119,36 @@ body::after {
   transform: scale(1.02);
   box-shadow: 0 0 25px #ff1a1a;
 }
+/* 1. Base Styling for the Heading */
+.flicker-heading {
+    color: #fff; /* White text for contrast */
+    text-shadow: 
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #ff0000; /* Subtle red glow for an eerie effect */
+    
+    /* Apply the animation */
+    animation: flicker 1.5s infinite alternate; /* 1.5s duration, repeat forever, alternate direction */
+}
+
+/* 2. Define the Animation Steps */
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        /* These points are 'ON' or fully glowing */
+        text-shadow: 
+            0 0 4px #ff0000,
+            0 0 11px #ff0000,
+            0 0 19px #ff0000,
+            0 0 40px #ff0000,
+            0 0 80px #ff0000;
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        /* These points are 'OFF' or momentarily dim/blue (like a faulty wire) */
+        text-shadow: none;
+        opacity: 0.8; 
+    }
+}
 
 p {
   color: white; /* Keeps the color white */
