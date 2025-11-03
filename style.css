@@ -47,6 +47,37 @@ body::after {
   transform: scale(1.05);
   box-shadow: 0 0 20px #ff1a1a;
 }
+/* Custom CSS for the Facebook Group Button */
+.centered-button {
+    display: block;
+    width: 350px;
+    margin: 20px auto; /* Centers the block */
+    padding: 12px;
+    background-color: #4267B2; 
+    color: white;
+    text-decoration: none; 
+    text-align: center;
+    
+    /* Readability & Aesthetics */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.2;
+    border-radius: 25px; /* Pill Shape */
+    
+    /* Ensure the icon is visible and link is smooth */
+    transition: background-color 0.3s; 
+}
+
+/* Hover Effect (Optional but recommended for engagement) */
+.centered-button:hover {
+    background-color: #3b5998; /* Darken slightly on hover */
+}
+
+/* Spacing for the icon */
+.centered-button i {
+    margin-right: 8px; 
+}
 .audio-link {
   display: block;
   font-size: 2em;
