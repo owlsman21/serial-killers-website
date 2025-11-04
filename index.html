@@ -4,7 +4,8 @@
   <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-</head>
+    
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Serial-Killers – True Crime Archives</title>
@@ -27,6 +28,8 @@
   gtag('config', 'G-89YSPCWZ89');
 </script>
 <meta name="msvalidate.01" content="3ED04906C328BB3AF5937E247B1AE4F5" />
+
+
 </head>
 
 <body>
@@ -54,9 +57,61 @@
             "
         >
         
-        <a href="#caseGrid" class="skip-button">SKIP TO THE KILLERS</a>
+       <table style="width: 100%; border: none; margin: 30px auto 80px auto;">
+            <tr>
+                <td style="text-align: center;">
+                    <!-- The new button links, using robust inline styling -->
+                    <a href="killer-cinema.html"
+                       target="_blank"
+                       style="
+                           display: inline-block;
+                           padding: 12px 25px;
+                           margin-right: 10px;
+                           background-color: darkred; /* Survivor/Cinema color */
+                           color: white;
+                           font-weight: bold;
+                           font-size: 1rem;
+                           border-radius: 8px;
+                           text-decoration: none;
+                           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+                           border: 2px solid white; 
+                       ">
+                        <i class="fas fa-mask mr-2"></i> KILLER CINEMA
+                    </a>
+                    <a href="#caseGrid" 
+                       style="
+                           display: inline-block;
+                           padding: 12px 25px;
+                           margin-left: 10px;
+                           background-color: #FF0000; /* Killer color */
+                           color: white;
+                           font-weight: bold;
+                           font-size: 1rem;
+                           border-radius: 8px;
+                           text-decoration: none;
+                           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+                           border: 2px solid white;
+                       ">
+                        <i class="fas fa-user-secret mr-2"></i> Serial Killer Cases
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <!-- === END NEW DUAL LINKS HERE === -->
 
-    </div> <main>
+    </div> 
+    <main>
+        
+        <section class="grid" id="caseGrid"></section>
+        <div class="pagination" id="pagination"></div>
+
+        <div id="caseModal" class="modal">
+            <div class="modal-content" id="modalContent"></div>
+        </div>
+    </main>
+
+    </div> 
+    <main>
         
         <section class="grid" id="caseGrid"></section>
         <div class="pagination" id="pagination"></div>
@@ -675,8 +730,7 @@
                 "genres": ["Crime", "Horror"],
                 "source": "ok.ru"
             },
-            
-  ];
+           ];
   
   
 

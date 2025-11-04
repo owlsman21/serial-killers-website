@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- START: SEO and Analytics Setup -->
+    
+    <title>Killer Cinema: Fictional & True Crime Index</title>
+    
+    <!-- SEO ADDITION: Standard Meta Description for Google -->
+    <meta name="description" content="A comprehensive archive and index of Fictional and True Crime movies, including details on killers, summaries, and links to watch. Search for your favorite cinematic crimes.">
+    
+    <!-- SEO ADDITION: Open Graph Tags for Social Media Sharing (Facebook, X, LinkedIn) -->
+    <meta property="og:title" content="Killer Cinema Archive | Fictional & True Crime Index">
+    <meta property="og:description" content="A definitive, searchable archive of movies about serial killers and true crime, from Hannibal Lecter to Aileen Wuornos.">
+    <!-- NOTE: Replace this placeholder with a direct link to your main logo/hero image once deployed -->
+    <meta property="og:image" content="https://placehold.co/1200x630/121212/FF4500?text=KILLER+CINEMA+ARCHIVE">
+    <meta property="og:url" content="https://[YOUR-DEPLOYED-DOMAIN].com/index.html">
+    <meta property="og:type" content="website">
+
+    <!-- ANALYTICS ADDITION: Google Analytics 4 (GA4) Tracking Snippet -->
+    <!-- NOTE: You MUST replace 'G-XXXXXXXXXX' with your actual GA4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      // REMINDER: Replace 'G-XXXXXXXXXX' with your actual Measurement ID
+      gtag('config', 'G-XXXXXXXXXX'); 
+    </script>
+    
+    <!-- END: SEO and Analytics Setup -->
+
+    <!-- Link Font Awesome for icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Inter (Body Font) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Nosifer (Title Font) -->
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212; /* Dark background */
+            color: #E0E0E0; /* Light text */
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        /* Nosifer Font Application for H1 */
+        .nosifer-title {
+            font-family: 'Nosifer', cursive;
+            letter-spacing: 5px; /* Spacing for dramatic effect */
+            text-shadow: 0 0 10px rgba(255, 69, 0, 0.5); /* Glowing effect */
+        }
+
+        /* Container for the page content */
+        .archive-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Styles for each Movie Entry (Dynamically generated) */
+        .movie-entry {
+            display: flex;
+            gap: 20px;
+            border: 1px solid #333;
+            padding: 20px;
+            margin-bottom: 25px;
+            background-color: #1A1A1A;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .movie-content {
+            flex-grow: 1;
+        }
+
+        .movie-entry:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2);
+        }
+
+        /* Link wrapping the H3 for clickability */
+        .title-link {
+            display: block;
+            text-decoration: none;
+            color: #FF4500; /* Default color for the H3 */
+            transition: color 0.2s;
+        }
+        
+        .title-link:hover {
+            color: #FFA07A; /* Lighter red on hover */
+        }
+
+        /* H3 itself should not have margin top */
+        .movie-entry h3 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        /* Image/Poster Styling */
+        .movie-poster-link {
+            flex-shrink: 0;
+            width: 100px;
+            min-width: 100px;
+            height: 150px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .movie-poster-link img {
+            width: 100%;
+            height: 100%; 
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Search Input Styling */
+        #movie-search-input {
+            width: 80%; 
+            max-width: 500px; 
+            padding: 12px; 
+            border-radius: 8px; 
+            border: 2px solid #555;
+            background-color: #222;
+            color: white;
+            transition: border-color 0.3s;
+        }
+
+        #movie-search-input:focus {
+            border-color: #FF4500;
+            outline: none;
+        }
+
+        /* Pagination Button Styling */
+        .pagination-button {
+            padding: 10px 18px;
+            margin: 0 5px;
+            cursor: pointer;
+            background-color: #222;
+            color: white;
+            border: 2px solid #FF4500;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.2s, transform 0.1s;
+            user-select: none;
+        }
+
+        .pagination-button:hover:not(.active) {
+            background-color: #3A3A3A;
+            transform: translateY(-1px);
+        }
+
+        .pagination-button.active {
+            background-color: #FF4500;
+            color: #121212;
+            border-color: #FF4500;
+            font-weight: bold;
+            pointer-events: none; /* Disable click on active button */
+        }
+        
+        .type-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        /* True Crime tag color scheme */
+        .tag-true { 
+            background-color: #C70039; 
+            color: #FFE0E0;
+        }
+        /* Fiction tag color scheme */
+        .tag-fiction { 
+            background-color: #581845;
+            color: #E6E6FF; 
+        }
+
+        /* New style for the fixed Return Button */
+        #return-to-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            padding: 15px;
+            background-color: #FF4500;
+            color: #121212;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.2s, transform 0.2s;
+            display: none;
+            line-height: 0;
+        }
+
+        #return-to-top-btn:hover {
+            background-color: #FFA07A;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Layout Adjustments */
+        @media (max-width: 600px) {
+            .movie-entry {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            .movie-poster-link {
+                width: 150px;
+                height: 225px;
+            }
+            .movie-content {
+                text-align: left;
+            }
+            .nosifer-title {
+                font-size: 2.5rem;
+                letter-spacing: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="archive-wrapper">
+        <header class="text-center py-10">
+            <h1 class="nosifer-title text-5xl font-extrabold text-[#FF4500] mb-2">Killer Cinema Archive</h1>
+            <p class="text-xl text-gray-400">Fictional & True Crime Murders on Screen</p>
+        </header>
+
+        <!-- 1. The Search Bar -->
+        <div id="search-section" class="text-center mb-10">
+            <input type="text" id="movie-search-input" placeholder="Search by Movie Title, Killer Name, or Type..." autofocus>
+        </div>
+
+        <!-- 2. The Main Movie Archive Container (Content is injected here) -->
+        <div id="movie-archive-container">
+            <!-- Movie entries will be dynamically inserted here -->
+            <p id="no-results" class="text-center text-xl text-red-500 hidden">No archives found matching your search criteria.</p>
+        </div>
+
+        <!-- 3. The Pagination Controls Placeholder -->
+        <div id="pagination-controls" class="text-center py-10">
+            <!-- Pagination buttons will be inserted here by script -->
+        </div>
+        
+    </div>
+
+    <!-- Return to Top Button -->
+    <button id="return-to-top-btn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 4. JavaScript Logic (Inline for single-file mandate) -->
+    <script>
+        // === MOVIE DATA ARRAY (Updated to remove imageBg) ===
+        const movies = [
+            {
+                title: "American Psycho 2",
+                year: 2002,
+                type: "Fiction",
+                killer: "Rachael Newman",
+                summary: "A criminology student who survived an encounter with Patrick Bateman develops a murderous obsession with becoming a teaching assistant, eliminating anyone who stands in her way.",
+                url: "https://ok.ru/videoembed/7915369466454",
+                keywords: "American Psycho 2, Rachael Newman, Mila Kunis, Sequel, Fiction",
+                imageFileName: "American_Psycho_2.jpg" 
+            },
+            {
+                title: "The Silence of the Lambs",
+                year: 1991,
+                type: "Fiction",
+                killer: "Buffalo Bill / Hannibal Lecter",
+                summary: "Clarice Starling, an FBI trainee, seeks help from Hannibal Lecter, a psychopathic serial killer and former psychiatrist, in order to apprehend another murderer who has been claiming female victims.",
+                url: "https://ok.ru/videoembed/10397176171123",
+                keywords: "The Silence of the Lambs 1991, Jodie Foster, Anthony Hopkins, Fiction, Buffalo Bill, Hannibal Lecter",
+                imageFileName: "The Silence of the Lambs 1991.jpg" 
+            },
+            {
+                title: "Red Dragon",
+                year: 2002,
+                type: "Fiction",
+                killer: "Francis Dolarhyde (The Tooth Fairy)",
+                summary: "Will Graham, a retired FBI agent with special psychological abilities, is assigned a job to capture an enigmatic serial killer. However, he must seek help from his rival, Dr Hannibal Lecter.",
+                url: "https://ok.ru/videoembed/3595344415287",
+                keywords: "Red Dragon 2002, Anthony Hopkins, Will Graham, Francis Dolarhyde, Tooth Fairy, Fiction",
+                imageFileName: "Red.Dragon.2002.jpg" 
+            },
+            {
+                title: "My Sister's Serial Killer Boyfriend",
+                year: 2023,
+                type: "True Crime",
+                killer: "not said",
+                summary: "The movie is about Maddie's efforts to protect her sister from the instructor, who she fears might be the serial killer responsible for the deaths of other women.",
+                url: "https://ok.ru/videoembed/8080301427437",
+                keywords: "Monster, Aileen Wuornos, Charlize Theron, True Crime, Biopic",
+                imageFileName: "My Sister's Serial Killer Boyfriend (2023).jpg" 
+            },
+            {
+                title: "I am not a serial killer",
+                year: 2016,
+                type: "Fiction",
+                killer: "John Doe",
+                summary: "When people in his town are murdered, John, a troubled teen struggling with homicidal tendencies, must find the killer and stop him while keeping his inner demons at bay.",
+                url: "https://ok.ru/videoembed/3490552875575",
+                keywords: "I am not a serial killer, slasher, John Doe, school, Fiction",
+                imageFileName: "I am not a serial killer.jpg" 
+            },
+            {
+                title: "Scream",
+                year: 1996,
+                type: "Fiction",
+                killer: "Ghostface (Various)",
+                summary: "A horror meta-slasher film following a high school student targeted by a mysterious killer known as Ghostface, who is obsessed with classic horror movie rules.",
+                url: "https://www.youtube.com/watch?v=aw32eW3790o",
+                keywords: "Scream, Ghostface, Slasher, Horror, Fiction, Billy Loomis, Stu Macher",
+                imageFileName: "image_65be25.png" 
+            },
+            {
+                title: "My Friend Dahmer",
+                year: 2017,
+                type: "True Crime",
+                killer: "Jeffrey Dahmer",
+                summary: "A quiet, unsettling look at the teenage years of Jeffrey Dahmer, focusing on his awkward high school life leading up to his first murder.",
+                url: "https://www.youtube.com/watch?v=lI3bW8k641E",
+                keywords: "My Friend Dahmer, True Crime, Biopic, High School, Jeff Dahmer, Jeffrey Dahmer",
+                imageFileName: "My_Friend_Dahmer.jpg" // Still placeholder
+            },
+            {
+                title: "Saw",
+                year: 2004,
+                type: "Fiction",
+                killer: "Jigsaw (John Kramer)",
+                summary: "Two men wake up chained in a bathroom, the victims of the Jigsaw Killer, who tests his victims' will to live through elaborate, deadly traps.",
+                url: "https://www.youtube.com/watch?v=S-1QgA8QhpE",
+                keywords: "Saw, Jigsaw, Tobin Bell, Horror, Torture, Fiction, John Kramer",
+                imageFileName: "Saw.jpg" // Still placeholder
+            },
+            {
+                title: "Zodiac",
+                year: 2007,
+                type: "True Crime",
+                killer: "Zodiac Killer (Unidentified)",
+                summary: "A cartoonist becomes an amateur investigator obsessed with tracking down the Zodiac Killer, a serial murderer who terrorized Northern California in the late 1960s and early 1970s.",
+                url: "https://www.youtube.com/watch?v=rw6lKzYhTNo",
+                keywords: "Zodiac, Jake Gyllenhaal, Mark Ruffalo, David Fincher, True Crime",
+                imageFileName: "Zodiac.jpg" // Still placeholder
+            },
+            {
+                title: "Hannibal",
+                year: 2001,
+                type: "Fiction",
+                killer: "Hannibal Lecter",
+                summary: "Ten years after the events of 'The Silence of the Lambs,' Hannibal Lecter resurfaces and attempts to win back Clarice Starling's attention while being pursued by a disfigured survivor, Mason Verger.",
+                url: "https://ok.ru/video/10397176171123",
+                keywords: "Hannibal 2001, Anthony Hopkins, Julianne Moore, Sequel, Fiction, Hannibal Lecter",
+                imageFileName: "Hannibal.jpg" // Still placeholder
+            }
+        ];
+
+        // === GLOBAL STATE & ELEMENTS ===
+        const movieContainer = document.getElementById('movie-archive-container');
+        const paginationControls = document.getElementById('pagination-controls');
+        const searchInput = document.getElementById('movie-search-input');
+        const noResultsMessage = document.getElementById('no-results');
+        
+        const moviesPerPage = 4; // Display 4 movies per page
+        let currentPage = 1;
+
+        // === CORE RENDERING FUNCTIONS ===
+
+        /**
+         * Renders a list of movie objects into the DOM.
+         * @param {Array<Object>} moviesToDisplay - The subset of movies for the current page.
+         */
+        function renderMovies(moviesToDisplay) {
+            movieContainer.innerHTML = ''; // Clear previous results
+
+            if (moviesToDisplay.length === 0) {
+                noResultsMessage.classList.remove('hidden');
+                return;
+            } else {
+                noResultsMessage.classList.add('hidden');
+            }
+
+            moviesToDisplay.forEach(movie => {
+                const isTrueCrime = movie.type === 'True Crime';
+                const tagClass = isTrueCrime ? 'tag-true' : 'tag-fiction';
+                const tagText = movie.type;
+                const killerLabel = isTrueCrime ? 'Real Killer' : 'Fictional Killer';
+                
+                // Create a placeholder image URL using a fixed dark background color
+                const fallbackBgColor = '1A1A1A'; // Use the same dark gray as the entry background
+                const posterUrl = `https://placehold.co/150x225/${fallbackBgColor}/ffffff?text=Poster`;
+
+                // *** UPDATED LOGIC: ALL files are assumed to be loaded from the 'images/' path. ***
+                const imageSrc = `images/${movie.imageFileName}`;
+
+                const movieHtml = `
+                    <section class="movie-entry">
+                        <!-- Image/Poster Link -->
+                        <a href="${movie.url}" target="_blank" class="movie-poster-link">
+                            <!-- Source uses the determined imageSrc. If it fails, the onerror shows the placeholder. -->
+                            <img src="${imageSrc}" 
+                                 alt="${movie.title} Poster" 
+                                 onerror="this.onerror=null; this.src='${posterUrl}';">
+                        </a>
+                        <div class="movie-content">
+                            <!-- Title Link -->
+                            <a href="${movie.url}" target="_blank" class="title-link">
+                                <h3>${movie.title} (${movie.year})</h3>
+                            </a>
+                            <span class="type-tag ${tagClass}">${tagText}</span>
+                            <p class="mt-3"><strong>${killerLabel}:</strong> ${movie.killer}</p>
+                            <p>${movie.summary}</p>
+                        </div>
+                    </section>
+                `;
+                movieContainer.insertAdjacentHTML('beforeend', movieHtml);
+            });
+        }
+
+        /**
+         * Generates the pagination controls based on the total filtered movies.
+         * @param {Array<Object>} filteredMovies - The full list of filtered movies.
+         */
+        function setupPagination(filteredMovies) {
+            paginationControls.innerHTML = '';
+            const totalPages = Math.ceil(filteredMovies.length / moviesPerPage);
+
+            if (totalPages <= 1) {
+                return;
+            }
+
+            // Ensure the current page is valid after filtering/searching
+            if (currentPage > totalPages) {
+                currentPage = 1;
+            }
+
+            // Create buttons for each page
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.textContent = i;
+                button.classList.add('pagination-button');
+                if (i === currentPage) {
+                    button.classList.add('active');
+                }
+                button.addEventListener('click', () => {
+                    currentPage = i;
+                    updateDisplay(filteredMovies);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+                paginationControls.appendChild(button);
+            }
+        }
+
+        /**
+         * Filters the main movie list based on the search input value.
+         * @returns {Array<Object>} The array of movies matching the search query.
+         */
+        function filterMovies() {
+            const query = searchInput.value.toLowerCase().trim();
+            if (!query) {
+                return movies; // Return all movies if query is empty
+            }
+
+            return movies.filter(movie => {
+                // Combine relevant fields for searching
+                const searchableText = `${movie.title} ${movie.year} ${movie.type} ${movie.killer} ${movie.summary} ${movie.keywords}`.toLowerCase();
+                return searchableText.includes(query);
+            });
+        }
+
+        /**
+         * Main function to handle filtering, pagination, and rendering.
+         * @param {Array<Object>} [optionalMovies] - Optional pre-filtered list.
+         */
+        function updateDisplay(optionalMovies) {
+            const filtered = optionalMovies || filterMovies();
+            
+            const start = (currentPage - 1) * moviesPerPage;
+            const end = start + moviesPerPage;
+            const moviesToDisplay = filtered.slice(start, end);
+
+            renderMovies(moviesToDisplay);
+            setupPagination(filtered);
+        }
+
+        // === EVENT LISTENERS AND INITIALIZATION ===
+
+        // Handle search input changes
+        searchInput.addEventListener('input', () => {
+            currentPage = 1; // Reset to the first page on a new search
+            updateDisplay();
+        });
+
+        // Initialize the display when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            updateDisplay();
+        });
+
+
+        // === SCROLL TO TOP LOGIC (Kept from original code) ===
+        const returnToTopBtn = document.getElementById('return-to-top-btn');
+
+        // Function to show/hide the button based on scroll position
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                returnToTopBtn.style.display = "block";
+            } else {
+                returnToTopBtn.style.display = "none";
+            }
+        };
+
+        // Function to scroll to the top of the document
+        returnToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scrolling effect
+            });
+        });
+
+    </script>
+
+</body>
+</html>
