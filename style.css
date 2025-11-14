@@ -23,6 +23,34 @@ body::after {
     background: rgba(120, 0, 0, 0.5); /* The red overlay */
     z-index: -1; 
 }
+/* Styling for the new, prominent 'Full Story' button */
+.full-story-button {
+    /* Basic button appearance */
+    display: block; /* Make it take the full width of the card */
+    width: 90%; /* Adjust width for slight margin */
+    margin: 15px auto; /* Center the button and add vertical space */
+    
+    /* Color and Text */
+    background-color: #CC0000; /* Dark Red background for attention */
+    color: #FFFFFF; /* White text */
+    font-family: Arial, sans-serif; /* Use a readable font */
+    font-weight: bold;
+    font-size: 1.1em; /* Slightly larger text */
+    text-transform: uppercase;
+    
+    /* Clickability and Shape */
+    padding: 12px 10px; /* Generous padding for easy clicking */
+    border: 2px solid #FF4D4D; /* Light red border */
+    border-radius: 8px; /* Slightly rounded corners */
+    cursor: pointer; /* Ensures the hand cursor appears */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth hover effect */
+}
+
+.full-story-button:hover {
+    background-color: #FF4D4D; /* Lighter red on hover */
+    border-color: #FFFFFF; /* White border on hover */
+    color: #000000; /* Black text on hover (optional) */
+}
 .back-to-top {
   text-align: center;
   margin: 60px auto 40px;
@@ -535,4 +563,3 @@ header {
   .card iframe {
     height: 150px;
   }
-}

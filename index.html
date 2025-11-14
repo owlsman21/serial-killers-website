@@ -78,7 +78,7 @@
                        ">
                         <i class="fas fa-mask mr-2"></i> KILLER CINEMA
                     </a>
-                    <a href="#caseGrid" 
+                    <a href="cases-archive.html" 
                        style="
                            display: inline-block;
                            padding: 12px 25px;
@@ -773,7 +773,7 @@
         card.innerHTML = `
           <h3>${c.title}</h3>
           <p class="excerpt">${c.description}</p>
-          <button class="read-toggle" onclick="openModal(${start + i})">Read More</button>
+         <button class="full-story-button" onclick="openModal(${start + i})">Click Here for the Full Story</button>
           ${getPosterHtml(c.posterUrl)}
           ${getVideoEmbed(c.source, c.embedId)}
           ${isAdmin ? `
@@ -838,182 +838,7 @@
   <section id="featured-cases">
   <!-- Your featured crime cases content -->
 </section>
-<section id="featured-cases" style="margin-top: 60px; padding: 20px; background-color: #111; border-top: 2px solid red;">
-  <h2 style="color: red; font-family: 'Impact', sans-serif; font-size: 28px; text-align: center;">Featured Crime Cases</h2>
-  <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
 
-    <a href="cases/bulger-full.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/Bulger-killers.jpg" alt="Bulger Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">The Bulger Murder</h3>
-      </div>
-    </a>
-
-    <a href="cases/columbine-1999.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/columbine1.jpg" alt="Columbine Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Columbine High School Massacre</h3>
-      </div>
-    </a>
-
-    <a href="cases/The Grey Man.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/grey man.jpg" alt="Albert Fish Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Albert Fish – The Gray Man</h3>
-      </div>
-    </a>
-     <a href="cases/22-july.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/22 july.jpg" alt="22 July Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">22 July</h3>
-      </div>
-    </a>
-      <a href="cases/The Night Stalker.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/The-Night-Stalker1.jpg" alt="The Night Stalker Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">The Night Stalker</h3>
-      </div>
-    </a>
-      <a href="cases/BTK-Killer.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/dennis rader.jpg" alt="The Night Stalker Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">BTK-Killer</h3>
-      </div>
-    </a>
-     <a href="cases/ed-gein.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/ed gein.jpg" alt="Ed Gein Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Ed Gein</h3>
-      </div>
-    </a>
-     <a href="cases/dark-angel-2016.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/dark-angel-2016.jpg" alt="dark-angel-2016 Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Mary Ann Cotton</h3>
-      </div>
-    </a>
-     <a href="cases/the-yorkshire-ripper.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/yorkshire-ripper.jpg" alt="yorkshire-ripper Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">The-yorkshire-ripper</h3>
-      </div>
-    </a>
-     <a href="cases/the-toybox-killer-david-parker-ray.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/tool-box.jpg" alt="yorkshire-ripper Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">The-Toy Box Killer</h3>
-      </div>
-    </a>
-     <a href="cases/zodiac.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/zodiac1.jpg" alt="Zodiac Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Deciphering The Zodiac Killer</h3>
-      </div>
-    </a>
-      <a href="cases/Ted.Bundy.American.Boogeyman.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/ted-bundy.jpg" alt="Zodiac Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Ted Bundy American Boogeyman</h3>
-      </div>
-    </a>
-      <a href="cases/Harold Shipman.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/shipman.jpg" alt="Harold Shipman Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Harold Shipman-Doctor Death</h3>
-      </div>
-    </a>
-     <a href="cases/Dahmar.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/dahmar.jpg" alt="dahmar Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">My Friend Dahmer 2017</h3>
-      </div>
-    </a>
-     <a href="cases/jeffrey-dahmer-the-milwaukee-cannibal.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/dahmer1.jpg" alt="dahmar Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;"> Dahmer Full Series</h3>
-      </div>
-    </a>
-     <a href="cases/The-Railway-Killers-John-Duffy-David-Mulcahay.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/The Railway Killers.jpg" alt="Railway killers" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">The Railway Killers: John Duffy & David Mulcahay (Born To Kill)</h3>
-      </div>
-    </a>
-     <a href="cases/MONSTER 2003.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/monster-2003.jpg" alt="Monster-2003" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">MONSTER: Aileen Wuornos: America's First Female Serial Killer</h3>
-      </div>
-    </a>
-     <a href="cases/Atlanta Child Murders.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/atlanta.jpg" alt="Monster-2003" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Atlanta Child Murders</h3>
-      </div>
-    </a>
-     <a href="cases/John Wayne Gacy.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/Gacy.jpg" alt="Gacy" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">John Wayne Gacy</h3>
-      </div>
-    </a>
-     <a href="cases/ED Kemper.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/Edmund_Kemper.jpg" alt="Ed Kemper" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Edmund Kemper Co-Ed Killer</h3>
-      </div>
-    </a>
-     <a href="cases/Green River Killer.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/Mind of a Monster S01E03 ~ The Green River Killer (2020).jpg" alt="Ed Kemper" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Gary Ridgway The Green River Killer</h3>
-      </div>
-    </a>
-     <a href="cases/H H Holmes.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/H H Holmes.jpg" alt="H H Holmes" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">H.H. Holmes: America's First Serial Killer</h3>
-      </div>
-    </a>
-     <a href="cases/Joseph Naso.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/Naso.jpg" alt="Naso" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">The Alphabet Killer: Joseph Naso and His Chilling List of 10 Victims</h3>
-      </div>
-    </a>
-    <a href="cases/gilgo-beach-series.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/gone girls.jpg" alt="gone girls poster" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Rex Heuermann Series Index: House of Secrets & Lost Girls Documentaries</h3>
-      </div>
-    </a>
-      <a href="cases/JonBenet Ramsey.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/JonBenet.jpg" alt=" poster" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Rex Heuermann Series Index: House of Secrets & Lost Girls Documentaries</h3>
-      </div>
-    </a>
-      <a href="cases/Boston Strangler 2023.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/boston strangler1.jpg" alt=" Boston Strangler Poater" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Uncover the shocking true story of the Boston Strangler, a serial killer who terrorized 1960s Boston, </h3>
-      </div>
-    </a>
-     <a href="cases/The Deliberate Stranger.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/deliberatestranger.jpg" alt=" The Deliberate Stranger Poater" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Uncover the chilling true story of Ted Bundy, a charismatic law student turned serial killer</h3>
-      </div>
-    </a>
-  
-     <a href="cases/Deranged 1974.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/Deranged 1974.jpg" alt="Deranged Poater" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Loosely based on the true crimes of Ed Gein, A Chilling Portrait of Madness and Necrophilia
-Released in 1974,  </h3>
-      </div>
-    </a>
     
     
 
@@ -1025,7 +850,7 @@ Released in 1974,  </h3>
     <!-- Your featured crime cases content here -->
   </div>
   <div style="text-align: center; margin-top: 20px;">
-    <a href="page2.html">
+    <a href="cases-archive.html">
       <button style="background-color: #4CAF50; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">View More</button>
     </a>
   </div>
