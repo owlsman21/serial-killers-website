@@ -370,12 +370,26 @@ header {
 }
 
 /* ========== Grid Layout ========== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  align-items: stretch;
+/* Update your style.css for the main grid item */
+/* Update your style.css for the main grid item */
+/* ========== Grid Layout ========== */
+.grid a {
+    /* Existing width and margin properties should be here */
+    text-decoration: none;
+    display: flex; 
+    flex-direction: column; 
+    
+    /* 💥 CRITICAL: Override 100% with a fixed height value */
+    /* Start with 550px and adjust this number until the card content (image + text + button) fits perfectly */
+    height: 550px; 
+}
+
+/* Update your style.css for the inner content div if you have one */
+.grid div {
+    /* Existing background and border properties should be here */
+    flex-grow: 1; /* Allows this div to consume remaining space */
+    display: flex;
+    flex-direction: column;
 }
 
 /* ========== Card Styling ========== */
@@ -407,10 +421,21 @@ header {
   transform: scale(1.05);
 }
 
+/* ========== Card Styling ========== */
+/* ... other card styles ... */
+
+/* Inside the Card Styling section */
 .card h3 {
-  font-size: 1.1rem;
-  margin: 10px 0 5px;
+    font-size: 1.1rem;
+    margin: 10px 0 5px;
+    
+    /* ⬅️ Consistent minimum height for the shortest title */
+    min-height: 80px; 
+
+    /* ⬅️ Allows the title area to consume available leftover space, pushing the button down */
+    flex-grow: 1; 
 }
+/* ... rest of card styles ... */
 
 .card p {
   font-size: 0.95rem;
@@ -500,11 +525,52 @@ header {
   padding: 1em;
 }
 
-.pagination button {
-  margin: 0 5px;
-  padding: 0.5em 1em;
-  font-size: 1em;
-  font-family: 'Butcherman', cursive;
+/* --- Pagination Container Styling --- */
+.pagination-buttons {
+    display: flex; 
+    justify-content: center; 
+    margin: 40px 0; 
+}
+
+/* --- Base Navigation Button Style --- */
+.nav-button {
+    /* ... other properties ... */
+    
+    /* Make the text bigger */
+    font-size: 1.5em; /* INCREASED from 1.1em to make it much bigger */
+    
+    /* Make the buttons physically larger */
+    padding: 20px 40px; /* INCREASED padding for a larger hit area */
+    
+    /* Use your bold, custom font for readability and theme */
+    font-family: 'Nosifer', cursive !important; 
+    font-weight: bold;
+    text-transform: uppercase;
+    
+    /* Ensure colors and borders are set to give it the button look */
+    color: white; 
+    border-radius: 5px;
+    border: 3px solid; /* A slightly thicker border */
+    
+    /* ... other properties ... */
+}
+/* --- Specific 'Next Page' Button Style --- */
+.next-button {
+    background-color: darkred; 
+    border-color: darkred;
+}
+
+/* --- Specific 'Back' Button Style --- */
+.back-button {
+    background-color: #333; 
+    border-color: #333;
+}
+
+/* --- Hover Effect --- */
+.nav-button:hover {
+    background-color: #FF0000; 
+    border-color: #FF0000;
+    transform: scale(1.05);
 }
 
 /* ========== Admin Controls ========== */

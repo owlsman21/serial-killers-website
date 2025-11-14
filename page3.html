@@ -1,145 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <!DOCTYPE html>
-<html lang="en">
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serial-Killers – True Crime Archives</title>
-  <meta property="og:title" content="Serial Killers Movies and Documentary | True Crime Archive">
-  <meta property="og:description" content="Serial killer website">
-  <meta  property="og:image" content="https://owlsman21.github.io/serial-killers-website/images/Gemini_Generated_Image_bjlxn8bjlxn8bjlx.png">
-  <meta property="og:url" content="https://owlsman21.github.io/serial-killers-website/cases/index.html">
-  <meta property="og:type" content="website">
-  <meta name="description" content="Explore immersive case files, forensic timelines, and horror-themed dossiers on all true crime.">
-  <meta name="keywords" content="true crime, serial killers, case files, forensic archive, horror design">
-  <meta name="author" content="Dennis">
-  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-89YSPCWZ89"></script>
-  <script>
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-89YSPCWZ89');
-  </script>
-  <meta name="p:domain_verify" content="d4e46af2c48f116432d25166abbfb350"/>
-  <meta name="msvalidate.01" content="3ED04906C328BB3AF5937E247B1AE4F5" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serial Killer Case Files Archive | True Crime Documentaries</title>
+    <meta name="description" content="Explore the complete archive of serial killer case files, including Ted Bundy, Jeffrey Dahmer, and Aileen Wuornos. True crime facts and full documentaries.">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-89YSPCWZ89"></script>
+    <script>
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-89YSPCWZ89');
+    </script>
+    
+    <meta name="p:domain_verify" content="d4e46af2c48f116432d25166abbfb350"/>
 </head>
-
 <body>
-  
-  
-    <div class="death-row-background">
-        
-        <header>
-            <h1 class="blood-title">Serial Killers and True Crime Page 3</h1>
-        </header>
-        
-        
-        <img 
-            src="images/old sparky 3.jpg" 
-            alt="Electric Chair Exhibit"
-            style="
-                display: block; 
-                margin: 0 auto; 
-                width: 80%; 
-                max-width: 450px; 
-                height: auto; 
-                border: 5px solid darkred; 
-                box-shadow: 0 0 20px black; 
-                
-            "
-        >
-        
-       <table style="width: 100%; border: none; margin: 30px auto 80px auto;">
-            <tr>
-                <td style="text-align: center;">
-                    <!-- The new button links, using robust inline styling -->
-                    <a href="../killer-cinema.html"
-                       target="_blank"
-                       style="
-                           display: inline-block;
-                           padding: 12px 25px;
-                           margin-right: 10px;
-                           background-color: darkred; /* Survivor/Cinema color */
-                           color: white;
-                           font-weight: bold;
-                           font-size: 1rem;
-                           border-radius: 8px;
-                           text-decoration: none;
-                           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-                           border: 2px solid white; 
-                       ">
-                        <i class="fas fa-mask mr-2"></i> KILLER CINEMA
-                    </a>
-                   
-                </td>
-            </tr>
-        </table>
-        <!-- === END NEW DUAL LINKS HERE === -->
-
-    </div> 
-    <main>
-        
-        <section class="grid" id="caseGrid"></section>
-        <div class="pagination" id="pagination"></div>
-
-        <div id="caseModal" class="modal">
-            <div class="modal-content" id="modalContent"></div>
-        </div>
-    </main>
-
-    </div> 
-    <main>
-        
-        <section class="grid" id="caseGrid"></section>
-        <div class="pagination" id="pagination"></div>
-
-        <div id="caseModal" class="modal">
-            <div class="modal-content" id="modalContent"></div>
-        </div>
-    </main>
     
+   <div class="container">
+        <h1 style="color: red; text-align: center; margin-bottom: 30px;">
+            SERIAL KILLER CASE ARCHIVE/ PAGE 3
+        </h1>
+             
+<script>
+// FIND and DELETE the OLD function:
+// function renderPagination() {
+//     const totalPages = Math.ceil(cases.length / pageSize);
+//     // ... code that renders numbered buttons ...
+// }
 
-  <script>
-    const isAdmin = false;
-    const pageSize = 5;
-    let currentPage = 1;
+
+// PASTE the NEW function to replace it:
+
+function renderPagination() {
+    const totalPages = Math.ceil(cases.length / pageSize);
+    const container = document.getElementById('pagination');
+    container.innerHTML = '';
+
+    // --- Previous Button ---
+    if (currentPage > 1) {
+        const prevBtn = document.createElement('button');
+        prevBtn.textContent = '<< PREVIOUS PAGE';
+        prevBtn.onclick = () => renderPage(currentPage - 1);
+        container.appendChild(prevBtn);
+    }
     
+    // Optional: Display current page number (e.g., "Page 1 of 5")
+    const pageInfo = document.createElement('span');
+    pageInfo.textContent = ` Page ${currentPage} of ${totalPages} `;
+    container.appendChild(pageInfo);
 
-      function cleanEmbedId(embedId) {
-      return embedId.split('?')[0];
+    // --- Next Button ---
+    if (currentPage < totalPages) {
+        const nextBtn = document.createElement('button');
+        nextBtn.textContent = 'NEXT PAGE >>';
+        nextBtn.onclick = () => renderPage(currentPage + 1);
+        container.appendChild(nextBtn);
     }
-
-    function getEmbedUrl(source, embedId) {
-      const cleanId = cleanEmbedId(embedId);
-      if (source === "youtube") return `https://www.youtube.com/embed/${cleanId}`;
-      if (source === "ok.ru") return `https://ok.ru/videoembed/${cleanId}`;
-      return "";
-    }
-
-    function getVideoEmbed(source, embedId) {
-      const url = getEmbedUrl(source, embedId);
-      return `
-        <iframe src="${url}" allowfullscreen frameborder="0"
-          onerror="this.outerHTML='<div style=\\'color:#990000; padding:1em; background:#f8d7da; border-radius:6px;\\'>Video unavailable or broken link.</div>'">
-        </iframe>
-      `;
-    }
-
-    function getPosterHtml(posterUrl) {
-      return `<img src="${posterUrl}" alt="Poster" style="width:100%; margin-top:1em; border-radius:6px;" />`;
-    }
-
-    function renderPage(page) {
-      const grid = document.getElementById('caseGrid');
-      grid.innerHTML = '';
-      const start = (page - 1) * pageSize;
-      const end = start + pageSize;
-      const pageCases = cases.slice(start, end);
+}
 
       pageCases.forEach((c, i) => {
         const card = document.createElement('div');
@@ -147,7 +67,7 @@
         card.innerHTML = `
           <h3>${c.title}</h3>
           <p class="excerpt">${c.description}</p>
-          <button class="read-toggle" onclick="openModal(${start + i})">Read More</button>
+         <button class="full-story-button" onclick="openModal(${start + i})">Click Here for the Full Story</button>
           ${getPosterHtml(c.posterUrl)}
           ${getVideoEmbed(c.source, c.embedId)}
           ${isAdmin ? `
@@ -162,7 +82,7 @@
 
       currentPage = page;
       renderPagination();
-    }
+    
 
     function openModal(index) {
       const modal = document.getElementById('caseModal');
@@ -216,24 +136,43 @@
   <h2 style="color: red; font-family: 'Impact', sans-serif; font-size: 28px; text-align: center;">Featured Crime Cases</h2>
   <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
 
-    <a href="cases/.html" style="text-decoration: none;">
+    <a href="cases/Amanda Knox.html" style="text-decoration: none;">
       <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/.jpg" alt="Bulger Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;"></h3>
+        <img src="images/Amanda Knox.jpg" alt="Amanda Knox Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">The 2011 film "Amanda Knox: Murder on Trial in Italy" is a made-for-TV movie that dramatizes the true story of Amanda Knox, an American exchange student who was accused of murdering her British roommate</h3>
+      </div>
+    </a>
+    
+
+    <a href="cases/A Is for Acid.html" style="text-decoration: none;">
+      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
+        <img src="images/A Is for Acid.jpg" alt="A Is for Acid Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">A Is for Acid" is a gripping 2002 British TV movie based on the true story of John Haigh, the notorious "Acid Bath Murderer" who killed six people in the 1940s. Starring Martin Clunes as Haigh, the film explores his twisted psyche and the events leading up to his capture</h3>
+      </div>
+       <a href="cases/The-Black-Panther.html" style="text-decoration: none;">
+      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
+        <img src="images/black panther.jpg" alt="Black Panther Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">A gung-ho ex-military man pursues a secret life of crime, culminating in the kidnapping of a teenage heiress.</h3>
+      </div>
+    
+    </a>
+     <a href="cases/Wayne Couzens.html" style="text-decoration: none;">
+      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
+        <img src="images/Wayne Couzens.jpg" alt="Deranged Poater" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Uncover the shocking true story of Wayne Couzens, a serving Met Police officer who used his power to abduct, rape, and murder 33-year-old Sarah Everard in March 2021. This gripping documentary explores the events leading up to the tragedy, the investigation, and the disturbing culture of misogyny within the police force that enabled him to hide in plain sight. Learn more about the circumstances of Sarah's murder, the trial, and the impact on her family and the community.  </h3>
+      </div>
+    </a>
+      <a href="cases/Hadden-Clark.html" style="text-decoration: none;">
+      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
+        <img src="images/Hadden-Clark.jpg" alt="Deranged Poater" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Hadden Irving Clark is an American murderer and suspected serial killer </h3>
       </div>
     </a>
 
-    <a href="cases/.html" style="text-decoration: none;">
+    <a href="cases/Rodney-Alcala.html" style="text-decoration: none;">
       <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/.jpg" alt=" Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;"></h3>
-      </div>
-    </a>
-
-    <a href="cases/" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/.jpg" alt="Albert Fish Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;"></h3>
+        <img src="images/Rodney Alcala.jpg" alt="Albert Fish Case" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
+        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Rodney Alcala, infamously known as "The Dating Game Killer</h3>
       </div>
     </a>
      <a href="cases/.html" style="text-decoration: none;">
@@ -375,20 +314,15 @@
     <!-- Your featured crime cases content here -->
   </div>
   <div style="text-align: center; margin-top: 20px;">
+    <a href="page4.html">
+      <button style="background-color: #4CAF50; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Comming Soon</button>
+    </a>
+  </div>
+   <div style="text-align: center; margin-top: 20px;">
     <a href="page2.html">
       <button style="background-color: #4CAF50; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Back</button>
     </a>
   </div>
-  <div style="text-align: center; margin-top: 20px;">
-    <a href="page4.html">
-      <button style="background-color: #4CAF50; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">next</button>
-    </a>
-  </div>
-    <div style="text-align: center; margin-bottom: 40px;">
-            <a href="../index.html" class="full-story-button" style="background-color: #CC0000; display: inline-block;">
-                ← RETURN TO HOME PAGE
-            </a>
-        </div>
 </section>
 <a href="audio.html" class="audio-link">🎧 Enter the Serial Killer Audio Archive</a>
 <div style="text-align: center;">
@@ -402,6 +336,11 @@
 <footer style="margin-top: 60px; padding: 20px; text-align: center; font-size: 0.9em; color: #666;">
   <p><a href="sitemap.html" style="color: #e10600; text-decoration: none;">🩸 Sitemap: The Archive</a></p>
   <p>Last updated: October 2025 | Access indexed by forensic investigation</p>
+    <div style="text-align: center; margin-bottom: 40px;">
+            <a href="../index.html" class="full-story-button" style="background-color: #CC0000; display: inline-block;">
+                ← RETURN TO HOME PAGE
+            </a>
+        </div>
   
 </footer>
 </body>
