@@ -1,6 +1,6 @@
 // Global state variables
 let allEntries = [];
-const entriesPerPage = 4;
+const entriesPerPage = 6;
 let currentPage = 1;
 let currentSearchTerm = '';
 // New variable to track the last embedded URL for re-rendering

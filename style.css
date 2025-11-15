@@ -221,6 +221,17 @@ p {
   /* Slightly increases the font size for better viewing */
   font-size: 1.05em;
 }
+/* ========== Main Content Wrapper - Fixes Full Width Issue ========== */
+.main-content-wrapper {
+    /* 1. Set the maximum width of the content area (adjust 1500px as needed) */
+    max-width: 1500px; 
+    
+    /* 2. Centers the entire block horizontally (the '0 auto' shorthand) */
+    margin: 0 auto; 
+    
+    /* 3. Adds small padding on the sides for tiny screens */
+    padding: 0 15px; 
+}
 
 a.return {
     display: inline-block; /* Use inline-block for proper centering and button shape */
@@ -368,6 +379,20 @@ header {
 .close-btn:hover {
   background: #ff0000;
 }
+.grid {
+    display: grid; /* ⬅️ Use CSS Grid for better row control */
+    
+    /* Sets up responsive columns (adjust minmax value if your card width is different) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    
+    gap: 20px; /* Space between cards */
+    
+    /* 💥 CRITICAL FIX: Forces all rows to occupy an equal fraction of space */
+    grid-auto-rows: 1fr; 
+    
+    /* Ensures the child items stretch to fill the 1fr row height */
+    align-items: stretch; 
+}
 
 /* ========== Grid Layout ========== */
 /* Update your style.css for the main grid item */
@@ -393,6 +418,8 @@ header {
 }
 
 /* ========== Card Styling ========== */
+/* ========== Card Styling ========== */
+/* ========== Card Styling ========== */
 .card {
   background: #111;
   border: 1px solid #333;
@@ -403,17 +430,30 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  
+  /* Use only ONE final height value */
+  height: 550px; /* This is the only active height property you need */
+  
   transition: transform 0.3s ease;
 }
 
-.card img,
-.card iframe {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border: 2px solid crimson;
-  box-shadow: 0 0 10px rgba(139, 0, 0, 0.6);
+
+
+/* Update the rule starting around line 32 in your CSS */
+.card img, .card iframe {
+    width: 100%;
+    /* Keep the height consistent, 200px is a good block height */
+    height: 200px; 
+    object-fit: cover;
+    border: 2px solid crimson;
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.6);
+    
+    /* 💥 CRITICAL FIX: Stops Flexbox from shrinking the image */
+    flex-shrink: 0; 
+    
+    /* 💥 ADD THIS: Creates space below the image, pushing the H3 down */
+    margin-bottom: 10px;
+}
 }
 
 .card img:hover,

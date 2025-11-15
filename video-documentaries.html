@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serial Killer Case Files Archive | True Crime Documentaries</title>
+    <meta name="description" content="Explore the complete archive of serial killer case files, including Ted Bundy, Jeffrey Dahmer, and Aileen Wuornos. True crime facts and full documentaries.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+    
+    <!-- Required for the Facebook icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Tailwind CSS for button and dynamic styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Analytics Script (Fixed: Synchronous initialization of dataLayer) -->
+    <script>
+      // Fixes the "dataLayer is not defined" error by initializing the array synchronously.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-89YSPCWZ89');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-89YSPCWZ89"></script>
+    
+    <meta name="p:domain_verify" content="d4e46af2c48f116432d25166abbfb350"/>
+    
+    <!-- CRITICAL LAYOUT FIXES: CSS for main wrapper and grid -->
+    <style>
+        /* Apply the background color and default font for the entire page */
+        body {
+            background-color: #333; /* Darker background to make red/black stand out */
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Container to center and limit the main content width */
+        .container {
+            max-width: 2200px; /* INCREASED MAX WIDTH: More space for 6 columns */
+            margin: 0 auto; /* Center the container */
+            padding: 0 16px; /* Padding for mobile screens */
+        }
+        
+        /* Grid container for the video cards */
+        .case-grid-index {
+            display: grid !important; /* Force Grid Display */
+            min-width: 100%; /* FIX: Ensure the grid uses the full width available */
+            /* Default: On small screens, 1 column */
+            grid-template-columns: 1fr; 
+            gap: 25px; /* Slightly increased gap for better spacing */
+            padding: 40px 0;
+        }
+        
+        /* Tablet/Medium Screen: 3 Columns */
+        @media (min-width: 768px) {
+            .case-grid-index {
+                /* Forces exactly 3 equal columns on medium screens */
+                grid-template-columns: repeat(3, 1fr) !important; 
+            }
+        }
+        
+        /* Desktop/Large Screen: 6 Columns */
+        @media (min-width: 1024px) {
+            .case-grid-index {
+                /* 6 equal columns, use !important to guarantee override */
+                grid-template-columns: repeat(6, 1fr) !important; 
+            }
+        }
+
+
+        /* Styling for the video cards */
+        .index-card {
+            background-color: #1a1a1a;
+            border: 1px solid #e10600;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            
+            /* Fixed height for alignment. Increased slightly for better fit. */
+            height: 580px; 
+        }
+        
+        .index-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.8);
+        }
+
+        /* Fix the video aspect ratio using a common wrapper pattern */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio (9/16 * 100) */
+            background-color: black;
+        }
+
+        .embedded-video-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #e10600;
+        }
+        
+        .index-card-title {
+            font-family: 'Nosifer', cursive;
+            color: #e10600;
+            text-align: center;
+            padding: 15px 5px 5px; 
+            font-size: 1.3rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+            /* Ensure title text can wrap */
+            word-wrap: break-word; 
+            overflow-wrap: break-word;
+        }
+
+        /* Shrink title font when in 6-column mode */
+        @media (min-width: 1024px) {
+             .index-card-title {
+                font-size: 1.1rem; /* Slightly larger font size now that the container is wider */
+                line-height: 1.2;
+            }
+        }
+        
+        .index-card-description {
+            padding: 0 15px;
+            font-size: 0.9rem;
+            color: #ccc;
+            /* Scrollbar settings for fixed height */
+            max-height: 160px; /* Adjusted max-height */
+            overflow-y: auto; 
+            margin-bottom: 15px; 
+            
+            /* Optional: Style the scrollbar for aesthetics */
+            scrollbar-width: thin;
+            scrollbar-color: #e10600 #1a1a1a; 
+        }
+        
+        .index-card-description::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .index-card-description::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        .index-card-description::-webkit-scrollbar-thumb {
+            background-color: #e10600;
+            border-radius: 4px;
+            border: 1px solid #333;
+        }
+        
+        /* Style for the button that is inside the card */
+        .full-story-button {
+            background-color: #CC0000;
+            color: white;
+            padding: 12px 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            margin: 0 15px 15px; 
+            margin-top: auto; /* Ensures the button is always at the bottom of the card */
+        }
+
+        .full-story-button:hover {
+            background-color: #990000;
+        }
+
+        /* Generic styles for the audio and Facebook links */
+        .audio-link, .centered-button {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            display: block;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .audio-link {
+            color: #ffaa00;
+            text-decoration: underline;
+        }
+        
+        /* Override for the main 'RETURN TO HOME PAGE' button at the top */
+        .container > div:first-of-type .full-story-button {
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        /* Custom style for the main navigation row */
+        .main-nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap; /* Allows wrapping on smaller screens */
+        }
+
+        .nav-button {
+            flex-grow: 1;
+            max-width: 300px;
+            font-size: 1.1rem;
+            padding: 15px 25px;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        /* Footer styling */
+        footer p {
+            color: #999;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Main Header -->
+        <h1 style="color: red; text-align: center; margin-bottom: 30px; font-family: 'Creepster', cursive; font-size: 3rem; text-shadow: 2px 2px 5px rgba(255,0,0,0.5);">
+            SERIAL KILLER CASE ARCHIVE
+        </h1>
+        
+        <!-- MAIN NAVIGATION LINKS -->
+        <div class="main-nav-buttons">
+            <a href="../index.html" class="full-story-button nav-button" style="background-color: #4a0000;">
+                ← RETURN TO HOME PAGE
+            </a>
+            <!-- CORRECTED LINK: Changed from cases-archives.html (plural) to cases-archive.html (singular) -->
+            <a href="../cases-archive.html" class="full-story-button nav-button" style="background-color: #e10600; color: #fff; border: 2px solid #fff;">
+                <i class="fas fa-file-archive"></i> CASES ARCHIVES
+            </a>
+            <a href="../killer-cinema.html" class="full-story-button nav-button" style="background-color: #e10600; color: #fff; border: 2px solid #fff;">
+                <i class="fas fa-film"></i> KILLER CINEMA
+            </a>
+        </div>
+        <!-- END MAIN NAVIGATION LINKS -->
+
+        <!-- Featured Cases Section Header -->
+        <section id="featured-cases-header" style="margin-top: 60px; padding: 20px; background-color: #111; border-top: 2px solid red; border-bottom: 2px solid red;">
+            <h2 style="color: red; font-family: 'Nosifer', cursive; font-size: 2rem; text-align: center; letter-spacing: 2px;">Featured Crime Cases (Video Archive)</h2>
+        </section>
+
+        <!-- Dynamic Content Wrapper -->
+        <div class="main-content-wrapper">
+            
+            <!-- 1. The Container where the video cards will be rendered -->
+            <div class="case-grid-index" id="caseGrid">
+                <p style="color: gray; text-align: center;">Loading Case Files...</p>
+            </div>
+            
+            <!-- 2. The Container for the Pagination buttons -->
+            <div id="pagination-controls" style="text-align: center;">
+                <!-- Pagination buttons will load here -->
+            </div>
+        </div>
+
+        <!-- Audio Archive Link and Facebook Link -->
+        <a href="audio.html" class="audio-link">🎧 Enter the Serial Killer Audio Archive</a>
+        <div style="text-align: center;">
+            <a href="https://www.facebook.com/groups/403207477513491" 
+           target="_blank" 
+           class="centered-button full-story-button" style="background-color: #3b5998; width: fit-content; margin: 40px auto;">
+           
+           <i class="fab fa-facebook-f"></i> Join the [Serial killers Movies and documentray's] Facebook Group!
+        </a>
+        </div>
+        
+    </div> 
+
+    <!-- Footer and Scripts -->
+    <footer style="margin-top: 60px; padding: 20px; text-align: center; font-size: 0.9em; color: #666; background-color: #111; border-top: 2px solid red;">
+        <p><a href="sitemap.html" style="color: #e10600; text-decoration: none;">🩸 Sitemap: The Archive</a></p>
+        <p>Last updated: October 2025 | Access indexed by forensic investigation</p>
+    </footer>
+
+    <!-- CONSOLIDATED JAVASCRIPT: DATA AND LOGIC -->
+    <script>
+        // --- 1. DATA (from index-data.js) ---
+        const featuredCases = [
+            {
+                "id": "SnowtownMurders",
+               posterUrl: "images/snowtown.jpg",
+                "year": 2011,
+                "title": "Snowtown Murders",
+                "description": "John Justin Bunting (born 4 September 1966) is an Australian serial killer from Brisbane, Queensland, currently serving eleven consecutive sentences of life imprisonment without the possibility of parole for his role in the murder of 11 victims of the Snowtown murders.Bunting was the ringleader of a degenerate sub-culture of murderers whose victims were people they already knew. Under the instruction of Bunting, the group would prey upon the weak and steal their welfare payments. His crimes led to the longest and most expensive investigations and criminal trials in Australia's history.Bunting's targets consisted primarily of people he thought to be pedophiles and homosexuals. He has been described as a skilled manipulator of people and Australia's worst serial killer.",
+                "embedId": "9204636584486",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+     {
+                "id": "The Final 24 Hours of Every US Serial Killer",
+                posterUrl: "images/killers.jpg",
+                "year": 2023,
+                "title": "The Final 24 Hours of Every US Serial Killer",
+                "description": "This video is about all of the major serial killers who passed away and how their last 24 hours looked like. Some of them include Ted Bundy, Jeffrey Dahmer and more",
+                "embedId": "s3t1_A1NckE?si=qsGbWSSzZBRI6jFz",
+                "genres": ["Documentary", "Crime"],
+                "source": "youtube"
+            },
+    {
+                "id": "The Terrifying Case of Edmund Kemper",
+                posterUrl: "images/ed kemper.jpg",
+                "year": 2023,
+                "title": " Edmund Kemper The Co-Ed Killer",
+                "description": "Serial killer Edmund Kemper claimed the lives of female students (earning the moniker of Co-ed Butcher) before finally targeting his abusive mother and confessing. Played by Cameron Britton in Netflix crime drama television series Mindhunter, Edmund Emil Kemper III (born December 18, 1948) is an American serial killer and necrophile who murdered ten people, including his paternal grandparents and mother. He is noted for his large size, at 6 feet 9 inches (2.06 m), and for his high intellect, possessing an IQ of 145",
+                "embedId": "56lH5C2Pu7g?si=oKSKSsC7wHkN8_nQ",
+                "genres": ["Documentary", "Crime"],
+                "source": "youtube"
+            },
+              {
+                "id": "Gacy Serial Killer Next Door",
+                "posterUrl": "images/john wayne gacy.jpg",
+                "year": 2011,
+                "title": "Gacy Serial Killer Next Door",
+                "description": "Wisconsin, 1953. John Gacy, Sr. verbally and physically abuses his son during a fishing trip. Iowa, 1968. The adult John Wayne Gacy Jr. is convicted of sodomy and after 18 months he is released...",
+                "embedId": "7854166772245",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+            {
+                "id": "The Most INFAMOUS Serial Killer In Australian History",
+                "posterUrl": "images/milat.jpg",
+                "year": 2017,
+                "title": "The Most INFAMOUS Serial Killer In Australian History",
+                "description": "Ivan Robert Marko Milat, commonly referred to in media as the Backpacker Murderer, was an Australian serial killer who abducted, assaulted, robbed and murdered two men and five women in New South Wales between 1989 and 1992.",
+                "embedId": "8itKXT1yTfc",
+                "genres": ["Documentary"],
+                "source": "youtube"
+            },
+            {
+                "id": "The Hunt For The BTK Killer 2005",
+                "posterUrl": "images/dennis rader.jpg",
+                "year": 2005,
+                "title": "The Hunt For The BTK Killer 2005",
+                "description": "After 31 years at-large, detectives in Wichita, Kansas home in on the serial killer known as BTK. Dennis Rader, infamously known as the BTK killer, is a convicted American serial killer...",
+                "embedId": "6409514060345",
+                "genres": ["Crime", "Action"],
+                "source": "ok.ru"
+            },
+              {
+                "id": "Inside the Mind of Jeffrey Dahmer: Serial Killer’s Chilling Jailhouse Interview",
+                "posterUrl": "images/Jeffrey Dahmer mugshot.jpg",
+                "year": 2016,
+                "title": "Inside the Mind of Jeffrey Dahmer: Serial Killer’s Chilling Jailhouse Interview",
+                "description": "This video is the real life courtroom trial with associated interviews. Jeffrey Lionel Dahmer (May 21, 1960 - November 28, 1994) was an American serial killer and sex offender...",
+                "embedId": "iWjYsxaBjBI",
+                "genres": ["Crime", "Action"],
+                "source": "youtube"
+            },
+            {
+                "id": "Fred and Rose West Documentary",
+                "posterUrl": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p30069767_b_v4_aa.jpg",
+                "year": 2011,
+                "title": "Fred and Rose West Documentary",
+                "description": "In 1994 in Gloucester, England, social services alerted the police to a horrifying rumor they were told by the children of Fred and Rose West...",
+                "embedId": "2026846292518",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+            {
+                "id": "Dennis Rader: The BTK Killer ",
+                "posterUrl": "images/Dennis_Lynn_Rader.jpg",
+                "year": 2016,
+                "title": "Dennis Rader: The BTK Killer ",
+                "description": "Dennis Rader's killings occurred between 1974 and 1991, during which time he killed a total of 10 people (the first four of whom were killed in one night)...",
+                "embedId": "4h224QXYD-I",
+                "genres": ["Crime", "Action"],
+                "source": "youtube"
+            },
+            {
+                "id": "The Son Of Sam: Destined To Be A Serial Killer?",
+                "posterUrl": "images/sam.jpg",
+                "year": 2016,
+                "title": "The Son Of Sam: Destined To Be A Serial Killer? ",
+                "description": "David Berkowitz was born as Richard David Falco. His mother had him out of wedlock when she had an affair with a married real-estate agent named Joseph Klineman...",
+                "embedId": "ZatEG03Y6Zg",
+                "genres": ["Crime", "Action"],
+                "source": "youtube"
+            },
+            {
+                "id": "The Green River Killer",
+                "posterUrl": "images/ridgway.jpg",
+                "year": 2016,
+                "title": "The Green River Killer’s 19-Year Reign of Terror",
+                "description": "The Green River Killer case gripped the Seattle area for nearly two decades, leaving a trail of tragedy and unanswered questions in its wake. Gary Ridgway's crimes, which spanned from 1982 to 2001, have been the subject of numerous documentaries exploring the investigation and the mind behind these heinous acts.",
+                "embedId": "LF_ZyGyiqUs?si=38FWo5meO3bIaxPY",
+                "genres": ["Crime", "Documentry"],
+                "source": "youtube"
+            },
+              {
+                "id": "Serial Killers?",
+                "posterUrl": "images/killers.jpg",
+                "year": 2016,
+                "title": "3 Hour Binge Of The Most Mentally Depraved Killers ",
+                "description": "00:00 - Washington SnipersCriminal experts explore the personal life of John Allen Muhammad and Lee Boyd Malvo, two shooters who terrorized the American capital with random fatal shootings over a three-week period.45:25 - Harold ShipmanClues to serial killer doctor Harold Shipman's crimes could be found in his background. After being convicted of the murders of 15 elderly patients, it is believe the true number of victims could be as high as 275.1:30:28 - Jeffrey DahmerAttorneys, friends, other first-hand contacts and a gastronomic peer depict the appealing young gay man who became infamously known as The Milwaukee Cannibal.2:15:48 - Myra HindleyAn insight into Britain's most infamous female serial killer, Myra Hindley. Did something cause her to commit her crimes, or was she born to kill?Absolute Crime is your go-to channel for the best crime documentaries. Subscribe for your weekly dose of crime shows, serial killers, thieves and prison stories.00:00 Washington Snippers45:25 Harold Shipman1:30:28 Jeffrey Dahmer2:15:48 Myra Hindley",
+                "embedId": "bXv5koxHkzg?si=yJPqxe9copzyJ3A4",
+                "genres": ["Crime", "Documentry"],
+                "source": "youtube"
+            },
+            {
+                "id": "ED-Gein-The-Butcher-of-Plainfield ",
+                "posterUrl": "images/ed gein.jpg",
+                "year": 2016,
+                "title": "ED Gein: The Butcher of Plainfield | A Real Psycho ",
+                "description": "The story of Ed Gein, who dug up the corpses of over a dozen women and made things out of their remains before finally shooting two people to death and butchering their bodies like beef sides.",
+                "embedId": "XtGrxZldBIc?si=vXyaNvRtb0rS7Wk6",
+                "genres": ["Crime", "Documentry"],
+                "source": "youtube"
+            },
+             {
+                "id": "The-Double-Life-of-Dennis-Rader",
+                 "posterUrl": "images/dennis rader.jpg",
+                "year": 2024,
+                "title": "Double Life of Dennis Rader: BTK Killer ",
+                "description": "This Manic Cadence video explores the chilling duality of Dennis Rader, a seemingly ordinary community leader who secretly committed heinous crimes. The documentary details Rader's early life and escalating behaviors, tracing a path from childhood curiosities to horrific acts. It examines the meticulous planning and brazen taunting that characterized Rader's decades-long reign of terror.",
+                "embedId": "3MEgLX6GSFo?si=jTTc88GP1rD9fvNn",
+                "genres": ["Documentary", "Crime"],
+                "source": "youtube"
+            },
+             {
+                "id": "Bundy",
+                "posterUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJBY5ryabkFHoFgMt55Iz7ZQUVyYjASQ1b7YxE0kvTZbbMJjxZsew_MZeudg5yLjKiWX-om7jiP5naF6ws-7LfthtzmmScm56W_DuTjccl",
+                "year": 2002,
+                "title": "Bundy",
+                "description": "Ted Bundy (Michael Reilly Burke) is a seemingly well-adjusted law student with a bright future ahead. Intelligent and good-looking, Ted has little trouble earning the affections of Lee (Boti Ann Bliss), a lovely woman who's willing to look beyond and accept her fiancé's sometimes lascivious sexual appetites. But little can prepare Lee for the brutal crimes Ted is about to commit: a six-state crime spree comprising over 30 homicides and hundreds of rapes.",
+                "embedId": "966671469209",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "Henry-Portrait-of-a Serial-Killer",
+                "posterUrl": "images/henry.jpg",
+                "year": 1986,
+                "title": "Henry: Portrait of a Serial Killer",
+                "description": " Henry: Portrait of a Serial Killer is based on a true story, loosely inspired by the lives of real-life serial killers Henry Lee Lucas and Ottis Toole. While the film takes creative liberties, the main characters of Henry and Otis are based on these two convicted murderers.",
+                "embedId": "2117568236243",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "Doctor Death",
+                "posterUrl": "images/shipman.jpg",
+                "year": 1986,
+                "title": "Doctor Death Harold Shipman",
+                "description": " Britain’s biggest serial killer was a doctor, Dr Harold Shipman. Unsuspected for many years, Dr. Shipman selected his victims from his patient list. There were clues, but who in the community would believe that a doctor would kill his patients? Suspected of killing over 350 people during his career, it was clumsy attempts at forging the will of one of his victims in his own favour that alerted the police and led to his arrest. Found guilty at his trial and jailed for life, Dr Shipman committed suicide never accepting his guilt.",
+                "embedId": "3-KVuVjmjmU?si=C4LAgFaAO9JdPjgH",
+                "genres": ["Crime", "Horror"],
+                "source": "youtube"
+            },
+             {
+                "id": "Fred & Rose West's",
+                "posterUrl": "images/fred n rose.jpg",
+                "year": 1986,
+                "title": "Fred & Rose West's House of Horrors",
+                "description": "The events that transpired at 25 Cromwell Street in the UK, where a seemingly normal father and mother (Fred and Rose West) tortured, raped and murdered young women, including their own children.",
+                "embedId": "BCizAV5EmKk?si=EmSJenQbM4FCM0Cv",
+                "genres": ["Crime", "Horror"],
+                "source": "youtube"
+            },
+             {
+                "id": "Unforgiven",
+                "posterUrl": "images/bulger.jpg",
+                "year": 1986,
+                "title": "The Tragedy of James Bulger and His Killer Boys",
+                "description": "Denise is out with James at the Bootle Strand shopping centre. It’s late afternoon when Denise makes her final visit to A.R.Tyms butcher’s shop. She places her order, but she’s momentarily distracted and takes her eyes off James. Sadly it’s long enough for him to disappear. Rushing outside she searches frantically. For Denise Bulger her worst nightmare is coming true. The police are called after security staff fail to locate him. She describes him again as wearing a blue anorak with a hood and mustard coloured lining, silver-coloured tracksuit bottoms and white trainers. At 4pm a young PC who’s carried out a thorough search of the shopping centre is comforting a distraught Denise. By 5.30pm the shopping centre closes for the day. The police launch a major search for a missing child in Bootle, Liverpool.",
+                "embedId": "TrkQe4tyJnQ?si=4ldfGY2Fp3RB-Q3L",
+                "genres": ["Crime", "Horror"],
+                "source": "youtube"
+            },
+             {
+                "id": "Detainment 2018",
+                "posterUrl": "images/Bulger-killers.jpg",
+                "year": 2018,
+                "title": "Detainment",
+                "description": "Two ten year-old boys are detained by police under suspicion of abducting and murdering a toddler. A true story based on interview transcripts and records from the James Bulger case, which shocked the world in 1993.",
+                "embedId": "1234134960793",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "The Manhunt for Richard Speck",
+                "posterUrl": "images/richard speck.jpg",
+                "year": 1966,
+                "title":"The Manhunt for Richard Speck",
+                 "description": "On the morning of July 14, 1966, Chicago woke to a horror that would haunt the city for decades. Eight student nurses had been brutally murdered in their townhouse on East 100th Street. The lone survivor, Corazon Amurao, had hidden under a bed and lived to tell the tale — giving police a chilling description of the killer: six feet tall, blond hair, 160 pounds, southern drawl, and a tattoo that read “Born to Raise Hell The City Locks DownChicago police launched one of the most intense manhunts in its history. Detectives fanned out across the South Side, canvassing bars, flophouses, and union halls. They knew the killer was familiar with the area — the nurses’ residence wasn’t visible from the street, suggesting insider knowledge.Acting Lieutenant Victor Vrdolyak and his team followed a lead to a nearby gas station, where an attendant recalled a man who had left his bags there days earlier. He’d missed a ship and lost a job — and he was angry. That tip led investigators to the Merchant Marine Union Hall, just blocks from the crime scene.🧠 A Tattoo That Broke the CaseMeanwhile, Speck had checked into a low-rent hotel under a fake name. He attempted suicide on July 17, slashing his wrists. When he was taken to Cook County Hospital, a doctor recognized the tattoo from news reports and called police. Speck was arrested on the spot.His capture was a moment of grim relief for a city paralyzed by fear. But the horror was far from over.🎥 Watch the Full Breakdown📺 “Remembering the Manhunt for the Killer”Watch the video — a gripping account of how Chicago police tracked down one of the most infamous mass murderers in American history.🧬 Why It MattersThe Speck case changed how America viewed safety, mental health, and criminal justice. It exposed the cracks in parole systems, the dangers of transient lifestyles, and the trauma left behind by survivors. His prison years — marked by drug use, cross-dressing, and chilling confessions — only deepened the public’s fascination and horror.",
+                "embedId": "WaUSUfCcr0Y?si=mMtl6rVGBOFG9XGg",
+                "genres": ["Crime", "Horror"],
+                "source": "youtube"
+            },
+             {
+                "id": "The Sunset Strip Killers",
+                "posterUrl": "images/clark bundy.jpg",
+                "title":"The Sunset Strip Killers",
+                "year": 1986,
+                "description": "A deadly game of depravity and destruction, including two decapitations. Three key players. Two of those players dead. Only one remains.In Los Angeles, California, a series of murders occurred during the Summer of 1980, which left an indelible mark on countless individuals. This string of brutal and bloody crimes would make the already famous Sunset Boulevard, AKA The Sunset Strip infamous, and a place forever synonymous with the word EVIL.This true story blends statements to law enforcement and trial testimony with personal accounts from those who experienced the events first-hand. The psychology behind these violent crimes is explored, along with a look at the psychological state and possible motives of the individuals.Doug Clark - Convicted of 6 murder Carol Bundy - Convicted of 2 murders including Jack Murray Jack Murray - Murder victim (as well as the murderer?)The story surrounding these three lethal lovers has made it a favorite of the media, which relishes in its shock value. The overweight nurse with thick glasses, who should have nurtured lives rather than take them, who stunned police when she gloated, “It’s fun to kill.” Two lotharios with a penchant for wearing women’s undergarments and sadomasochism.They fed off each others’ twisted desires and savagery. Fantasies gave way to nightmares, and anyone unfortunate enough to cross their path became a potential victim. Intense California heat bathed Sunset Boulevard with the stench of garbage and fear— a smell that emanated relentlessly. It was the smell made by Death stalking the street in the form of The Sunset Strip Slayers.",
+                "embedId": "T-Rrij9VDMk?si=zlDdrVSyt_BT1FfI",
+                "genres": ["Crime", "Horror"],
+                "source": "youtube"
+            },
+             {
+                "id": "10 Rillington Place ",
+                "posterUrl": "images/john christie.jpg",
+                "year": 1971,
+                "title": "John Christie: The Monster of Rillington Place",
+                "description": "John Reginald Halliday Christie (1899–1953) was a British serial killer whose quiet demeanor masked a decade of calculated murders inside his London flat at 10 Rillington Place. Between 1943 and 1953, Christie murdered at least eight people, including his own wife, Ethel. His victims were often vulnerable women whom he lured with promises of medical help, only to strangle them and hide their bodies within the walls and floorboards of his home.Christie’s crimes were methodical and deeply disturbing. He posed as a medical expert, using gas and false diagnoses to incapacitate victims. His ability to manipulate trust made him especially dangerous — and tragically, it led to one of the UK’s most infamous miscarriages of justice.In 1949, Christie falsely implicated his neighbor Timothy Evans in the murder of Evans’s wife and child — crimes Christie himself had committed. Evans was convicted and executed, only for the truth to emerge years later when Christie’s own murders were uncovered. This revelation helped fuel the movement to abolish the death penalty in Britain.Christie was arrested in March 1953, after the discovery of multiple bodies in his flat. He was convicted of murder and hanged at HM Prison Pentonville in July of that year",
+                "embedId": "6706532584089",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "The Capture of the Green River Killer",
+                "posterUrl": "images/green river.jpg",
+                "year": 1971,
+                "title": "🎬 The Capture of the Green River Killer (2008) — Full Movie Bio for True Crime Archives",
+                "description": "Set in Washington State, this dramatized miniseries follows Detective Dave Reichert as he leads a relentless, decades-long manhunt for the elusive Green River Killer, later identified as Gary Ridgway. Between 1982 and 1998, Ridgway murdered dozens of women—many of whom were sex workers or runaways—dumping their bodies near the Green River.The series interweaves the killer’s escalating crimes with the emotional toll on investigators, victims’ families, and the community. It also highlights the psychological complexity of Ridgway, who managed to evade capture for years despite mounting evidence and public pressure.",
+                "embedId": "2317597411897",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "American Justice S10E04 ~ The Atlanta Child Murders (2001)",
+                "posterUrl": "images/atlanta.jpg",
+                "year": 2001,
+                "title": "🩸 Atlanta Child Murders (1979–1981) — Full Case Bio for True Crime Archives",
+                "description": "The Case That Shook a CityBetween 1979 and 1981, Atlanta was gripped by fear as young Black children began disappearing — many found dead in wooded areas, rivers, or abandoned buildings. The victims were mostly boys, aged 7 to 17, and the killings followed a chilling pattern: strangulation, asphyxiation, and dumping near the city’s outskirts.The media dubbed the spree the Atlanta Child Murders, and the city’s African-American community demanded answers. The FBI launched a massive investigation, code-named ATKID, deploying behavioral profilers and forensic experts to track the killer.In 1981, police arrested Wayne Williams, a 23-year-old aspiring music promoter, after he was spotted near the Chattahoochee River where two bodies were later found. Fibers from his home and car matched those on multiple victims. Williams was convicted of two adult murders, but authorities closed the child cases based on circumstantial evidence — a decision that remains controversial to this day.",
+                "embedId": "7732131727919",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+              {
+                "id": "Citizen X",
+                "posterUrl": "images/citizen x.jpg",
+                "title":"Citizen X",
+                "year": 1995,
+                "description": "Citizen X is a 1995 HBO television film based on the true story of the hunt for Soviet serial killer Andrei Chikatilo. The bio refers to the plot of the film, which focuses on the efforts of Lieutenant Viktor Burakov (Stephen Rea) and his cynical superior Fetisov (Donald Sutherland) as they are hindered by Soviet bureaucracy while trying to catch the elusive killer, known by the pseudonym Citizen  after a psychiatrist profiled him. Chikatilo was eventually arrested and convicted of 52 murders.  The crime: In the 1980s, serial killer Andrei Chikatilo murdered 52 people, mostly women and children, over an eight-year period in the Soviet Union. The investigation: Lt. Viktor Burakov leads the investigation, but his efforts are constantly obstructed by a system that denies the existence of serial killers. ",
+                "embedId": "202KCQ8tXLM?si=GW9fjgDdeECuyGAs",
+                "genres": ["Crime", "Horror"],
+                "source": "youtube"
+            },
+             {
+                "id": "The Boston Strangler",
+                "posterUrl": "images/Albert_deSalvo.jpg",
+                "year": 1968,
+                "title": "The Boston Strangler 1968 REMASTERED 1080p",
+                "description": "A series of strangulation murders of Boston women sparks a protracted complex manhunt. Law professor John Bottomley leads a multi-jurisdictional task force in the investigation, with help from surviving victim Diane Cluny This is the 1968 movie, staring Tony Curtis",
+                "embedId": "5073146350248",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "To Catch A Killer John Wayne Gacy ",
+                "posterUrl": "images/john gacy.jpg",
+                "year": 1992,
+                "title": "To Catch A Killer John Wayne Gacy ",
+                "description": "Good friend and neighbour John Wayne Gacy entertained children and ran a business. However, he hid a dark secret as a violent serial killer who raped and murdered over 30 young boys. This is the movie from 1992",
+                "embedId": "7573702314524",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+            {
+                "id": " Stranger Besides Me",
+                "posterUrl": "images/stranger.jpg",
+                "title":" Stranger Besides Me",
+                "year": 2003,
+                "description": "The Stranger Beside Me refers to the 1980 true crime book by Ann Rule about serial killer Ted Bundy, whom she knew personally. There is also a 2008 film with the same title about a woman in an abusive relationship with a man who may be a masked rapist. The book has been revised several times, most recently in 2021. ",
+                 "embedId": "VMSSARwzz1g?si=tFxk_LpAY8XIm2_B",
+                "genres": ["Crime", "Horror"],
+                "source": "youtube"
+            },
+             {
+                "id": "See No Evil: The Moors Murders 2006 S01E01",
+                "posterUrl": "images/see no evil.jpg",
+                "year": 2006,
+                "title": "See No Evil: The Moors Murders Part 1",
+                "description": "The Moors murders were carried out by Ian Brady and Myra Hindley between July 1963 and October 1965, in and around what is now Greater Manchester, England. The victims were five children aged between 10 and 17—Pauline Reade, John Kilbride, Keith Bennett, Lesley Ann Downey and Edward Evans—at least four of whom were sexually assaulted. The murders are so named because two of the victims were discovered in graves dug on Saddleworth Moor, with a third grave also being discovered there in 1987, over 20 years after Brady and Hindley's trial in 1966. The body of a fourth victim, Keith Bennett, is also suspected to be buried there, but despite repeated searches it remains undiscovered.The police were initially aware of only three killings, those of Edward Evans, Lesley Ann Downey, and John Kilbride. The investigation was reopened in 1985, after Brady was reported in the press as having confessed to the murders of Pauline Reade and Keith Bennett. Brady and Hindley were taken separately to Saddleworth Moor to assist the police in their search for the graves, both by then having confessed to the additional murders.",
+                "embedId": "9297958865606",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "See No Evil: The Moors Murders 2006 S01E02",
+                "posterUrl": "images/see no evil.jpg",
+                "year": 2006,
+                "title": "See No Evil: The Moors Murders Part 2",
+                "description": "The Moors murders were carried out by Ian Brady and Myra Hindley between July 1963 and October 1965, in and around what is now Greater Manchester, England. The victims were five children aged between 10 and 17—Pauline Reade, John Kilbride, Keith Bennett, Lesley Ann Downey and Edward Evans—at least four of whom were sexually assaulted. The murders are so named because two of the victims were discovered in graves dug on Saddleworth Moor, with a third grave also being discovered there in 1987, over 20 years after Brady and Hindley's trial in 1966. The body of a fourth victim, Keith Bennett, is also suspected to be buried there, but despite repeated searches it remains undiscovered.The police were initially aware of only three killings, those of Edward Evans, Lesley Ann Downey, and John Kilbride. The investigation was reopened in 1985, after Brady was reported in the press as having confessed to the murders of Pauline Reade and Keith Bennett. Brady and Hindley were taken separately to Saddleworth Moor to assist the police in their search for the graves, both by then having confessed to the additional murders.",
+                "embedId": "9297959062214",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "Summer.of.Sam",
+                "posterUrl": "images/Summer.of.Sam.jpg",
+                "year": 1999,
+                "title": "Summer.of.Sam",
+                "description": "David Richard Berkowitz (born Richard David Falco; June 1, 1953), also known as Son of Sam and the .44 Caliber Killer, is an American serial killer and arsonist whose crimes terrorized New York City from July 1976 until his arrest in August 1977.Shortly after his arrest in August 1977, Berkowitz confessed to killing six people and wounding several others in the course of eight shootings in New York between 1976 and 1977; he has been imprisoned for these crimes since 1977. Berkowitz subsequently claimed that he was commanded to kill by a demon who possessed his neighbor's dog.",
+                "embedId": "6706532584089",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+            {
+                "id": "The Night Stalker ",
+                "posterUrl": "images/The Night Stalker.jpg",
+                "year": 1989,
+                "title": "Manhunt Search For The Night Stalker",
+                "description": "Ricardo Richard Muñoz Ramirez (born February 28, 1960[3] in El Paso, Texas) is a convicted serial killer awaiting execution on California's death row at San Quentin State Prison. Prior to his capture, Ramirez was dubbed the Night Stalker by the news media.",
+                "embedId": "3717330504249",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+            {
+                "id": "The Black Panther",
+                "posterUrl": "images/the black panther.jpg",
+                "year": 1977,
+                "title": "The Black Panther",
+                "description": "Donald Neilson (1 August 1936 – 18 December 2011), born Donald Nappey and also known as the Black Panther, was a British multiple murderer and armed robber. Following three murders committed during robberies of sub-post offices from 1971 to 1974, his last victim was Lesley Whittle, an heiress from Highley, Shropshire, England, in early 1975. He was arrested later that year and sentenced to life imprisonment in 1976, remaining in prison until his death 35 years later.",
+                "embedId": "3962769508891",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+            {
+                "id": "Karla (1080p)",
+                "posterUrl": "images/Karla.jpg",
+                "year": 2006,
+                "title": "Karla (1080p)",
+                "description": "Karla Leanne Homolka, also known as Karla Leanne Teale (born 4 May 1970 in Port Credit, Ontario, Canada), is a Canadian serial killer. She attracted worldwide media attention when she was convicted of manslaughter following a plea bargain in the 1991 and 1992 rape-murders of two Ontario teenage girls, Leslie Mahaffy and Kristen French, as well as the rape and death of her own sister Tammy.Homolka and Paul Bernardo, her husband and partner-in-crime, were arrested in 1993. In 1995, Bernardo was convicted of the two teenagers' murders and received life in prison, the full maximum sentence allowed in Canada. During the 1993 investigation, Homolka stated to investigators that Bernardo abused her, and that she was an unwilling accomplice to the murders. As a result, she struck a deal with prosecutors for a reduced prison sentence of 12 years in exchange for a guilty plea for manslaughter. However, videotapes of the crimes later surfaced and demonstrated that she was a more active participant than she had claimed.",
+                "embedId": "2304815073819",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },{
+                "id": "Cruising.1980.1080p.BluRay",
+                "posterUrl": "images/Cruising.jpg",
+                "year": 1980,
+                "title": "Cruising.1980.1080p.BluRay",
+                "description": "In 1977 and '78, New York homosexuals were terrorized by a series of bag murders, in which six male victims were mutilated and dismembered, their remains wrapped in black plastic bags and dumped in the Hudson River. Some of the grisly fragments washed up on the New Jersey shore, others coming to ground near the World Trade Center.A solution in the case derived from evidence collected in an unrelated case. On September 14, 1977, film critic Addison Verrill was beaten and stabbed to death in his New York apartment.Paul Bateson, a 38-year-old X-ray technician, was convicted of the homicide on March 5, 1979, Bateson drew a term of 20 years to life in prison. While in custody, awaiting trial, Paul Bateson bragged of killing other men for fun, dismembering their bodies, and dropping the bagged remains in the Hudson River. Detectives satisfied themselves of Bateson's guilt, but he was never charged, and the bag murders -- that later inspired the movie Cruising -- remain technically unsolved.",
+                "embedId": "9561068079627",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+            {
+                "id": "THE YOUNG POISONER'S HANDBOOK",
+                "posterUrl": "images/handbook.jpg",
+                "year": 1995,
+                "title": "THE YOUNG POISONER'S HANDBOOK",
+                "description": "This film is based on a true story about a British teenager who alleghenically affected family, friends, and co-workers. Graham is highly intelligent, but complete amoral. He becomes interested in science, especially chemistry, and begin to read avidly. Something of a social misfit, he is fascinated by morbid subjects such as poisons and murder. His family environment is intolerable to him and, in particular, his stepmother torments him. He decisions to poison those who annoy him, first with antimony and later with thallium.",
+                "embedId": "6962681547266",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+            {
+                "id": "The Deliberate Stranger",
+                "posterUrl": "images/Deliberate Stranger.jpg",
+                "year": 1986,
+                "title": "The Deliberate Stranger",
+                "description": "Theodore Robert Ted Bundy (born Theodore Robert Cowell; November 24, 1946 – January 24, 1989) was an American serial killer, rapist, kidnapper, and necrophile who assaulted and murdered numerous young women during the 1970s, and possibly earlier. After more than a decade of denials, he confessed shortly before his execution to 30 homicides committed in seven states between 1974 and 1978; the true total remains unknown, and could be much higher.",
+                "embedId": "7075741895321",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+            {
+                "id": "Badlands",
+                "posterUrl": "images/Badlands.jpg",
+                "year": 1975,
+                "title": "Badlands",
+                "description": "Based on the Charles Starkweather Charles Raymond Starkweather (November 24, 1938 – June 25, 1959) was an American teenaged spree killer who murdered eleven people in Nebraska and Wyoming during a two-month road trip with his 14-year-old girlfriend, Caril Ann Fugate. The couple was captured on January 29, 1958. Starkweather was executed seventeen months later, while Fugate served 17 years in prison.",
+                "embedId": "3899239828071",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+            {
+                "id": "Helter Skelter 1080p",
+                "posterUrl": "images/Helter Skelter.jpg",
+                "year": 2004,
+                "title": "Helter Skelter 1080p",
+                "description": "Charles Milles Manson (born November 12, 1934) is an American criminal who led what became known as the Manson Family, a quasi-commune that arose in California in the late 1960s. He was found guilty of conspiracy to commit the Tate/LaBianca murders carried out by members of the group at his instruction. He was convicted of the murders through the joint-responsibility rule, which makes each member of a conspiracy guilty of crimes his fellow conspirators commit in furtherance of the conspiracy's object.Manson believed in what he called Helter Skelter,a term he took from the song of the same name by The Beatles. Manson believed Helter Skelter to be an impending apocalyptic race war, which he described in his own version of the lyrics to the Beatles' song. He believed his murders would help precipitate that war. From the beginning of his notoriety, this connection with rock music linked him with a pop culture in which he ultimately became an emblem of insanity, violence and the macabre.",
+                "embedId": "9701182409294",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "Monster",
+                "posterUrl": "images/Monster.jpg",
+                "year": 2003,
+                "title": "Monster (2003)",
+                "description": "Aileen Carol Wuornos (29 February 1956 – 9 October 2002) was an American serial killer who killed seven men in Florida in 1989 and 1990, claiming they raped or attempted to rape her while she was working as a prostitute. She was convicted and sentenced to death for six of the murders and executed by lethal injection on October 9, 2002.",
+                "embedId": "3579896924727",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "Jack the Ripper (1988)",
+                "posterUrl": "images/Jack ripper.jpg",
+                "year": 1988,
+                "title": "Jack the Ripper (1988)",
+                "description": 
+                "Jack the Ripper is the best-known name given to an unidentified serial killer who was active in the largely impoverished areas in and around the Whitechapel district of London in 1888. The name originated in a letter, written by someone claiming to be the murderer, that was disseminated in the media. The letter is widely believed to have been a hoax, and may have been written by a journalist in a deliberate attempt to heighten interest in the story. Other nicknames used for the killer at the time were The Whitechapel Murderer and Leather Apron.Attacks ascribed to the Ripper typically involved female prostitutes from the slums whose throats were cut prior to abdominal mutilations. The removal of internal organs from at least three of the victims led to proposals that their killer possessed anatomical or surgical knowledge. Rumours that the murders were connected intensified in September and October 1888, and letters from a writer or writers purporting to be the murderer were received by media outlets and Scotland Yard. The From Hell letter, received by George Lusk of the Whitechapel Vigilance Committee, included half of a preserved human kidney, supposedly from one of the victims. Mainly because of the extraordinarily brutal character of the murders, and because of media treatment of the events, the public came increasingly to believe in a single serial killer known as Jack the Ripper.Extensive newspaper coverage bestowed widespread and enduring international notoriety on the Ripper. An investigation into a series of brutal killings in Whitechapel up to 1891 was unable to connect all the killings conclusively to the murders of 1888, but the legend of Jack the Ripper solidified.",
+                "embedId": "7699909249742",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "The Honeymoon Killers",
+                "posterUrl": "images/The Honeymoon Killers.jpg",
+                "year": 1971,
+                "title": "The Honeymoon Killers (1970) (1080p)",
+                "description": "An obese, embittered nurse doesn't mind if her toupee-wearing boyfriend romances and fleeces other women, as long as he takes her along on his con jobs.Raymond Fernandez (December 17, 1914 – March 8, 1951) and Martha Beck (May 6, 1920 – March 8, 1951) became known as The Lonely Hearts Killers after their arrest and trial for serial murder in 1949. Between 1947 and 1949 they are believed to have killed as many as twenty women.",
+                "embedId": "9994327099931",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "The Town That Dreaded Sundown",
+                "posterUrl": "images/The Town That Dreaded Sundown.jpg",
+                "year": 1976,
+                "title": "The Town That Dreaded Sundown 1976 (Full Movie) FHD",
+                "description": "Before the Phantom-attacks, which occurred about eight months after World War II, Texarkana was pleasant and citizens were preparing for a good future. On the night of Sunday, March 3, 1946, Sammy Fuller and Linda Mae Jenkins park on a lovers' lane. Soon, the hood of the car opens and closes and a man with a bag over his head with holes cut out for his eyes is seen holding wires he had yanked from the engine. While Sammy tries starting the car, the man breaks his window and pulls him out, cutting him on the broken glass. The man then gets inside the car with Linda.he next morning, Linda is found on the side of the road barely alive. While at the crime scene, Deputy Norman Ramsey reports that both victims are still alive. He leaves a message for Sheriff Barker to meet him at Michael-Meagher Hospital. At the hospital, a doctor tells Sheriff Barker that Linda was not raped but that her back, stomach, and breasts were heavily bitten; literally chewed At the police station, Barker suggests to Police Chief Sullivan to warn teens and college students from parking on lonely roads.On March 24, while investigating a lovers' lane in heavy rain, Ramsey hears gunshots and finds Howard W. Buddy Turner dead in a ditch and the corpse of his girlfriend, Emma Lou Cook, tied to a tree. Ramsey spots the hooded man escaping in a car. Panicked, the town sells out of guns and other home safety equipment. Sheriff Barker calls in help and tells Ramsey they are getting the most famous criminal investigator in the country, the Lone Wolf of the Texas Rangers, Captain J.D. Morales. After arriving, Morales explains he will be in charge of the investigation and calls the unidentified attacker a Phantom. Ramsey is assigned to assist Morales, and Patrolman A.C. Sparkplug Benson is to be his driver....",
+                "embedId": "3273944271512",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "The Alphabet Killer",
+                "posterUrl": "images/The Alphabet Killer.jpg",
+                "title":"The Alphabet Killer 2008",
+                "year": 2008,
+                "description": "Detective Megan Paige investigates the murder of a young girl. She becomes obsessed with the crime, causing her supervisor to take her off the case, until years later when the killer strikes again.",
+                "embedId": "qJCYwP8W3qY?si=E2IC1FecI9YWSVqf",
+                "genres": ["Crime", "Horror"],
+                "source": "youtube"
+            },
+             {
+                "id": "The Case of the Hillside Stranglers",
+                "posterUrl": "images/Hillside.jpg",
+                "title":"The Case of the Hillside Stranglers",
+                "year": 2089,
+                "description": "The true chilling story of the two of a kind, killin' cousins Angelo Buono and Kenneth Bianchi, better known as the Hillside Stranglers, is told in this TV drama. The movie concentrates on the killers story, as well as on the life of Officer Bob Grogan, who investigated their case. Look for the real Bob Grogan as the Washington cop who arrests Kenneth Bianchi!",
+                "embedId": "E33JBYjot7s?si=-Q4AsKjfjW7GtJlr",
+                "genres": ["Crime", "Horror"],
+                "source": "youtube"
+            },
+              {
+                "id": "Karla Ken and Barbie Killers",
+                "posterUrl": "images/karla 1.jpg",
+                "title":"Karla the Ken and Barbie Killers",
+                "year": 2006,
+                "description": "Based on real events, Paul Bernardo and his wife, Karla Homolka, kidnap, sexually abuse, and murder three young girls.",
+                "embedId": "2304815073819",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "Overkill: The Aileen Wuornos Story",
+                "posterUrl": "images/overkill.jpg",
+                "title":"Overkill: The Aileen Wuornos Story",
+                "year": 1992,
+                "description": "This film is based on the true story of Aileen Wuornos a prostitute-turned-serial killer who preyed mostly on truck drivers. Not the best quality.",
+                "embedId": "zgdloKt0gLY?si=U_OyM1rRGP2RG8gm",
+                "genres": ["Crime", "Horror"],
+                "source": "youtube"
+            },
+             {
+                "id": "A PSYCHO'S PATH: THE CALIFORNIA KILLER",
+                "posterUrl": "images/A Psycho's Path.jpg",
+                "title":"A PSYCHO'S PATH: THE CALIFORNIA KILLER",
+                "year": 2019,
+                "description": "A small California desert town is being stalked by a motiveless psychopath who roams its streets killing at random. Captain Peters and his small police force are on the case searching for his whereabouts before he kills again. (Not a true story)",
+                "embedId": "91XtFqEam5w?si=4OJnr9w4S8mC4O73",
+                "genres": ["Crime", "Horror"],
+                "source": "youtube"
+            },
+             {
+                "id": "San FranPsycho ",
+                "posterUrl": "images/San FranPsycho.jpg",
+                "title":"San FranPsycho",
+                "year": 2006,
+                "description": "A serial killer in the vein of The Zodiac is stalking the city of San Francisco and sending a news reporter cryptic letters after each murder. As the body count rises, two SFPD detectives, the reporter and a psychologist-priest relentlessly pursue the madman, determined to put an end to his bloody carnage. But as the killer gets closer and closer to the news reporter, will the detectives catch him before it's too late? ",
+                "embedId": "l9SKGHntcuo?si=-1VImoPet-2FaSSV",
+                "genres": ["Crime", "Horror"],
+                "source": "youtube"
+            },
+             {
+                "id": "The Confessions of Gary Ridgeway",
+                "posterUrl": "images/The Confessions of Gary Ridgeway.jpg",
+                "title":"The Confessions of Gary Ridgeway",
+                "year": 2008,
+                "description": "A 54-year-old truck painter in the United States has confessed to the murders of dozens of women.Gary Ridgeway's confession was read aloud to the court, and he was asked to verify that the words were his.I picked prostitutes as my victims because I hate most prostitutes and I did not want to pay them for sex.' Is that true? asked the prosecutor Yes, answered Ridgeway.Ridgeway agreed to confess to the murders in exchange for a plea bargain delivering him life in prison without parole instead of the death penalty.Ridgeway admits killing 48 women around Seattle beginning in 1982.In his confession, Ridgeway says he thought nobody would report missing prostitutes, meaning he would be able to murder as many as he liked without being caught.",
+                "embedId": "6y4NN13YBUk?si=OAWh_HyueS5mjvNX",
+                "genres": ["Crime", "Horror"],
+                "source": "youtube"
+            },
+                 {
+                "id": " Alcatraz East Crime Museum",
+                "posterUrl": "images/Alcatraz-East-Building.jpg",
+                "title":"INSIDE TED BUNDY’S CAR | Alcatraz East Crime Museum",
+                "year": 2023,
+                "description": "Step inside Ted Bundy's infamous VW Beetle at Alcatraz East Crime Museum. This true crime tour grants exclusive access to the vehicle and other chilling artifacts. The museum showcases numerous exhibits detailing infamous criminals and crime scene investigations.",
+                "embedId": "Jgjk2wUKULc?si=C7may-AATYWZyskq",
+                "genres": ["Crime", "Horror"],
+                "source": "youtube"
+            },
+                 {
+                "id": "Point of Origin",
+                "posterUrl": "images/point of origin 2002.jpg",
+                "title":"Point of Origin",
+                "year": 2002,
+                "description": "Fact-based drama about an arson investigator (Ray Liotta) searching for the perpetrator of a string of deadly fires in 1980s California.",
+                "embedId": "S2GrzXcCUaI?si=85URvaB_2VWkGXPd",
+                "genres": ["Crime", "Horror"],
+                "source": "youtube"
+            },
+             {
+                "id": "No.Man.Of.God.",
+                "posterUrl": "images/No.Man.Of.God.jpg",
+                "year": 2021,
+                "title": "No.Man.Of.God",
+                "description": "The complicated relationship that formed between the FBI analyst Bill Hagmaier and serial killer Ted Bundy during Bundy's final years on death row.",
+                "embedId": "6550901164588",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "Mind of a Monster S01E03 ~ The Green River Killer",
+                "posterUrl": "images/Mind of a Monster S01E03 ~ The Green River Killer (2020).jpg",
+                "year": 2020,
+                "title": "Mind of a Monster S01E03 ~ The Green River Killer",
+                "description": "Documentary about Gary Leon Ridgway, an American serial killer who was active during the 1980s and 1990s. He was known as the Green River Killer.",
+                "embedId": "7576323557935",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+             {
+                "id": "My Uncle is the Green River Killer",
+                "posterUrl": "images/My Uncle is the Green River Killer (2014).jpg",
+                "year": 2014,
+                "title": "My Uncle is the Green River Killer",
+                "description": "The Green River Killer, Gary Ridgway, thought he could get away with numerous murders, but now we see what the family has to say about it.",
+                "embedId": "2895300659913", 
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+                {
+                "id": "Ted Bundy How It Happened ",
+                "posterUrl": "images/Ted Bundy How It Happened.jpg",
+                "title":"Ted Bundy How It Happened ",
+                "year": 2002,
+                "description": "HLN dives into the deepest, darkest, gruesome mysteries and murders of the past. What really happened and how did it all play out?",
+                "embedId": "_R5riGCbI58?si=vvmW8gWPK1pH02W3",
+                "genres": ["True Crime", "Horror"],
+                "source": "youtube"
+            },
+                {
+                "id": "The Riverman",
+                "posterUrl": "images/riverman.jpg",
+                "title":"The Riverman",
+                "year": 2004,
+                "description": "It's 1982 and Detective Dave Reichert (Sam Jaeger) is on the trail of the Green River Killer, who's responsible for the deaths of over a dozen women. With few leads and the death toll mounting, Reichert seeks help from retired investigator Robert Keppel (Bruce Greenwood). But as he examines the case, Keppel decides to consult someone who knows about murder firsthand -- serial killer Ted Bundy (Cary Elwes). Bundy seems interested in cooperating , but there's a catch: He wants off death row.",
+                "embedId": "6178328414777",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+              {
+                "id": "This-Is-Personal-The-Hunt-for-the-Yorkshire-Ripper",
+                "posterUrl": "images/This Is Personal The Hunt for the Yorkshire Ripper.jpg",
+                "title":"This Is Personal-The Hunt for the Yorkshire Ripper (2000)",
+                "year": 2000,
+                "description": "Dramatisation of the real-life investigation into the notorious Yorkshire Ripper murders of the late 1970s, starring Alun Armstrong as the man leading the hunt for the infamous killer.",
+                "embedId": "9839035353748",
+                "genres": ["Crime", "Horror"],
+                "source": "ok.ru"
+            },
+        ];
+
+        // --- 2. LOGIC (from index-logic.js) ---
+        const entriesPerPage = 6; 
+        let currentPage = 1;
+
+        // Function to determine the correct iframe source URL based on the video platform
+        function getVideoSourceUrl(embedId, source) {
+            if (source === 'youtube' || source === 'YouTube') {
+                return `https://www.youtube.com/embed/${embedId}`;
+            } else if (source === 'ok.ru' || source === 'ok') {
+                // Ok.ru embed format typically looks like this
+                return `https://ok.ru/videoembed/${embedId}`;
+            }
+            // Fallback for unknown/missing source
+            return ''; 
+        }
+
+        function createCard(caseData) {
+            const videoSrc = getVideoSourceUrl(caseData.embedId, caseData.source);
+
+            if (!videoSrc) {
+                console.error("Missing or invalid embedId/source for case:", caseData.title || caseData.id);
+                // Return an error placeholder card if the embed ID or source is broken
+                return `
+                    <div class="index-card" style="border-color: yellow;">
+                        <h3 class="index-card-title" style="color: yellow;">${caseData.title || 'Untitled Case'}</h3>
+                        <div class="video-wrapper" style="background-color: #444;">
+                            <p style="text-align: center; color: yellow; padding: 20%; font-size: 1.2rem;">
+                                VIDEO UNAVAILABLE (Broken Link or Unknown Source)
+                            </p>
+                        </div>
+                        <p class="index-card-description">
+                            The embedded video link is currently broken or the source (${caseData.source || 'N/A'}) is unsupported.
+                        </p>
+                        <a href="${storyLink}" class="full-story-button" style="background-color: yellow; color: black;">READ FULL STORY</a>
+                    </div>
+                `;
+            }
+
+            const storyLink = `story.html?id=${caseData.id}`;
+            
+            return `
+                <div class="index-card">
+                    <h3 class="index-card-title">${caseData.title || 'Untitled Case'}</h3>
+                    <div class="video-wrapper">
+                        <iframe 
+                            class="embedded-video-player"
+                            src="${videoSrc}"
+                            title="Video player for ${caseData.title}"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="index-card-description">
+                        <strong>Year:</strong> ${caseData.year || 'N/A'} | 
+                        <strong>Genres:</strong> ${caseData.genres ? caseData.genres.join(', ') : 'N/A'}
+                        <br>
+                        ${caseData.description || 'No description available.'}
+                    </p>
+                    <a href="${storyLink}" class="full-story-button">READ FULL STORY</a>
+                </div>
+            `;
+        }
+
+        function renderCards() {
+            const caseGrid = document.getElementById('caseGrid');
+            
+            if (typeof featuredCases === 'undefined' || featuredCases.length === 0) {
+                caseGrid.innerHTML = '<p style="color: red; text-align: center; font-size: 1.5rem; padding: 50px;">CRITICAL ERROR: Data is undefined or empty. File structure may be incorrect.</p>';
+                return;
+            }
+            
+            caseGrid.innerHTML = ''; // Clear the "Loading Case Files..." message
+
+            const startIndex = (currentPage - 1) * entriesPerPage;
+            const endIndex = startIndex + entriesPerPage;
+            
+            // NOTE: The featuredCases array now has 7 items, so the pagination will automatically split them.
+            const casesToRender = featuredCases.slice(startIndex, endIndex);
+
+            if (casesToRender.length === 0) {
+                caseGrid.innerHTML = '<p style="color: red; text-align: center; font-size: 1.5rem; padding: 50px;">No case files found for this page.</p>';
+                return;
+            }
+
+            // Use join('') for better performance than repeated +=
+            const cardHTML = casesToRender.map(createCard).join('');
+            caseGrid.innerHTML = cardHTML;
+            
+            renderPagination();
+        }
+
+        function renderPagination() {
+            const paginationControls = document.getElementById('pagination-controls');
+            paginationControls.innerHTML = ''; 
+
+            const totalPages = Math.ceil(featuredCases.length / entriesPerPage);
+
+            if (totalPages <= 1) {
+                return; 
+            }
+
+            const prevButton = document.createElement('button');
+            prevButton.textContent = '← Previous Page';
+            prevButton.className = 'full-story-button mx-2 disabled:opacity-50'; 
+            prevButton.disabled = currentPage === 1;
+            prevButton.onclick = () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderCards();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            };
+            paginationControls.appendChild(prevButton);
+
+            const pageIndicator = document.createElement('span');
+            pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
+            pageIndicator.className = 'text-white mx-4 text-lg font-bold';
+            paginationControls.appendChild(pageIndicator);
+
+
+            const nextButton = document.createElement('button');
+            nextButton.textContent = 'Next Page →';
+            nextButton.className = 'full-story-button mx-2 disabled:opacity-50'; 
+            nextButton.disabled = currentPage === totalPages;
+            nextButton.onclick = () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderCards();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            };
+            paginationControls.appendChild(nextButton);
+        }
+
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', renderCards);
+    </script>
+</body>
+</html>
