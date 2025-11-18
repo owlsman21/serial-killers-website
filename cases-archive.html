@@ -81,53 +81,59 @@ function renderPagination() {
         grid.appendChild(card);
       });
 
-      currentPage = page;
-      renderPagination();
-    
+  function renderPagination() {
+            const totalPages = Math.ceil(cases.length / pageSize);
+            const container = document.getElementById('pagination');
+            container.innerHTML = '';
+            
+            if (totalPages <= 1) return;
 
-    function openModal(index) {
-      const modal = document.getElementById('caseModal');
-      const content = document.getElementById('modalContent');
-      const c = cases[index];
-      content.innerHTML = `
-        <h2>${c.title} (${c.year})</h2>
-        <p>${c.description}</p>
-        ${getPosterHtml(c.posterUrl)}
-        ${getVideoEmbed(c.source, c.embedId)}
-        <button class="close-btn" onclick="closeModal()">Close</button>
-      `;
-      modal.style.display = 'block';
-    }
+            // --- Previous Button (Missing in your recent snippet, but needed) ---
+            const prevBtn = document.createElement('button');
+            prevBtn.textContent = '<< PREVIOUS PAGE';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.onclick = () => renderPage(currentPage - 1);
+            container.appendChild(prevBtn);
+            
+            // --- Numbered Buttons (Your highlighted code) ---
+            for (let i = 1; i <= totalPages; i++) {
+                const btn = document.createElement('button');
+                btn.textContent = i;
+                // Add styling to make the current page button look different
+                btn.style.backgroundColor = i === currentPage ? 'red' : '#333';
+                btn.style.color = i === currentPage ? 'white' : 'red';
+                
+                btn.onclick = () => renderPage(i);
+                container.appendChild(btn);
+            }
+            
+            // --- Next Button (Missing in your recent snippet, but needed) ---
+            const nextBtn = document.createElement('button');
+            nextBtn.textContent = 'NEXT PAGE >>';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.onclick = () => renderPage(currentPage + 1);
+            container.appendChild(nextBtn);
+        }
 
-    function closeModal() {
-      document.getElementById('caseModal').style.display = 'none';
-    }
+        function editCase(index) {
+            // Admin functions use console.log instead of alert()
+            console.log(`[Admin Action] Edit case: ${cases[index].title} at index ${index}`);
+        }
 
-    function renderPagination() {
-      const totalPages = Math.ceil(cases.length / pageSize);
-      const container = document.getElementById('pagination');
-      container.innerHTML = '';
+        function deleteCase(index) {
+            // Admin functions use console.log instead of alert()
+            console.log(`[Admin Action] Delete case: ${cases[index].title} at index ${index}`);
+        }
 
-      for (let i = 1; i <= totalPages; i++) {
-        const btn = document.createElement('button');
-        btn.textContent = i;
-        btn.disabled = i === currentPage;
-        btn.onclick = () => renderPage(i);
-        container.appendChild(btn);
-      }
-    }
+        // --- INITIALIZATION ---
 
-    function editCase(index) {
-      alert(`Edit case: ${cases[index].title}`);
-    }
-
-    function deleteCase(index) {
-      alert(`Delete case: ${cases[index].title}`);
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      renderPage(1);
-    });
+        document.addEventListener("DOMContentLoaded", () => {
+            if (cases.length > 0) {
+                renderPage(1); 
+            } else {
+                 document.getElementById('case-grid').innerHTML = '<p style="color:red; text-align:center;">No cases found in the archive.</p>';
+            }
+        });
     
   </script>
   <section id="featured-cases">
@@ -309,16 +315,9 @@ function renderPagination() {
 Released in 1974,  </h3>
       </div>
     </a>
-     <a href="cases/Mary-Bell.html" style="text-decoration: none;">
-      <div style="width: 220px; background-color: #1a1a1a; border: 1px solid red; border-radius: 8px; padding: 10px; transition: transform 0.3s;">
-        <img src="images/mary-bell.jpg" alt="Mary-Bell Poater" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-        <h3 style="color: red; font-family: 'Impact'; margin-top: 10px;">Mary Flora Bell is an English woman who, as a juvenile, killed two preschool-age boys in Scotswood, an inner suburb of Newcastle upon Tyne, in 1968.</h3>
-      </div>
-    </a>
     
     
-
-  </div>
+    </div>
 </section>
 <section id="featured-cases" style="margin-top: 60px; padding: 20px; background-color: #111; border-top: 2px solid red;">
   <h2 style="color: red; font-family: 'Impact', sans-serif; font-size: 28px; text-align: center;">Featured Crime Cases</h2>
