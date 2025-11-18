@@ -6,19 +6,20 @@
     <!-- Use a generic title for the browser tab --><title>Serial Killers Quiz: Guess The Killer | True Crime Puzzles</title>
     
     <!-- IMPORTANT: Open Graph Tags for Social Sharing -->
-    <meta property="og:title" content="🤯 Serial Killers Quiz: Can You Guess The Killer? (Case 1: The BTK Killer)" />
-    <meta property="og:description" content="Read the clues to identify the infamous killer who operated in Wichita, Kansas, known for sending taunting letters to the police." />
+    <meta property="og:title" content="🤯 Serial Killers Quiz: Can You Guess The Killer? (Case 2: The Night Stalker)" />
+    <meta property="og:description" content="Read the clues to identify the infamous killer who terrorized Southern California in the mid-1980s with random, brutal attacks." />
     
     <!-- 🛑 CRITICAL STEP: REPLACE THIS PLACEHOLDER URL 🛑 -->
-    <meta property="og:image" content="https://placehold.co/1200x630/0a0a0a/ff6b6b?text=BTK+QUIZ+IMAGE+HERE" />
+    <!-- This URL MUST point to your final, high-resolution OG image (1200x630px recommended) -->
+    <meta property="og:image" content="../images/Night Stalker Killer 1.jpg" />
     
     <!-- Update the URL below to match the live path for this specific quiz -->
-    <meta property="og:url" content="YOUR_LIVE_PAGE_URL_HERE/quizzes/quiz-001.html" />
+    <meta property="og:url" content="YOUR_LIVE_PAGE_URL_HERE/quizzes/quiz-002.html" />
     <meta property="og:site_name" content="True Crime Puzzles" />
     
     <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Shared Styles: Do not modify these for new quizzes */
+        /* Shared Styles: Dark Theme */
         #quiz-image-container {
             position: relative;
             width: 100%;
@@ -26,7 +27,8 @@
             margin: 0 auto;
             border-radius: 1rem;
             overflow: hidden;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5); /* Increased shadow for dark theme */
+            /* Increased shadow for dark theme */
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5); 
             aspect-ratio: 1 / 1.25; 
             background-color: #1e293b;
         }
@@ -34,7 +36,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* UPDATED: Increased blur from 8px to 20px */
+            /* Increased blur for mystery */
             filter: blur(20px); 
             transition: filter 0.5s ease-in-out;
             border-radius: 1rem;
@@ -47,7 +49,7 @@
             transform: translate(-50%, -50%);
             padding: 0.75rem 1.5rem;
             font-weight: bold;
-            /* Using custom secondary color */
+            /* Crimson Red */
             background-color: #b91c1c; 
             color: white;
             border-radius: 0.5rem;
@@ -96,20 +98,20 @@
             pageTitle: "Serial Killers Quiz: Guess The Killer", 
             
             // 2. The sub-heading shown below the title (CASE SPECIFIC)
-            pageSubtitle:  "This notorious subject operated in **Wichita, Kansas**, and was infamous for sending **taunting letters and packages** to the police and media.",
+            pageSubtitle: "This notorious subject terrorized **Southern California** in the mid-1980s, breaking into homes and committing random, brutal acts.",
         
             // 3. The full name of the answer/suspect (This is the spoiler that appears on UNBLUR)
-            answerName: "Dennis Rader (The BTK Killer)",
+            answerName: "Richard Ramirez (The Night Stalker)",
             
             // 4. The full URL to the Facebook/Social Media post where users will leave their answers
             socialPostUrl: 'https://www.facebook.com/groups/403207477513491/', 
 
-            // 5. The list of clues (updated for BTK)
+            // 5. The list of clues (updated for The Night Stalker)
             clues: [
-                "I chose my victims based on opportunity and fantasy, often surveilling them before striking.",
-                "My signature, which I gave myself, stands for **Bind, Torture, Kill**.",
-                "I was apprehended in 2005, primarily because I got **too cocky** and sent a floppy disk to the police, which they traced back to my church computer.",
-                "I was a long-time member and **President of my church council** and worked as a **compliance officer** for the city, leading a seemingly normal life."
+                "I terrorized **Southern California** in the mid-1980s, with no pattern to my victims, striking at random.",
+                "The media dubbed me **'The Night Stalker'** because I often attacked sleeping victims at night in their homes.",
+                "I was caught after a **civilian mob** beat me up when I tried to steal a car, and the public recognized my face from a recent mugshot released by the police.",
+                "I was a self-proclaimed **Satanist**, and the number **666** was found written on the walls of one of my victim's homes."
             ]
         };
         // =========================================================================
@@ -150,7 +152,7 @@
                 unblurButton.textContent = 'Answer: ' + quizConfig.answerName;
                 unblurButton.disabled = true;
                 // Change color on reveal to a positive green for contrast/completion
-                unblurButton.classList.remove('bg-secondary');
+                unblurButton.classList.remove('bg-secondary', 'bg-tertiary');
                 unblurButton.classList.add('bg-green-600', 'text-white', 'shadow-lg');
             }
 
@@ -199,8 +201,8 @@
         <!-- Image Section: The correct relative path is set here -->
         <div id="quiz-image-container" class="mb-8">
             <img id="blurred-image" 
-                 src="../images/DennisRader.jpg" 
-                 alt="Blurred image of the suspect"
+                 src="../images/Night Stalker Killer 1.jpg" 
+                 alt="Blurred image of the suspect (The Night Stalker)"
                  class="w-full h-full object-cover">
             <button id="unblur-button">Unblur Face (SPOILER)</button>
         </div>
@@ -210,6 +212,7 @@
 
         <!-- Clues Section: Using a slightly darker neutral background -->
         <div class="bg-neutral-200 p-6 rounded-lg border border-gray-300">
+            <!-- The H2 title now has a crimson line -->
             <h2 class="text-2xl font-bold mb-4 text-primary border-b pb-2 border-secondary">The Clues</h2>
             
             <ul id="clues-list" class="space-y-4 text-lg text-gray-800 list-none pl-0">

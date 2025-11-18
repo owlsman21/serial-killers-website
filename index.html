@@ -82,13 +82,13 @@
             padding-bottom: 10px;
         }
 
-        /* Button Container Styling - FLEX WRAP for 3 columns on desktop, 1 on mobile */
+        /* Button Container Styling - FLEX WRAP for 4 columns on desktop, 1 on mobile */
         .button-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 25px;
-            max-width: 1200px;
+            gap: 20px; /* Adjusted gap for four buttons */
+            max-width: 1280px;
         }
         
         /* Button Style - Designed to look like a 'DO NOT ENTER' sign */
@@ -99,14 +99,14 @@
             justify-content: center;
             background-color: #A00000; /* Darker red base */
             color: #fff;
-            padding: 30px 20px; /* Reduced padding for 3 columns */
+            padding: 20px 15px; /* Adjusted padding */
             border-radius: 6px;
             font-weight: 700;
             text-transform: uppercase;
             text-decoration: none;
             transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
             box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
-            width: 300px; /* Width for 3 columns on desktop */
+            width: 250px; /* Adjusted width for 4 columns on desktop */
             min-height: 160px;
             border: 4px solid #ff0000; /* Bright red border */
         }
@@ -124,7 +124,7 @@
         }
 
         .archive-button span {
-            font-size: 1.2rem;
+            font-size: 1.1rem; /* Slightly smaller text for 4 columns */
             letter-spacing: 1px;
             text-align: center;
         }
@@ -134,7 +134,7 @@
             position: relative;
             width: 4rem; /* Ensure enough space for two icons */
             height: 4rem;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .compound-icon .fa-stack-2x { font-size: 3.5rem; }
@@ -146,10 +146,9 @@
             text-shadow: 0 0 5px black; /* Ensure it stands out over the file */
         }
 
-
         /* Responsive adjustments */
-        @media (max-width: 960px) {
-            .archive-button {
+        @media (max-width: 1080px) {
+             .archive-button {
                 width: 45vw; /* Two buttons per row on tablets */
             }
         }
@@ -193,7 +192,7 @@
                         <!-- Video Icon (foreground/overlay) -->
                         <i class="fas fa-video fa-stack-1x" style="text-shadow: 1px 1px 2px #000;"></i>
                     </span>
-                    <span>SERIAL KILLER CASE DIRECTORY</span>
+                    <span>CASE DIRECTORY & FILES</span>
                 </a>
 
                 <!-- 2. VIDEO DOCUMENTARIES & FILMS (Documentary Collection) -->
@@ -205,14 +204,25 @@
                 <!-- 3. KILLER CINEMA (Feature Films) -->
                 <a href="killer-cinema.html" class="archive-button">
                     <i class="fas fa-film"></i>
-                    <span>KILLER CINEMA (FEATURE FILMS)</span>
+                    <span>KILLER CINEMA</span>
+                </a>
+
+                <!-- 4. QUIZ ARCHIVE (New Button!) -->
+                <a href="quizzes/quizzes-archive.html" class="archive-button">
+                    <span class="compound-icon fa-stack fa-2x">
+                        <!-- Skull Icon (background) -->
+                        <i class="fas fa-skull-crossbones fa-stack-2x text-gray-700"></i>
+                        <!-- Question Mark Icon (foreground/overlay) -->
+                        <i class="fas fa-question fa-stack-1x" style="top: 10px; left: 10px; font-size: 2.5rem; color: #ffdd00; text-shadow: 0 0 5px black;"></i>
+                    </span>
+                    <span>QUIZ ARCHIVE</span>
                 </a>
             </div>
 
             <!-- SECONDARY NAVIGATION SECTION (Audio) -->
             <div class="mt-8 pt-5 border-t border-gray-700 w-full max-w-lg flex justify-center flex-wrap gap-4">
                 <a href="audio.html" 
-                   class="bg-gray-800 text-yellow-400 px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-700 transition">
+                    class="bg-gray-800 text-yellow-400 px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-700 transition">
                     <i class="fas fa-headphones-alt mr-2"></i> Audio & Podcasts
                 </a>
             </div>
