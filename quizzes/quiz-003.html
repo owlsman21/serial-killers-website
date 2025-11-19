@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Use a generic title for the browser tab --><title>Serial Killers Quiz: Guess The Killer | True Crime Puzzles</title>
+    
+    <!-- IMPORTANT: Open Graph Tags for Social Sharing -->
+    <meta property="og:title" content="🤯 Serial Killers Quiz: Can You Guess The Killer? (Case : mass Killer on the loose)" />
+    <meta property="og:description" content="Read the clues to identify the infamous killer who terrorized South America." />
+    
+    <!-- 🛑 CRITICAL STEP: REPLACE THIS PLACEHOLDER URL 🛑 -->
+    <!-- This URL MUST point to your final, high-resolution OG image (1200x630px recommended) -->
+    <meta property="og:image" content="../images/Luis Garavito.jpg" />
+    
+    <!-- Update the URL below to match the live path for this specific quiz -->
+    <meta property="og:url" content="YOUR_LIVE_PAGE_URL_HERE/quizzes/quiz-003.html" />
+    <meta property="og:site_name" content="True Crime Puzzles" />
+    
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Shared Styles: Dark Theme */
+        #quiz-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 1rem;
+            overflow: hidden;
+            /* Increased shadow for dark theme */
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5); 
+            aspect-ratio: 1 / 1.25; 
+            background-color: #1e293b;
+        }
+        #blurred-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Increased blur for mystery */
+            filter: blur(20px); 
+            transition: filter 0.5s ease-in-out;
+            border-radius: 1rem;
+            cursor: pointer;
+        }
+        #unblur-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 0.75rem 1.5rem;
+            font-weight: bold;
+            /* Crimson Red */
+            background-color: #b91c1c; 
+            color: white;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 10;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #unblur-button:hover {
+            background-color: #991b1b; /* Darker red on hover */
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+        .unblurred #blurred-image {
+            /* This removes the blur effect on click */
+            filter: blur(0);
+        }
+        .unblurred #unblur-button {
+            display: none;
+        }
+    </style>
+    <script>
+        // Customizing Tailwind colors for a "True Crime" theme
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Dark text on the light card
+                        primary: '#1e293b', 
+                        // Crimson Red for accents (clue numbers, links)
+                        secondary: '#b91c1c', 
+                        // Darker Crimson Red for the main CTA button
+                        tertiary: '#991b1b' 
+                    }
+                }
+            }
+        }
+        
+        // =========================================================================
+        // === QUIZ CONFIGURATION: EDIT THIS SECTION FOR EACH NEW QUIZ FILE ===
+        // =========================================================================
+        const quizConfig = {
+            // 1. The main title shown on the page (GENERIC)
+            pageTitle: "Serial Killers Quiz: Guess The Killer", 
+            
+            // 2. The sub-heading shown below the title (CASE SPECIFIC)
+            pageSubtitle: "This notorious subject terrorized **South America ** in the -1990s.",
+        
+            // 3. The full name of the answer/suspect (This is the spoiler that appears on UNBLUR)
+            answerName: "Luis Garavito (The Beast)",
+            
+            // 4. The full URL to the Facebook/Social Media post where users will leave their answers
+            socialPostUrl: 'https://www.facebook.com/groups/403207477513491/', 
+
+            // 5. The list of clues (updated for The Night Stalker)
+            clues: [
+                "The Prolific Count: Based on confirmed convictions, this killer holds the grim distinction in the Guinness Book of World Records as the most prolific serial killer in modern history, with the official victim count surpassing 140 young lives.",
+
+                "The Victim Profile: His victims were predominantly impoverished street children and male youth (ages 6 to 16). His criminal actions were committed across several dozen different municipalities in the Andean region, making him a truly nomadic predator.",
+
+                "The Nickname: He is internationally known by the terrifying Spanish nickname, La Bestia.",
+
+                "The Sentence Paradox: Though he was initially handed a cumulative sentence totaling over 1,850 years for his crimes, a specific legal loophole in his home country's penal code dictated that his maximum time served could not exceed 30 years, sparking significant public outrage."
+            ]
+        };
+        // =========================================================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Setup DOM elements from config
+            document.getElementById('main-title').textContent = quizConfig.pageTitle;
+            document.getElementById('subtitle').textContent = quizConfig.pageSubtitle;
+            
+            const cluesList = document.getElementById('clues-list');
+            cluesList.innerHTML = ''; // Clear existing list
+            
+            quizConfig.clues.forEach((clueText, index) => {
+                const li = document.createElement('li');
+                li.className = "flex items-start";
+                // Using the secondary (crimson) color for the list number
+                li.innerHTML = `
+                    <span class="text-secondary font-extrabold text-2xl mr-3 mt-0.5">${index + 1}.</span>
+                    <p class="flex-1">${clueText}</p>
+                `;
+                cluesList.appendChild(li);
+            });
+            
+            // Image unblur logic
+            const imageContainer = document.getElementById('quiz-image-container');
+            const blurredImage = document.getElementById('blurred-image');
+            const unblurButton = document.getElementById('unblur-button');
+            
+            // Fallback if the image URL is bad (this still runs even if the image src is set in HTML)
+            blurredImage.onerror = () => {
+                blurredImage.src = ''; // Clear failed src
+                blurredImage.style.backgroundColor = '#94a3b8';
+                blurredImage.alt = "Suspect Placeholder Image - Error loading URL.";
+            };
+
+            const unblur = () => {
+                imageContainer.classList.add('unblurred');
+                unblurButton.textContent = 'Answer: ' + quizConfig.answerName;
+                unblurButton.disabled = true;
+                // Change color on reveal to a positive green for contrast/completion
+                unblurButton.classList.remove('bg-secondary', 'bg-tertiary');
+                unblurButton.classList.add('bg-green-600', 'text-white', 'shadow-lg');
+            }
+
+            unblurButton.addEventListener('click', unblur);
+            imageContainer.addEventListener('click', (event) => {
+                if (!imageContainer.classList.contains('unblurred')) {
+                    unblur();
+                }
+            });
+            
+            // Function for the CTA button
+            document.getElementById('cta-button').addEventListener('click', () => {
+                const socialPostUrl = quizConfig.socialPostUrl; 
+                const messageBox = document.getElementById('message-box');
+                
+                if (socialPostUrl === 'YOUR_SOCIAL_POST_URL_HERE') {
+                    messageBox.textContent = 'Error: Please update the socialPostUrl in the quiz config block!';
+                    messageBox.classList.remove('hidden', 'opacity-0');
+                    messageBox.classList.add('opacity-100');
+                    setTimeout(() => messageBox.classList.add('hidden', 'opacity-0'), 5000);
+                } else {
+                    window.open(socialPostUrl, '_blank');
+                }
+            });
+        });
+    </script>
+</head>
+<!-- UPDATED: Dark background -->
+<body class="bg-gray-900 min-h-screen p-4 sm:p-8 font-sans text-primary">
+
+    <!-- UPDATED: Light card background with Crimson border -->
+    <div class="max-w-4xl mx-auto bg-stone-100 shadow-2xl rounded-xl p-6 md:p-10 border-2 border-secondary">
+        
+        <!-- NEW RETURN BUTTON -->
+        <a href="quizzes-archive.html" class="flex items-center text-gray-700 hover:text-secondary font-semibold mb-6 transition duration-150">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Return to Quizzes Archive
+        </a>
+
+        <header class="text-center mb-8">
+            <!-- Title now uses the Crimson accent color -->
+            <h1 id="main-title" class="text-4xl font-extrabold text-secondary mb-2">Quiz Title</h1>
+            <p id="subtitle" class="text-xl text-gray-700 font-medium">Quiz Subtitle</p>
+        </header>
+
+        <!-- Image Section: The correct relative path is set here -->
+        <div id="quiz-image-container" class="mb-8">
+            <img id="blurred-image" 
+                 src="../images/Luis Garavito.jpg" 
+                 alt="Blurred image of the suspect (The Night Stalker)"
+                 class="w-full h-full object-cover">
+            <button id="unblur-button">Unblur Face (SPOILER)</button>
+        </div>
+        
+        <!-- Message Box for URL check -->
+        <div id="message-box" class="hidden text-center bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 transition duration-300 opacity-0"></div>
+
+        <!-- Clues Section: Using a slightly darker neutral background -->
+        <div class="bg-neutral-200 p-6 rounded-lg border border-gray-300">
+            <!-- The H2 title now has a crimson line -->
+            <h2 class="text-2xl font-bold mb-4 text-primary border-b pb-2 border-secondary">The Clues</h2>
+            
+            <ul id="clues-list" class="space-y-4 text-lg text-gray-800 list-none pl-0">
+                <!-- Clues are inserted here by JavaScript -->
+            </ul>
+        </div>
+
+        <div class="text-center mt-8">
+            <p class="text-2xl font-bold text-primary">Think you know the answer?</p>
+            <p class="text-gray-700 mb-6">If you enjoy movies, documentaries, and quizzes about serial killers and true crime, why not join our facebook group!</p>
+            
+            <!-- Call to Action Button: Using the deeper tertiary red -->
+            <button id="cta-button" class="bg-tertiary hover:bg-secondary text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                Join Serial Killers: True Crime, Media & Analysis!
+            </button>
+            <p class="text-sm text-gray-500 mt-2">Opens in a new window.</p>  
+        </div>
+
+    </div>
+
+</body>
+</html>
