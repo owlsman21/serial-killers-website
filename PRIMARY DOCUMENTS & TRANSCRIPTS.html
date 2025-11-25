@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primary Documents & Transcripts - Crime Scene</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0d0d;
+            color: #ffffff;
+        }
+        .text-crime-red {
+            color: #e50914; /* A deep, striking red */
+        }
+        .bg-crime-red {
+            background-color: #e50914;
+        }
+        .btn-red {
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px #8b0000;
+        }
+        .btn-red:hover {
+            transform: translateY(1px);
+            box-shadow: 0 2px #8b0000;
+            background-color: #ff3333;
+        }
+        .shadow-glow {
+            box-shadow: 0 0 15px rgba(229, 9, 20, 0.7);
+        }
+        .archive-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border: 2px solid #333333;
+        }
+        .archive-card:hover {
+            transform: scale(1.03);
+            border-color: #e50914;
+            box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <!-- Header and Navigation -->
+    <header class="mb-10 text-center">
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-widest text-crime-red shadow-glow" 
+            style="text-shadow: 0 0 10px rgba(229, 9, 20, 0.8);">
+            PRIMARY DOCUMENTS
+        </h1>
+        <p class="text-xl mt-2 text-gray-400">
+            UNFILTERED ACCESS: COURT TRANSCRIPTS, EVIDENCE & LEGAL FILES
+        </p>
+        <div class="mt-6">
+            <a href="index.html" class="inline-block px-6 py-2 rounded-full bg-gray-800 text-white hover:bg-crime-red transition duration-300">
+                &larr; Return to Main Archive
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Left Column: Document Archive (2/3 width on desktop) -->
+        <section class="lg:col-span-2 space-y-8">
+
+            <!-- Document Category Section -->
+            <div class="bg-[#1a1a1a] p-6 rounded-lg shadow-xl">
+                <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-crime-red pb-2">INFAMOUS CONFESSIONS & TESTIMONY</h2>
+                
+                <!-- Document Card 1: BTK Confession -->
+                <div class="archive-card p-4 bg-[#242424] rounded-lg mb-4 flex flex-col sm:flex-row items-start">
+                    <div class="sm:w-32 sm:h-32 w-full h-48 bg-gray-700 rounded-lg flex items-center justify-center text-4xl text-crime-red mb-4 sm:mb-0 sm:mr-4 flex-shrink-0">
+                        📄
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-1">BTK (Dennis Rader) Confession Transcript</h3>
+                        <p class="text-gray-400 text-sm mb-3">
+                            The complete, unedited transcript of Dennis Rader's 2005 confession detailing his crimes and methodology. Essential reading for psychological profiling.
+                        </p>
+                        <div class="text-xs text-gray-500">
+                            TYPE: Court Document | DATE: 2005 | CASE: BTK Killer
+                        </div>
+                        <a href="#" class="mt-3 inline-block px-4 py-2 text-sm font-semibold btn-red rounded-md bg-crime-red text-white">
+                            ACCESS FULL TRANSCRIPT (PDF)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Document Card 2: Ted Bundy Trial -->
+                <div class="archive-card p-4 bg-[#242424] rounded-lg mb-4 flex flex-col sm:flex-row items-start">
+                    <div class="sm:w-32 sm:h-32 w-full h-48 bg-gray-700 rounded-lg flex items-center justify-center text-4xl text-crime-red mb-4 sm:mb-0 sm:mr-4 flex-shrink-0">
+                        🏛️
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-1">Ted Bundy's 1979 Chi Omega Trial Excerpts</h3>
+                        <p class="text-gray-400 text-sm mb-3">
+                            Key portions of the testimony and cross-examinations from the famous Florida trial, highlighting his self-representation strategy.
+                        </p>
+                        <div class="text-xs text-gray-500">
+                            TYPE: Trial Excerpts | DATE: 1979 | CASE: Ted Bundy
+                        </div>
+                        <a href="#" class="mt-3 inline-block px-4 py-2 text-sm font-semibold btn-red rounded-md bg-crime-red text-white">
+                            READ EXCERPTS
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Document Category Section 2 -->
+            <div class="bg-[#1a1a1a] p-6 rounded-lg shadow-xl">
+                <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-crime-red pb-2">POLICE & FBI FILES</h2>
+                
+                <!-- Document Card 3: Zodiac Sketch -->
+                <div class="archive-card p-4 bg-[#242424] rounded-lg mb-4 flex flex-col sm:flex-row items-start">
+                    <div class="sm:w-32 sm:h-32 w-full h-48 bg-gray-700 rounded-lg flex items-center justify-center text-4xl text-crime-red mb-4 sm:mb-0 sm:mr-4 flex-shrink-0">
+                        ✏️
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-1">The Original Zodiac Killer Composite Sketch</h3>
+                        <p class="text-gray-400 text-sm mb-3">
+                            High-resolution scan of the primary police composite sketch circulated in the Bay Area during the late 1960s.
+                        </p>
+                        <div class="text-xs text-gray-500">
+                            TYPE: Police Document | DATE: 1969 | CASE: Zodiac Killer
+                        </div>
+                        <a href="#" class="mt-3 inline-block px-4 py-2 text-sm font-semibold btn-red rounded-md bg-crime-red text-white">
+                            VIEW IMAGE
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placeholder for more content -->
+            <div class="text-center p-8 bg-[#1a1a1a] rounded-lg">
+                <button class="px-8 py-3 text-lg font-bold btn-red rounded-lg bg-crime-red text-white">
+                    LOAD MORE DOCUMENTS & FILES
+                </button>
+            </div>
+            
+        </section>
+
+        <!-- Right Column: Widgets (1/3 width on desktop) -->
+        <aside class="lg:col-span-1 space-y-8">
+            
+            <!-- Widget 1: Subscribe for Updates (Essential SEO feature) -->
+            <div class="bg-[#1a1a1a] p-6 rounded-lg shadow-glow border border-crime-red">
+                <h3 class="text-2xl font-bold text-white mb-4">SUBSCRIBE FOR UNFILTERED ACCESS</h3>
+                <p class="text-gray-400 mb-4 text-sm">Get immediate notifications when new documents, transcripts, and primary source files are added to the archive.</p>
+                <input type="email" placeholder="Enter your email address" class="w-full p-3 mb-4 rounded-md bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-crime-red">
+                <div class="flex items-center mb-4">
+                    <input type="checkbox" id="terms" class="form-checkbox h-4 w-4 text-crime-red border-gray-700 bg-gray-900 rounded focus:ring-crime-red">
+                    <label for="terms" class="ml-2 text-xs text-gray-400">I have read the terms and conditions</label>
+                </div>
+                <button class="w-full px-4 py-3 font-semibold text-white btn-red rounded-md bg-crime-red">
+                    SUBSCRIBE NOW
+                </button>
+            </div>
+
+            <!-- Widget 2: Popular Documents (Internal Traffic Flow) -->
+            <div class="bg-[#1a1a1a] p-6 rounded-lg shadow-xl">
+                <h3 class="text-2xl font-bold text-white mb-4 border-b-2 border-gray-700 pb-2">MOST ACCESSED FILES</h3>
+                <ul class="space-y-3">
+                    <li class="border-b border-gray-700 pb-2">
+                        <a href="#" class="text-gray-300 hover:text-crime-red transition duration-200 block text-sm">
+                            <span class="font-bold text-crime-red mr-2">1.</span> BTK (Rader) Psych Assessment
+                        </a>
+                    </li>
+                    <li class="border-b border-gray-700 pb-2">
+                        <a href="#" class="text-gray-300 hover:text-crime-red transition duration-200 block text-sm">
+                            <span class="font-bold text-crime-red mr-2">2.</span> Green River Killer (Ridgway) Interrogation Highlights
+                        </a>
+                    </li>
+                    <li class="border-b border-gray-700 pb-2">
+                        <a href="#" class="text-gray-300 hover:text-crime-red transition duration-200 block text-sm">
+                            <span class="font-bold text-crime-red mr-2">3.</span> Jeffrey Dahmer Police Report (1991)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-300 hover:text-crime-red transition duration-200 block text-sm">
+                            <span class="font-bold text-crime-red mr-2">4.</span> Zodiac Cipher 340 (Solved/Unsolved)
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </aside>
+
+    </main>
+    <div style="border:1px solid #ccc; padding:15px; max-width:300px; margin:20px auto; text-align:center;">
+    <h3 style="margin-top:0;">Subscribe For Updates!</h3>
+    <form action="https://your‑mail‑service.com/subscribe" method="POST">
+        <input type="text" name="name" placeholder="Enter your name" style="width:90%; margin-bottom:10px; padding:5px;" required><br>
+        <input type="email" name="email" placeholder="Enter your email" style="width:90%; margin-bottom:10px; padding:5px;" required><br>
+        <label style="font-size:0.9em;">
+            <input type="checkbox" name="agree" required>
+            Please read our <a href="terms.html">terms and conditions</a>
+        </label><br><br>
+        <button type="submit" style="background:#e50914;color:#fff;border:none;padding:8px 16px;cursor:pointer;">SUBSCRIBE</button>
+    </form>
+</div>
+    
+    <!-- Footer (Basic Structure) -->
+    <footer class="mt-16 text-center text-gray-600 text-sm border-t border-gray-800 pt-8">
+        <p>Crime Scene Archives &copy; 2024. All Rights Reserved. Unauthorized access prohibited.</p>
+    </footer>
+
+</body>
+</html>

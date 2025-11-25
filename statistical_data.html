@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serial Killer Statistics Portal - Data Dashboard</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load D3.js for Data Visualization -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    
+    <!-- Load Thematic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom styles for the dark, serious theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1f2937; /* Dark background */
+            color: #f9fafb; /* Light text */
+            min-height: 100vh;
+        }
+        .main-content {
+            background-color: #374151; /* Slightly lighter surface for main content */
+        }
+        .sidebar {
+            background-color: #111827; /* Darkest surface for sidebar */
+        }
+        .nav-link:hover {
+            background-color: #4b5563;
+        }
+        .article-link {
+            transition: all 0.15s ease-in-out;
+            cursor: pointer;
+            border-left: 4px solid transparent;
+        }
+        .article-link:hover {
+            color: #fcd34d; /* Amber hover effect */
+            background-color: #1f2937;
+            border-left: 4px solid #fcd34d;
+        }
+        .active-link {
+            color: #fcd34d;
+            background-color: #1f2937;
+            border-left: 4px solid #fcd34d;
+            font-weight: bold;
+        }
+        .chart-title {
+            color: #e5e7eb;
+        }
+        .stat-card {
+            background-color: #4b5563;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+        }
+        /* New Style for Thematic H1 */
+        .thematic-h1 {
+            font-family: 'Butcherman', cursive;
+            color: #ef4444; /* Red color for emphasis */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flex flex-col min-h-screen">
+        <!-- Top Navigation (Mimicking Competitor's Menu) -->
+        <nav class="bg-gray-800 p-3 shadow-lg">
+            <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-sm font-medium">
+                <span class="text-amber-400 font-extrabold text-lg">Serial Killers Info</span>
+                <div class="flex flex-wrap space-x-4">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition nav-link">Homepage</a>
+                    <a href="#" class="text-white font-bold transition nav-link border-b-2 border-amber-400">Serial Killer Statistics</a>
+                    <a href="PRIMARY DOCUMENTS & TRANSCRIPTS.html" class="text-gray-300 hover:text-white transition nav-link">Documents</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition nav-link">Timelines</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Layout (Sidebar + Dashboard) -->
+        <div class="flex flex-grow max-w-7xl mx-auto w-full">
+            
+            <!-- Sidebar (Statistical Topics) -->
+            <aside class="sidebar w-64 p-6 hidden md:block border-r border-gray-700">
+                <h2 class="text-lg font-bold text-amber-400 mb-4">Serial Killer Statistics</h2>
+                <div id="topic-list" class="space-y-1 text-sm">
+                    <!-- Links populated by JS -->
+                    <div class="article-link active-link p-2 rounded-md" data-topic="race">Serial Killers by Race (US)</div>
+                    <div class="article-link p-2 rounded-md" data-topic="gender">Frequency of Gender by Decade – US</div>
+                    <div class="article-link p-2 rounded-md" data-topic="motives">Serial Killer Motives (Primary)</div>
+                    <div class="article-link p-2 rounded-md" data-topic="iq">Serial Murderers and their IQ (Binned)</div>
+                    <div class="article-link p-2 rounded-md" data-topic="victims">Victim Characteristics vs. Killer Race</div>
+                    <div class="article-link p-2 rounded-md" data-topic="country">Serial Killers By Country (Top 10)</div>
+                </div>
+
+                <div class="mt-8 pt-4 border-t border-gray-700">
+                    <h3 class="text-md font-semibold text-gray-400 mb-2">Latest Posts</h3>
+                    <ul class="text-xs space-y-2">
+                        <li><a href="#" class="text-blue-400 hover:text-blue-300">Infamous Killers & Police Sketches</a></li>
+                        <li><a href="#" class="text-blue-400 hover:text-blue-300">Gilgo Beach Serial Killer Update</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Dashboard/Visualization Area -->
+            <main class="main-content flex-grow p-6 md:p-10">
+                <h1 class="text-5xl font-bold mb-6 thematic-h1">
+                    Serial Killer Crime Scene
+                </h1>
+                
+                <p class="text-gray-300 mb-8">
+                    Explore detailed serial killer statistics by race, gender, victim profile, methods, and geography. Discover trends and patterns backed by mock data and research summaries.
+                </p>
+
+                <!-- Key Data Metrics / Stat Cards -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                    <div class="stat-card p-4 rounded-lg text-center">
+                        <p class="text-2xl font-bold text-amber-400" id="stat-total">1,940</p>
+                        <p class="text-sm text-gray-300">Total Recorded Cases</p>
+                    </div>
+                    <div class="stat-card p-4 rounded-lg text-center">
+                        <p class="text-2xl font-bold text-amber-400" id="stat-percentage">81.1%</p>
+                        <p class="text-sm text-gray-300">White Killers Percentage</p>
+                    </div>
+                    <div class="stat-card p-4 rounded-lg text-center">
+                        <p class="text-2xl font-bold text-amber-400" id="stat-victims">7,500+</p>
+                        <p class="text-sm text-gray-300">Estimated Victims</p>
+                    </div>
+                    <div class="stat-card p-4 rounded-lg text-center">
+                        <p class="text-2xl font-bold text-amber-400" id="stat-average">9.3</p>
+                        <p class="text-sm text-gray-300">Avg. Victims Per Killer</p>
+                    </div>
+                </div>
+
+                <!-- Visualization Area -->
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                    <h2 class="text-2xl font-semibold chart-title mb-4">Distribution of Serial Killers by Race (1900-Present)</h2>
+                    <!-- SVG Chart will be inserted here -->
+                    <div id="d3-chart" class="w-full overflow-x-auto">
+                        <!-- Chart container -->
+                    </div>
+                    
+                    <p class="text-sm text-gray-400 mt-4">
+                        <span class="font-bold">Summary:</span> Research shows that the majority of serial killers recorded in the U.S. are white males. 
+                        The distribution of offenders by race does not perfectly mirror the general population, highlighting complex criminological factors.
+                    </p>
+                    <p class="text-xs text-gray-500 mt-2">
+                        Data is based on composite profiles from major criminological databases (e.g., Radford, Vronsky).
+                    </p>
+                </div>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 p-6 text-sm text-center border-t border-gray-700 mt-auto">
+            <p class="text-gray-400">
+                &copy; 2025 Serial Killers Info. All rights reserved. | 
+                <a href="#" class="text-blue-400 hover:text-blue-300">Privacy Policy</a> | 
+                <a href="#" class="text-blue-400 hover:text-blue-300">Terms and Conditions</a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- JavaScript for Data Visualization and Interaction -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chartContainer = document.getElementById('d3-chart');
+            const topicList = document.getElementById('topic-list');
+            const mainTitle = document.getElementById('main-title');
+            
+            // Mock Data for different topics
+            const dataSets = {
+                race: {
+                    title: "Serial Killers by Race (US Focus)",
+                    summary: "Data based on documented cases in the U.S. since 1900. White individuals constitute the largest group of documented serial killers.",
+                    data: [
+                        { category: "White", value: 81.1, count: 1573, color: "#60a5fa" }, // Blue
+                        { category: "Black", value: 16.2, count: 314, color: "#f87171" }, // Red
+                        { category: "Hispanic", value: 2.1, count: 41, color: "#fcd34d" }, // Yellow/Amber
+                        { category: "Asian/Other", value: 0.6, count: 12, color: "#a78bfa" }, // Violet
+                    ],
+                    stats: { total: "1,940", percentage: "81.1%", victims: "7,500+", average: "9.3" }
+                },
+                gender: {
+                    title: "Frequency of Gender by Decade (US)",
+                    summary: "Historically, male serial killers dominate the dataset. The proportion of female offenders has slightly increased in recent decades.",
+                    data: [
+                        { category: "Male", value: 91.5, count: 1774, color: "#10b981" }, // Emerald
+                        { category: "Female", value: 8.5, count: 166, color: "#ec4899" }, // Pink
+                    ],
+                    stats: { total: "1,940", percentage: "91.5%", victims: "7,500+", average: "7.8" }
+                },
+                motives: {
+                    title: "Serial Killer Motives (Primary Classification)",
+                    summary: "Motives are often complex, but power, financial gain, and sexual gratification are frequently classified as primary driving factors.",
+                    data: [
+                        { category: "Power/Control", value: 35, count: 679, color: "#f43f5e" }, // Rose
+                        { category: "Sexual/Lust", value: 30, count: 582, color: "#c084fc" }, // Purple
+                        { category: "Financial Gain", value: 15, count: 291, color: "#22d3ee" }, // Cyan
+                        { category: "Thrill/Excitement", value: 12, count: 233, color: "#facc15" }, // Yellow
+                        { category: "Visionary/Other", value: 8, count: 155, color: "#94a3b8" }, // Slate
+                    ],
+                    stats: { total: "1,940", percentage: "30%", victims: "Complex", average: "Varied" }
+                }
+                // More topics would have their own datasets
+            };
+
+            // Function to render the D3 Bar Chart
+            function renderChart(data, topicKey) {
+                // Clear previous chart
+                chartContainer.innerHTML = '';
+
+                // Set up dimensions
+                // Recalculate width based on container's current size
+                const containerWidth = chartContainer.clientWidth;
+                const margin = { top: 20, right: 20, bottom: 60, left: 50 };
+                const width = Math.max(containerWidth, 400) - margin.left - margin.right; // Ensure min width for readability
+                const height = 400 - margin.top - margin.bottom;
+
+                // Create SVG container
+                const svg = d3.select("#d3-chart")
+                    .append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                    .append("g")
+                    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+                // Scales
+                const x = d3.scaleBand()
+                    .range([0, width])
+                    .domain(data.map(d => d.category))
+                    .padding(0.3);
+
+                const y = d3.scaleLinear()
+                    .domain([0, d3.max(data, d => d.value) + 5]) // Add padding to max value
+                    .range([height, 0]);
+
+                // Axes
+                svg.append("g")
+                    .attr("transform", `translate(0,${height})`)
+                    .call(d3.axisBottom(x).tickSize(0))
+                    .selectAll("text")
+                    .attr("class", "text-gray-300 font-semibold")
+                    .style("font-size", "12px")
+                    .attr("transform", "translate(0,10)")
+                    .style("text-anchor", "middle");
+
+                svg.append("g")
+                    .call(d3.axisLeft(y).ticks(5))
+                    .selectAll("text")
+                    .attr("class", "text-gray-300")
+                    .style("font-size", "12px");
+
+                // Bars
+                svg.selectAll(".bar")
+                    .data(data)
+                    .enter().append("rect")
+                    .attr("class", "bar")
+                    .attr("x", d => x(d.category))
+                    .attr("width", x.bandwidth())
+                    .attr("y", height) // Start from bottom for animation
+                    .attr("height", 0) // Start height at zero for animation
+                    .attr("fill", d => d.color)
+                    .attr("rx", 5) // Rounded corners
+                    .transition() // Add transition for smooth loading
+                    .duration(800)
+                    .delay((d, i) => i * 100)
+                    .attr("y", d => y(d.value))
+                    .attr("height", d => height - y(d.value));
+
+                // Labels (Text on top of bars)
+                svg.selectAll(".label")
+                    .data(data)
+                    .enter().append("text")
+                    .attr("class", "label")
+                    .attr("x", d => x(d.category) + x.bandwidth() / 2)
+                    .attr("y", d => y(d.value) - 8)
+                    .attr("text-anchor", "middle")
+                    .style("font-size", "14px")
+                    .style("font-weight", "bold")
+                    .style("fill", d => d.color)
+                    .text(d => d.value + "%");
+                
+                // Y-Axis Label
+                svg.append("text")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 0 - margin.left)
+                    .attr("x", 0 - (height / 2))
+                    .attr("dy", "1em")
+                    .style("text-anchor", "middle")
+                    .style("fill", "#9ca3af")
+                    .text("Percentage of Total (%)");
+            }
+
+            // Function to update the entire dashboard based on topic
+            function updateDashboard(topicKey) {
+                const dataSet = dataSets[topicKey];
+                if (!dataSet) return;
+
+                // Update Main Title (H1 is fixed, so we update the H2/Chart title)
+                document.querySelector('.chart-title').textContent = dataSet.title;
+                document.querySelector('.text-gray-300.mb-8').textContent = dataSet.summary;
+
+                // Update Stat Cards
+                document.getElementById('stat-total').textContent = dataSet.stats.total;
+                document.getElementById('stat-percentage').textContent = dataSet.stats.percentage;
+                document.getElementById('stat-victims').textContent = dataSet.stats.victims;
+                document.getElementById('stat-average').textContent = dataSet.stats.average;
+
+                // Update Chart
+                renderChart(dataSet.data, topicKey);
+
+                // Update Active Link in Sidebar
+                document.querySelectorAll('.article-link').forEach(link => {
+                    link.classList.remove('active-link');
+                });
+                document.querySelector(`[data-topic="${topicKey}"]`).classList.add('active-link');
+            }
+
+            // Add Event Listeners for Sidebar Clicks
+            topicList.querySelectorAll('.article-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const topic = e.target.getAttribute('data-topic');
+                    updateDashboard(topic);
+                });
+            });
+
+            // Initial Load: Load the 'race' data
+            updateDashboard('race');
+            
+            // Re-render chart on window resize for responsiveness
+            window.addEventListener('resize', () => updateDashboard(document.querySelector('.active-link').getAttribute('data-topic')));
+        });
+    </script>
+    <a href="audio.html" class="audio-link">🎧 Enter the Serial Killer Audio Archive</a>
+<div style="text-align: center;">
+    <a href="https://www.facebook.com/groups/403207477513491" 
+   target="_blank" 
+   class="centered-button">
+    
+    <i class="fab fa-facebook-f"></i> Join the [Serial killers Movies and documentray's] Facebook Group!
+</a>
+</div>
+<div style="border:1px solid #ccc; padding:15px; max-width:300px; margin:20px auto; text-align:center;">
+    <h3 style="margin-top:0;">Subscribe For Updates!</h3>
+    <form action="https://your‑mail‑service.com/subscribe" method="POST">
+        <input type="text" name="name" placeholder="Enter your name" style="width:90%; margin-bottom:10px; padding:5px;" required><br>
+        <input type="email" name="email" placeholder="Enter your email" style="width:90%; margin-bottom:10px; padding:5px;" required><br>
+        <label style="font-size:0.9em;">
+            <input type="checkbox" name="agree" required>
+            Please read our <a href="terms.html">terms and conditions</a>
+        </label><br><br>
+        <button type="submit" style="background:#e50914;color:#fff;border:none;padding:8px 16px;cursor:pointer;">SUBSCRIBE</button>
+    </form>
+</div>
+<footer style="margin-top: 60px; padding: 20px; text-align: center; font-size: 0.9em; color: #666;">
+  <p><a href="sitemap.html" style="color: #e10600; text-decoration: none;">🩸 Sitemap: The Archive</a></p>
+  <p>Last updated: October 2025 | Access indexed by forensic investigation</p>
+    <div style="text-align: center; margin-bottom: 40px;">
+            <a href="../index.html" class="full-story-button" style="background-color: #CC0000; display: inline-block;">
+                ← RETURN TO HOME PAGE
+            </a>
+        </div>
+  
+</footer>
+</body>
+</html>

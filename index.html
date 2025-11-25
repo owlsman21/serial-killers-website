@@ -3,234 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The True Crime Archive | Case Files, Documentaries & Cinema</title>
-    <meta name="description" content="Official entry point to the complete archive of serial killer case files, true crime documentaries, and exclusive audio content.">
-    
-    <!-- Fonts for thematic impact -->
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- Tailwind CSS -->
+    <title>CRIME SCENE - Serial Killer Archives Access</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
+    <!-- Use Inter font -->
+     
     <style>
-        /* Base Styles for a Full-Screen, Thematic Look */
-        body, html {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            overflow: hidden; /* Prevent scrolling on the landing page */
+        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
             font-family: 'Inter', sans-serif;
-        }
-
-        /* Full-Screen Background with Dark Overlay and effect */
-        .landing-bg {
-            /* Placeholder for a dramatic, grainy texture or dark crime scene image */
-            background-image: url('https://placehold.co/1920x1080/0d0000/ff0000?text=CLASSIFIED+ARCHIVE+ENTRY');
-            background-size: cover;
-            background-position: center;
-            height: 100%;
-            width: 100%;
-            position: relative;
-            /* Subtle animation to suggest static/flicker */
-            animation: flicker 10s infinite alternate; 
-        }
-
-        @keyframes flicker {
-            0% { opacity: 1; }
-            10% { opacity: 0.98; }
-            50% { opacity: 1; }
-            90% { opacity: 0.99; }
-            100% { opacity: 1; }
-        }
-
-        /* Dark, Thematic Overlay */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.90); /* Heavier dark filter */
+            background-color: #000000;
+            color: #ffffff;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            text-align: center;
+            align-items: center;
+            min-height: 100vh;
             padding: 20px;
         }
-
-        /* Main Title Styling */
-        .main-title {
-            font-family: 'Nosifer', cursive;
-            color: #ff0000; /* Bright Red for maximum effect */
-            font-size: 5rem; 
-            text-shadow: 0 0 15px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.4);
-            margin-bottom: 5px;
-            letter-spacing: 8px;
-            text-transform: uppercase;
+        .text-crime-red {
+            color: #e50914; /* A deep, striking red */
         }
-        
-        /* Subheading Styling */
-        .subtitle {
-            font-family: 'Creepster', cursive;
-            color: #aaa;
-            font-size: 1.8rem;
-            margin-bottom: 70px;
-            letter-spacing: 3px;
-            border-bottom: 2px solid #555;
-            padding-bottom: 10px;
+        .bg-crime-red {
+            background-color: #e50914;
         }
-
-        /* Button Container Styling - FLEX WRAP for 4 columns on desktop, 1 on mobile */
-        .button-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px; /* Adjusted gap for four buttons */
-            max-width: 1280px;
+        .shadow-glow {
+            text-shadow: 0 0 10px rgba(229, 9, 20, 0.9), 0 0 20px rgba(229, 9, 20, 0.6);
         }
-        
-        /* Button Style - Designed to look like a 'DO NOT ENTER' sign */
-        .archive-button {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: #A00000; /* Darker red base */
-            color: #fff;
-            padding: 20px 15px; /* Adjusted padding */
-            border-radius: 6px;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
-            width: 250px; /* Adjusted width for 4 columns on desktop */
-            min-height: 160px;
-            border: 4px solid #ff0000; /* Bright red border */
+        .access-btn {
+            transition: all 0.2s ease-in-out;
+            border: 3px solid #e50914;
+            box-shadow: 0 0 15px rgba(229, 9, 20, 0.7);
         }
-
-        .archive-button:hover {
-            background-color: #CC0000;
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.8);
+        .access-btn:hover {
+            transform: scale(1.05);
+            background-color: #e50914;
+            color: black;
+            box-shadow: 0 0 25px rgba(255, 50, 50, 1);
         }
-        
-        .archive-button i {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        .archive-button span {
-            font-size: 1.1rem; /* Slightly smaller text for 4 columns */
-            letter-spacing: 1px;
-            text-align: center;
-        }
-        
-        /* Specific styling for the compound icon set */
-        .compound-icon {
-            position: relative;
-            width: 4rem; /* Ensure enough space for two icons */
-            height: 4rem;
-            margin-bottom: 10px;
-        }
-
-        .compound-icon .fa-stack-2x { font-size: 3.5rem; }
-        .compound-icon .fa-stack-1x { 
-            font-size: 1.8rem; 
-            top: 15px;
-            left: -15px;
-            color: #ff0000; /* Bright red for the video overlay */
-            text-shadow: 0 0 5px black; /* Ensure it stands out over the file */
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 1080px) {
-             .archive-button {
-                width: 45vw; /* Two buttons per row on tablets */
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .main-title {
-                font-size: 3rem;
-                letter-spacing: 3px;
-            }
-            .subtitle {
-                font-size: 1.4rem;
-                margin-bottom: 50px;
-            }
-            .archive-button {
-                width: 90vw; /* One button per row on mobile */
-                min-height: 130px;
-                padding: 20px 30px;
-            }
+        .drip {
+            font-family: 'Times New Roman', serif; /* Use a placeholder for the dripping effect */
+            letter-spacing: 5px;
         }
     </style>
 </head>
 <body>
-    <div class="landing-bg">
-        <div class="overlay">
-            
-            <h1 class="main-title">
-                CRIME SCENE
-            </h1>
-            
-            <p class="subtitle">
-                Access Granted: The Serial Killer Archives
-            </p>
 
-            <div class="button-grid">
-                
-                <!-- 1. SERIAL KILLER CASE DIRECTORY (Text Files + Documentaries) -->
-                <a href="cases-archive.html" class="archive-button">
-                    <span class="compound-icon fa-stack fa-2x">
-                        <!-- File Icon (background) -->
-                        <i class="fas fa-file-archive fa-stack-2x text-gray-700"></i>
-                        <!-- Video Icon (foreground/overlay) -->
-                        <i class="fas fa-video fa-stack-1x" style="text-shadow: 1px 1px 2px #000;"></i>
-                    </span>
-                    <span>CASE DIRECTORY & FILES</span>
-                </a>
+    <div class="w-full max-w-6xl text-center">
+        <!-- Main Title -->
+        <h1 class="drip text-7xl md:text-9xl font-extrabold tracking-widest text-crime-red shadow-glow mb-4">Serial Killer True Crime</h1>
+        
+        <!-- Subtitle/Access Text -->
+        <p class="text-xl md:text-2xl text-gray-300 font-light tracking-wider mb-12 border-b-2 border-gray-700 inline-block pb-1">
+            ACCESS GRANTED: THE SERIAL KILLER ARCHIVES
+        </p>
 
-                <!-- 2. VIDEO DOCUMENTARIES & FILMS (Documentary Collection) -->
-                <a href="video-documentaries.html" class="archive-button">
-                    <i class="fas fa-video"></i>
-                    <span>VIDEO DOCUMENTARIES</span>
-                </a>
-                
-                <!-- 3. KILLER CINEMA (Feature Films) -->
-                <a href="killer-cinema.html" class="archive-button">
-                    <i class="fas fa-film"></i>
-                    <span>KILLER CINEMA</span>
-                </a>
-
-                <!-- 4. QUIZ ARCHIVE (New Button!) -->
-                <a href="quizzes/quizzes-archive.html" class="archive-button">
-                    <span class="compound-icon fa-stack fa-2x">
-                        <!-- Skull Icon (background) -->
-                        <i class="fas fa-skull-crossbones fa-stack-2x text-gray-700"></i>
-                        <!-- Question Mark Icon (foreground/overlay) -->
-                        <i class="fas fa-question fa-stack-1x" style="top: 10px; left: 10px; font-size: 2.5rem; color: #ffdd00; text-shadow: 0 0 5px black;"></i>
-                    </span>
-                    <span>QUIZ ARCHIVE</span>
-                </a>
-            </div>
-
-            <!-- SECONDARY NAVIGATION SECTION (Audio) -->
-            <div class="mt-8 pt-5 border-t border-gray-700 w-full max-w-lg flex justify-center flex-wrap gap-4">
-                <a href="audio.html" 
-                    class="bg-gray-800 text-yellow-400 px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-700 transition">
-                    <i class="fas fa-headphones-alt mr-2"></i> Audio & Podcasts
-                </a>
-            </div>
+        <!-- Access Grid (6 Buttons) -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 mx-auto max-w-4xl">
             
-            <!-- Footer/Credits -->
-            <p class="text-sm text-gray-500 mt-10">Access Point 1 | Unauthorized Distribution Prohibited</p>
+            <!-- 1. Case Directory -->
+            <a href="cases-archive.html" class="access-btn p-6 rounded-lg bg-black text-white flex flex-col items-center justify-center h-40">
+                <svg class="w-10 h-10 mb-2 text-crime-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                <span class="text-lg font-bold tracking-wider">CASE DIRECTORY & FILES</span>
+            </a>
             
+            <!-- 2. Video Documentaries -->
+            <a href="video-documentaries.html" class="access-btn p-6 rounded-lg bg-black text-white flex flex-col items-center justify-center h-40">
+                <svg class="w-10 h-10 mb-2 text-crime-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                <span class="text-lg font-bold tracking-wider">VIDEO DOCUMENTARIES</span>
+            </a>
+
+            <!-- 3. Killer Cinema -->
+            <a href="killer-cinema.html" class="access-btn p-6 rounded-lg bg-black text-white flex flex-col items-center justify-center h-40">
+                 <svg class="w-10 h-10 mb-2 text-crime-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path></svg>
+                <span class="text-lg font-bold tracking-wider">KILLER CINEMA</span>
+            </a>
+
+            <!-- 4. Quiz Archive -->
+            <a href="quizzes/quizzes-archive.html" class="access-btn p-6 rounded-lg bg-black text-white flex flex-col items-center justify-center h-40">
+                <svg class="w-10 h-10 mb-2 text-crime-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2-3-.895-3-2 1.343-2 3-2z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12c0 1.258-.456 2.417-1.22 3.328a8.94 8.94 0 01-4.992 2.662A8.94 8.94 0 0112 19c-1.42 0-2.77-.378-3.958-1.01A8.94 8.94 0 013.22 15.328C2.456 14.417 2 13.258 2 12c0-3.9 3.1-7 7-7h6c3.9 0 7 3.1 7 7z"></path></svg>
+                <span class="text-lg font-bold tracking-wider">QUIZ ARCHIVE</span>
+            </a>
+
+            <!-- 5. NEW: Primary Documents & Transcripts -->
+            <a href="PRIMARY%20DOCUMENTS%20&%20TRANSCRIPTS.html" class="access-btn p-6 rounded-lg bg-black text-white flex flex-col items-center justify-center h-40">
+                <svg class="w-10 h-10 mb-2 text-crime-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                <span class="text-lg font-bold tracking-wider">DOCUMENTS & TRANSCRIPTS</span>
+            </a>
+
+            <!-- 6. NEW: Statistical Data & Trends -->
+            <a href="statistical_data.html" class="access-btn p-6 rounded-lg bg-black text-white flex flex-col items-center justify-center h-40">
+                <svg class="w-10 h-10 mb-2 text-crime-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.01 11H8.989a1 1 0 00-.99 1.011v4.998a1 1 0 001.01.99h7.02a1 1 0 00.99-1.01V12.01a1 1 0 00-1.01-.99z"></path></svg>
+                <span class="text-lg font-bold tracking-wider">STATISTICAL DATA & TRENDS</span>
+            </a>
+
+        </div>
+
+        <!-- Audio and Footer -->
+       <div class="mt-12">
+    <a href="audio.html">
+        <button class="px-6 py-2 rounded-full border border-gray-700 text-gray-400 hover:text-white transition duration-300">
+            <span class="mr-2">🎧</span> Audio & Podcasts
+        </button>
+    </a>
+</div><div style="border:1px solid #ccc; padding:15px; max-width:300px; margin:20px auto; text-align:center;">
+    <h3 style="margin-top:0;">Subscribe For Updates!</h3>
+    <form action="https://your‑mail‑service.com/subscribe" method="POST">
+        <input type="text" name="name" placeholder="Enter your name" style="width:90%; margin-bottom:10px; padding:5px;" required><br>
+        <input type="email" name="email" placeholder="Enter your email" style="width:90%; margin-bottom:10px; padding:5px;" required><br>
+        <label style="font-size:0.9em;">
+            <input type="checkbox" name="agree" required>
+            Please read our <a href="terms.html">terms and conditions</a>
+        </label><br><br>
+        <button type="submit" style="background:#e50914;color:#fff;border:none;padding:8px 16px;cursor:pointer;">SUBSCRIBE</button>
+    </form>
+</div>
+
+        <div class="mt-8 text-xs text-gray-600">
+            Access Point | Unauthorized Distribution Prohibited
         </div>
     </div>
+
 </body>
 </html>
