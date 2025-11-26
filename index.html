@@ -178,35 +178,38 @@
 
             <!-- FormSubmit form – corrected -->
             <form action="https://formsubmit.co/el/xetuvo" method="POST" class="space-y-4">
-                <!-- Honeypot (do not remove) -->
-                <input type="text" name="_honey" style="display:none">
+    <!-- Honeypot -->
+    <input type="text" name="_honey" style="display:none">
 
-                <!-- Subject line for the notification email -->
-                <input type="hidden" name="_subject" value="New Subscriber for Serial Killer Archives!">
+    <!-- Subject line -->
+    <input type="hidden" name="_subject" value="New Subscriber for Serial Killer Archives!">
 
-                <!-- Absolute URL of the thank‑you page -->
-                <input type="hidden" name="_next"
-                       value="https://owlsman21.github.io/serial-killers-website/thank_you.html">
+    <!-- Redirect after submit -->
+    <input type="hidden" name="_next"
+           value="https://owlsman21.github.io/serial-killers-website/thank_you.html">
 
-                <div>
-                    <label for="name" class="sr-only">Name</label>
-                    <input type="text" name="name" id="name" placeholder="Agent Name (Optional)"
-                           class="styled-input">
-                </div>
+    <!-- Recipient email -->
+    <input type="hidden" name="_to" value="gfmovies21@gmail.com">
 
-                <div>
-                    <label for="email" class="sr-only">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Secure Email Address"
-                           class="styled-input" required>
-                </div>
+    <div>
+        <label for="name" class="sr-only">Name</label>
+        <input type="text" name="name" id="name" placeholder="Agent Name (Optional)"
+               class="styled-input">
+    </div>
 
-                <div class="flex items-start pt-2">
-                    <input type="checkbox" id="terms" name="terms" class="mt-1 mr-2 accent-red-500" required>
-                    <label for="terms" class="text-sm text-gray-400">
-                        I confirm I have level‑5 clearance and agree to the
-                        <a href="#" class="text-red-400 hover:text-red-300">data terms</a>.
-                    </label>
-                </div>
+    <div>
+        <label for="email" class="sr-only">Email</label>
+        <input type="email" name="email" id="email" placeholder="Secure Email Address"
+               class="styled-input" required>
+    </div>
+
+    <div class="flex items-start pt-2">
+        <input type="checkbox" id="terms" name="terms" class="mt-1 mr-2 accent-red-500" required>
+        <label for="terms" class="text-sm text-gray-400">
+            I confirm I have level‑5 clearance and agree to the
+            <a href="#" class="text-red-400 hover:text-red-300">data terms</a>.
+        </label>
+    </div>
 
                 <button type="submit"
                         class="w-full form-btn py-3 font-semibold rounded-lg shadow-md hover:shadow-lg transition uppercase tracking-wider">
