@@ -1,235 +1,261 @@
+<!-- 
+  NOTE: This code is a direct replacement for your existing index.html.
+  The Contact Form (CLASSIFIED FILE ACCESS) section has been updated 
+  to use the FormSubmit service.
+
+  To activate the form, you MUST submit it once with your own secure email address
+  (the "Secure Email Address" field) and click the confirmation link sent to 
+  that email address by FormSubmit.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRIME SCENE – Serial Killer Archives Access</title>
-
-    <!-- TailwindCSS via CDN -->
+    <title>Serial Killer True Crime Archives - Access Granted</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Inter font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        :root {
+            --neon-red: #ff3333;
+            --dark-background: #000000;
+        }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #000000;
+            background-color: var(--dark-background);
             color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            flex-direction: column;
             padding: 20px;
+            min-height: 100vh;
         }
 
-        .text-crime-red { color: #e50914; }
-        .bg-crime-red { background-color: #e50914; }
-        .shadow-glow {
-            text-shadow: 0 0 10px rgba(229, 9, 20, 0.9),
-                         0 0 20px rgba(229, 9, 20, 0.6);
-        }
-        .access-btn {
-            transition: all 0.2s ease-in-out;
-            border: 3px solid #e50914;
-            box-shadow: 0 0 15px rgba(229, 9, 20, 0.7);
-        }
-        .access-btn:hover {
-            transform: scale(1.05);
-            background-color: #e50914;
-            color: black;
-            box-shadow: 0 0 25px rgba(255, 50, 50, 1);
-        }
-        .drip {
-            font-family: 'Times New Roman', serif;
-            letter-spacing: 5px;
+        /* Neon Glow Effect for Text */
+        .neon-text-main {
+            text-shadow: 0 0 5px var(--neon-red), 0 0 10px var(--neon-red), 0 0 20px #ff0000, 0 0 40px #ff0000;
+            font-size: clamp(3rem, 10vw, 7rem); /* Responsive font size */
+            line-height: 0.8;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: var(--neon-red);
+            text-align: center;
+            letter-spacing: 2px;
         }
 
-        /* FormSubmit styling */
-        .form-container {
-            border: 2px solid #e50914;
-            box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
-        }
-        .styled-input {
-            width: 100%;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            background-color: #111;
-            border: 1px solid #4b5563;
+        .neon-text-sub {
+            text-shadow: 0 0 3px #fff, 0 0 5px var(--neon-red);
             color: #ffffff;
-            transition: border-color 0.2s;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 1rem;
+            margin-bottom: 40px;
+            text-align: center;
         }
-        .styled-input:focus {
+
+        /* Grid for the main menu buttons */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* Neon Button Styling */
+        .neon-button {
+            border: 2px solid var(--neon-red);
+            box-shadow: 0 0 5px var(--neon-red), 0 0 10px var(--neon-red);
+            transition: all 0.3s ease;
+            text-align: center;
+            padding: 30px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+        }
+
+        .neon-button:hover {
+            background-color: rgba(255, 51, 51, 0.1);
+            box-shadow: 0 0 10px var(--neon-red), 0 0 20px var(--neon-red), 0 0 40px rgba(255, 0, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .neon-button i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--neon-red);
+            text-shadow: 0 0 5px var(--neon-red);
+        }
+
+        /* Classified Access Form Box */
+        .classified-box {
+            border: 2px solid var(--neon-red);
+            box-shadow: 0 0 8px var(--neon-red);
+            background-color: rgba(50, 0, 0, 0.3);
+            padding: 30px;
+            margin-top: 50px;
+            border-radius: 12px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .classified-box h2 {
+            font-size: 1.5rem;
+            color: var(--neon-red);
+            text-shadow: 0 0 3px #ff0000;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .classified-box p {
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 51, 51, 0.5);
+            border-radius: 6px;
+            color: #ffffff;
             outline: none;
-            border-color: #e50914;
-            box-shadow: 0 0 5px rgba(229, 9, 20, 0.5);
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
-        .form-btn {
-            background-color: #e50914;
-            color: black;
-            transition: background-color 0.2s;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+
+        .form-input:focus {
+            border-color: var(--neon-red);
+            box-shadow: 0 0 5px var(--neon-red);
         }
-        .form-btn:hover {
-            background-color: #cc0811;
+
+        .submit-button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--neon-red);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: background-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 0 5px var(--neon-red);
+        }
+
+        .submit-button:hover {
+            background-color: #e60000;
+            box-shadow: 0 0 10px #ff0000;
+        }
+
+        /* Data Terms Link Styling */
+        .data-terms-link {
+            color: var(--neon-red);
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .data-terms-link:hover {
+            color: #ffffff;
         }
     </style>
 </head>
-
 <body>
-    <div class="w-full max-w-6xl text-center">
 
-        <!-- Main title -->
-        <h1 class="drip text-7xl md:text-9xl font-extrabold tracking-widest text-crime-red shadow-glow mb-4">
-            Serial Killer True Crime
-        </h1>
+    <h1 class="neon-text-main">Serial Killer<br>True Crime</h1>
+    <p class="neon-text-sub">Access Granted: The Serial Killer Archives</p>
 
-        <!-- Subtitle / access text -->
-        <p class="text-xl md:text-2xl text-gray-300 font-light tracking-wider mb-12 border-b-2 border-gray-700 inline-block pb-1">
-            ACCESS GRANTED: THE SERIAL KILLER ARCHIVES
-        </p>
-
-        <!-- Six‑button grid -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 mx-auto max-w-4xl">
-
-            <!-- Case Directory -->
-            <a href="cases-archive.html"
-               class="access-btn p-6 rounded-lg bg-black text-white flex flex-col items-center justify-center h-40">
-                <svg class="w-10 h-10 mb-2 text-crime-red" fill="none" stroke="currentColor"
-                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                </svg>
-                <span class="text-lg font-bold tracking-wider">CASE DIRECTORY & FILES</span>
-            </a>
-
-            <!-- Video Documentaries -->
-            <a href="video-documentaries.html"
-               class="access-btn p-6 rounded-lg bg-black text-white flex flex-col items-center justify-center h-40">
-                <svg class="w-10 h-10 mb-2 text-crime-red" fill="none" stroke="currentColor"
-                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                </svg>
-                <span class="text-lg font-bold tracking-wider">VIDEO DOCUMENTARIES</span>
-            </a>
-
-            <!-- Killer Cinema -->
-            <a href="killer-cinema.html"
-               class="access-btn p-6 rounded-lg bg-black text-white flex flex-col items-center justify-center h-40">
-                <svg class="w-10 h-10 mb-2 text-crime-red" fill="none" stroke="currentColor"
-                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path>
-                </svg>
-                <span class="text-lg font-bold tracking-wider">KILLER CINEMA</span>
-            </a>
-
-            <!-- Quiz Archive -->
-            <a href="quizzes/quizzes-archive.html"
-               class="access-btn p-6 rounded-lg bg-black text-white flex flex-col items-center justify-center h-40">
-                <svg class="w-10 h-10 mb-2 text-crime-red" fill="none" stroke="currentColor"
-                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2-3-.895-3-2 1.343-2 3-2z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M21 12c0 1.258-.456 2.417-1.22 3.328a8.94 8.94 0 01-4.992 2.662A8.94 8.94 0 0112 19c-1.42 0-2.77-.378-3.958-1.01A8.94 8.94 0 013.22 15.328C2.456 14.417 2 13.258 2 12c0-3.9 3.1-7 7-7h6c3.9 0 7 3.1 7 7z"></path>
-                </svg>
-                <span class="text-lg font-bold tracking-wider">QUIZ ARCHIVE</span>
-            </a>
-
-            <!-- Documents & Transcripts -->
-            <a href="PRIMARY%20DOCUMENTS%20&%20TRANSCRIPTS.html"
-               class="access-btn p-6 rounded-lg bg-black text-white flex flex-col items-center justify-center h-40">
-                <svg class="w-10 h-10 mb-2 text-crime-red" fill="none" stroke="currentColor"
-                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                </svg>
-                <span class="text-lg font-bold tracking-wider">DOCUMENTS & TRANSCRIPTS</span>
-            </a>
-
-            <!-- Statistical Data & Trends -->
-            <a href="statistical_data.html"
-               class="access-btn p-6 rounded-lg bg-black text-white flex flex-col items-center justify-center h-40">
-                <svg class="w-10 h-10 mb-2 text-crime-red" fill="none" stroke="currentColor"
-                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M16.01 11H8.989a1 1 0 00-.99 1.011v4.998a1 1 0 001.01.99h7.02a1 1 0 00.99-1.01V12.01a1 1 0 00-1.01-.99z"></path>
-                </svg>
-                <span class="text-lg font-bold tracking-wider">STATISTICAL DATA & TRENDS</span>
-            </a>
-        </div>
-
-        <!-- Subscription / access form -->
-        <div class="mt-16 form-container p-8 rounded-xl max-w-lg mx-auto bg-black shadow-2xl">
-            <h3 class="text-2xl font-bold text-crime-red mb-4 text-center shadow-glow">
-                CLASSIFIED FILE ACCESS
-            </h3>
-            <p class="text-gray-400 text-center mb-6">
-                Receive immediate notifications on new case files and exclusive documents.
-            </p>
-
-            <!-- FormSubmit form – corrected -->
-            <form action="https://formsubmit.co/el/xetuvo" method="POST" class="space-y-4">
-    <!-- Honeypot -->
-    <input type="text" name="_honey" style="display:none">
-
-    <!-- Subject line -->
-    <input type="hidden" name="_subject" value="New Subscriber for Serial Killer Archives!">
-
-    <!-- Redirect after submit -->
-    <input type="hidden" name="_next"
-           value="https://owlsman21.github.io/serial-killers-website/thank_you.html">
-
-    <!-- Recipient email -->
-    <input type="hidden" name="_to" value="gfmovies21@gmail.com">
-
-    <div>
-        <label for="name" class="sr-only">Name</label>
-        <input type="text" name="name" id="name" placeholder="Agent Name (Optional)"
-               class="styled-input">
+    <div class="menu-grid">
+        <a href="case_directory.html" class="neon-button">
+            <i class="fas fa-folder-open"></i>
+            Case Directory & Files
+        </a>
+        <a href="video_documentaries.html" class="neon-button">
+            <i class="fas fa-video"></i>
+            Video Documentaries
+        </a>
+        <a href="killer_cinema.html" class="neon-button">
+            <i class="fas fa-film"></i>
+            Killer Cinema
+        </a>
+        <a href="quiz_archive.html" class="neon-button">
+            <i class="fas fa-question-circle"></i>
+            Quiz Archive
+        </a>
+        <a href="primary_documents.html" class="neon-button">
+            <i class="fas fa-book"></i>
+            Documents & Transcripts
+        </a>
+        <a href="statistical_data.html" class="neon-button">
+            <i class="fas fa-chart-bar"></i>
+            Statistical Data & Trends
+        </a>
     </div>
 
-    <div>
-        <label for="email" class="sr-only">Email</label>
-        <input type="email" name="email" id="email" placeholder="Secure Email Address"
-               class="styled-input" required>
-    </div>
+    <!-- CLASSIFIED FILE ACCESS (FormSubmit Integration) -->
+    <div class="classified-box">
+        <h2 class="uppercase">Classified File Access</h2>
+        <p>Receive immediate notifications on new case files and exclusive documents.</p>
+        
+        <!-- 
+            FORM ACTION: Use the FormSubmit endpoint. 
+            Replace 'YOUR_EMAIL_ADDRESS' with the email address where you want to receive submissions.
+            Remember to replace 'YOUR_EMAIL_ADDRESS' below and submit the form once to activate it!
+        -->
+        <form action="https://formsubmit.co/gfmovies21@gmail.com" method="POST"> 
+            
+            <!-- Hidden Fields for FormSubmit Configuration -->
+            <!-- The subject line for the email you receive -->
+            <input type="hidden" name="_subject" value="NEW CLASSIFIED ACCESS REQUEST">
+            <!-- Sends a confirmation email back to the agent (user) -->
+            <input type="hidden" name="_autoresponse" value="Access Request Received: Your application for Level-5 clearance has been logged. You will receive updates as soon as new classified files are added to the archive.">
+            <!-- Redirects the user to a thank you page (optional) -->
+            <input type="hidden" name="_next" value="https://truecrime.zya.me/thank_you.html">
 
-    <div class="flex items-start pt-2">
-        <input type="checkbox" id="terms" name="terms" class="mt-1 mr-2 accent-red-500" required>
-        <label for="terms" class="text-sm text-gray-400">
-            I confirm I have level‑5 clearance and agree to the
-            <a href="#" class="text-red-400 hover:text-red-300">data terms</a>.
-        </label>
-    </div>
+            <input 
+                type="text" 
+                name="Agent_Name" 
+                placeholder="Agent Name (Optional)" 
+                class="form-input" 
+                aria-label="Agent Name"
+            >
+            
+            <input 
+                type="email" 
+                name="Email" 
+                placeholder="Secure Email Address" 
+                class="form-input" 
+                required 
+                aria-label="Secure Email Address"
+            >
 
-                <button type="submit"
-                        class="w-full form-btn py-3 font-semibold rounded-lg shadow-md hover:shadow-lg transition uppercase tracking-wider">
-                    REQUEST ACCESS
-                </button>
-            </form>
-        </div>
-
-        <!-- Audio & footer -->
-        <div class="mt-12">
-            <a href="audio.html">
-                <button class="px-6 py-2 rounded-full border border-gray-700 text-gray-400 hover:text-white transition duration-300">
-                    <span class="mr-2">🎧</span> Audio & Podcasts
-                </button>
-            </a>
-
-            <div class="mt-8 text-xs text-gray-600">
-                Access Point | Unauthorized Distribution Prohibited
+            <div class="flex items-center justify-start text-sm mb-5 text-left">
+                <!-- Checkbox is REQUIRED for submission to happen -->
+                <input type="checkbox" id="clearance" name="Clearance_Confirmed" value="Yes" class="mr-2" required>
+                <label for="clearance" class="text-white">
+                    I confirm I have level-5 clearance and agree to the 
+                    <a href="#" class="data-terms-link" onclick="alert('Data terms: Your email will only be used to send updates regarding new classified file releases and will not be shared with third parties.'); return false;">data terms.</a>
+                </label>
             </div>
-        </div>
+
+            <button type="submit" class="submit-button">Request Access</button>
+        </form>
     </div>
+
 </body>
 </html>
