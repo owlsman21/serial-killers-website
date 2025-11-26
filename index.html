@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRIME SCENE – Serial Killer Archives Access</title>
 
-    <!-- TailwindCSS via CDN (still external, but it keeps the markup tidy) -->
+    <!-- TailwindCSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Inter font -->
@@ -15,7 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
     <style>
-        /* Base Inter Font Import */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
         body {
@@ -178,19 +176,20 @@
                 Receive immediate notifications on new case files and exclusive documents.
             </p>
 
-            <!-- FormSubmit form -->
+            <!-- FormSubmit form – corrected -->
             <form action="https://formsubmit.co/el/xetuvo" method="POST" class="space-y-4">
                 <!-- Honeypot (do not remove) -->
                 <input type="text" name="_honey" style="display:none">
 
-                <!-- Replace with the email you verified on FormSubmit -->
+                <!-- Email address that receives the submissions -->
                 <input type="hidden" name="gfmovies21@gmail.com" value="el@xetuvo.com">
 
-                <!-- Subject line for the email you receive -->
+                <!-- Subject line for the notification email -->
                 <input type="hidden" name="_subject" value="New Subscriber for Serial Killer Archives!">
 
-                <!-- *** IMPORTANT: Change this to the FULL URL of your thank‑you page *** -->
-                <input type="hidden" name="_next" value="https://owlsman21.github.io/serial-killers-website/thank_you.html">
+                <!-- Absolute URL of the thank‑you page -->
+                <input type="hidden" name="_next"
+                       value="https://owlsman21.github.io/serial-killers-website/thank_you.html">
 
                 <div>
                     <label for="name" class="sr-only">Name</label>
