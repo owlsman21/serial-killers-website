@@ -74,7 +74,11 @@
             background-color: #cc0811;
         }
     </style>
-    
+    <!-- 
+    CRITICAL STEP: We are commenting out the Mailchimp script 
+    to rule it out as the source of the hidden field injection.
+    -->
+    <!-- <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/7f1eb14d59b03b0a5f8cea716/6c2765b461c475f8b7b7c801a.js");</script> -->
 </head>
 <body>
 
@@ -134,14 +138,20 @@
             <p class="text-gray-400 text-center mb-6">Receive immediate notifications on new case files and exclusive documents.</p>
             
             <!-- FormsSubmit Integration -->
-            <!-- ACTION ALERT: You must replace 'YOUR_CORRECT_FORMSUBMIT_LINK_HERE' with your actual, verified link! -->
             <form action="https://formsubmit.co/el/xetuvo" method="POST" class="space-y-4">
                 
+                <!-- REQUIRED FormsSubmit fields -->
                 <!-- Honeypot field for spam prevention (DO NOT REMOVE) -->
                 <input type="text" name="_honey" style="display:none">
                 
                 <!-- Subject field -->
                 <input type="hidden" name="_subject" value="New Subscriber for Serial Killer Archives!">
+
+                <!-- 
+                CRITICAL: This forces the redirection to the thank_you page and prevents 
+                FormsSubmit from including the current page's URL in the form data.
+                -->
+                <input type="hidden" name="_next" value="thank_you.html">
 
                 <div>
                     <label for="name" class="sr-only">Name</label>
